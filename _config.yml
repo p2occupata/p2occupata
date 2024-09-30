@@ -17,10 +17,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "it-IT"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "P2 Occupata"
+title                    : "P2.0 Occupata"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "P2 Occupata"
+subtitle                 : 
+name                     : "P2"
 description              : "Sito ufficiale aula P2 Occupata"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -113,30 +113,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "P2 Occupata"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "L'aula P2 è fantastica"
-  location         : "UNICAL Ponte carrabile cubo 41"
+  name             : 
+  avatar           : "/assets/imgs/logo.png"
+  bio              : 
+  location         : "UNICAL Ponte carrabile cubo 40"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://www.instagram.com/aulap2.0occupata/"
 
 # Site Footer
 footer:

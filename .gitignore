@@ -8,6 +8,7 @@
 # Sublime Text
 *.sublime-project
 *.sublime-workspace
+.gemspec
 
 # Ruby Gem
 *.gem
