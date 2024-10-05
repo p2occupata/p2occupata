@@ -34,7 +34,7 @@ Scopri di più nella nostra [pagina eventi](/events/).
 
 ## Cosa dicono di noi
 
-> "Partecipare ai loro eventi è stato un vero arricchimento culturale." – Mario Rossi
+> "Partecipare ai loro eventi è stato un vero arricchimento culturale." – Camillo Rossi
 
 ## Articoli recenti
 
