@@ -1,9 +1,5 @@
 # main links
-main:
-  - title: "Chi siamo"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  - title: "Eventi"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+#main: 
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
