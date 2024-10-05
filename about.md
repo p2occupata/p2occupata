@@ -24,9 +24,9 @@ header:
 # Chi siamo
 Scambio di conoscenze e Inclusione sociale.
 
-# Chi siamo stati
+# La Storia della P2
   - Reperto 1: [https://comitatounicalingegneria.blogspot.com/](https://comitatounicalingegneria.blogspot.com/)
   - Reperto 2: [https://p2occupata.noblogs.org/](https://p2occupata.noblogs.org/)
 
-# Chi siamo
+# La P2 oggi
 lorem ipsum
