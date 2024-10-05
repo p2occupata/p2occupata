@@ -21,12 +21,5 @@ header:
       is_primary: true
 ---
 
-# Chi siamo
-Scambio di conoscenze e Inclusione sociale.
-
-# Chi siamo stati
-  - Reperto 1: [https://comitatounicalingegneria.blogspot.com/](https://comitatounicalingegneria.blogspot.com/)
-  - Reperto 2: [https://p2occupata.noblogs.org/](https://p2occupata.noblogs.org/)
-
-# Chi siamo
-lorem ipsum
+# Blog
+I nostri articoli

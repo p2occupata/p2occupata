@@ -16,8 +16,8 @@ header:
     - label: "Eventi"
       url: "/events/"
       is_primary: true
-    - label: "Contatti"
-      url: "/link/"
+    - label: "Blog"
+      url: "/blog/"
       is_primary: true
 ---
 

@@ -1,5 +1,7 @@
 # main links
-#main: 
+main:
+  - title: "Contatti"
+    url: /link/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

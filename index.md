@@ -10,19 +10,15 @@ header:
     - label: "⌂"
       url: "/"
       is_primary: true
-      icon: "fas fa-info-circle"
     - label: "Chi siamo"
       url: "/about/"
       is_primary: true
-      icon: "fas fa-info-circle"
     - label: "Eventi"
       url: "/events/"
       is_primary: true
-      icon: "fas fa-info-circle"
-    - label: "Contatti"
-      url: "/link/"
+    - label: "Blog"
+      url: "/blog/"
       is_primary: true
-      icon: "fas fa-info-circle"
 ---
 
 # Benvenuti
