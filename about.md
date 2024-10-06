@@ -1,28 +1,8 @@
 ---
-layout: single
-title: " "
-author_profile: true
-header:
-  overlay_image: /assets/imgs/header.jpeg
-  overlay_filter: 0.5
-  caption: "Un impegno continuo per lo scambio di conoscenze e l'inclusione sociale"
-  actions:
-    - label: "⌂"
-      url: "/"
-      is_primary: true
-    - label: "Chi siamo"
-      url: "/about/"
-      is_primary: true
-    - label: "Eventi"
-      url: "/events/"
-      is_primary: true
-    - label: "Blog"
-      url: "/blog/"
-      is_primary: true
+layout: default
+title: "Chi siamo"
+description: "Scambio di conoscenze e Inclusione sociale"
 ---
-
-# Chi siamo
-Scambio di conoscenze e Inclusione sociale.
 
 # La Storia della P2
 L'aula P2 dell'Università della Calabria ha una storia significativa e intensa, iniziata molti anni fa con l'occupazione da parte degli studenti. Questo spazio è diventato rapidamente un **simbolo di resistenza e autogestione**. La P2 è stata il fulcro di numerose attività culturali e sociali promosse dai collettivi studenteschi.
@@ -32,8 +12,9 @@ Le attività iniziali erano caratterizzate da un forte impegno per la democratiz
 Negli anni, la P2 ha rappresentato un punto di riferimento per iniziative più ampie, come le lotte contro la privatizzazione dei servizi universitari e le richieste di miglioramento delle strutture accademiche, come le biblioteche e i servizi di trasporto. Il collettivo che gestisce la P2 è sempre stato aperto alla partecipazione di nuovi membri, promuovendo un approccio inclusivo e orizzontale.
 
 **Se vuoi sapere di più visita questi siti**
-  - [https://comitatounicalingegneria.blogspot.com/](https://comitatounicalingegneria.blogspot.com/)
-  - [https://p2occupata.noblogs.org/](https://p2occupata.noblogs.org/)
-  
+- [https://comitatounicalingegneria.blogspot.com/](https://comitatounicalingegneria.blogspot.com/)
+- [https://p2occupata.noblogs.org/](https://p2occupata.noblogs.org/)
+
 # La P2 oggi
 lorem ipsum
+

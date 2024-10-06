@@ -1,0 +1,15 @@
+@import "buttons";
+
+.navbar {
+    .nav-container {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+        .nav-item {
+            a {
+              @extend %secondary-button;
+            }
+        }
+    }
+
+}
