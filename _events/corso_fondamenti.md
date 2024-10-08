@@ -1,9 +1,10 @@
 ---
 layout: event
 title: "Corso gratuito e tutoraggio fondamenti di informatica"
-date: 2024-10-15
+date: 2024-10-16
 location: "Aula P2.0 Occupata"
-description: "Breve descrizione dell'evento"
+short_description: "Breve descrizione dell'evento"
+description: "Descrizione dettagliata dell'evento"
 ---
 
 # Proviamo sta cosa

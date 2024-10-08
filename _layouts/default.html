@@ -59,7 +59,9 @@
                         {{ page.sidebar }}
                         {% else %}
                         <!-- Contenuto di default per la sidebar -->
-                        <p>Questo è il contenuto di default della sidebar.</p>
+                        <div>
+                            <img class="logo-img" src="{{ '/assets/images/logo_big.png' | relative_url }}" alt="Logo grande" />
+                        </div>
                         {% endif %}
                     </aside>
                 </div>
@@ -76,5 +78,7 @@
     <footer>
         <p>&copy; 2024 P2.0 Occupata - UNICAL</p>
     </footer>
+
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

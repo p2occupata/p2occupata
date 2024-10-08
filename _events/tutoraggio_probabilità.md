@@ -1,7 +1,7 @@
 ---
 layout: event
-title: "Serata giochi"
-date: 2024-10-07
+title: "Tutoraggio Probabilità"
+date: 2024-10-11
 location: "Aula P2.0 Occupata"
 short_description: "Breve descrizione dell'evento"
 description: "Descrizione dettagliata dell'evento"

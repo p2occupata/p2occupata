@@ -1,6 +1,12 @@
-<li>
-    <h2><a href="{{ event.url }}">{{ event.title }}</a></h2>
-    <p><strong>Data:</strong> {{ event.date | date: "%d %B %Y" | locale: 'it' }}</p>
-    <p><strong>Luogo:</strong> {{ event.location }}</p>
-    <p>{{ event.description }}</p>
-</li>
+<div class="timeline-event">
+    <div class="timeline-circle-container"><div class="timeline-circle"></div></div>
+    <div class="timeline-content-container">
+        <div class="timeline-date">{{ event.date | localize: "%d %B %Y" }}</div>
+        <div class="timeline-content">
+            <h3 class="timeline-title"><a href="{{ event.url }}">{{ event.title }}</a></h3>
+            <div class="timeline-description">
+                {{ event.short_description }}
+            </div>
+        </div>
+    </div>
+</div>

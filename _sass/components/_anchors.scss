@@ -1,0 +1,26 @@
+/* Nasconde il link di ancoraggio per default */
+.anchor-link {
+  text-decoration: none;
+  opacity: 0;
+  margin-right: 10px;
+  transition: opacity 0.2s;
+  font-size: 0.8em;
+  color: #333; /* Cambia colore a piacere */
+}
+
+/* Mostra l'icona solo quando il cursore è sopra l'header */
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  opacity: 1;
+  color: #007bff; /* Cambia colore a piacere */
+}
+
+/* Mantiene la posizione dell'header non influenzata dal link di ancoraggio */
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+

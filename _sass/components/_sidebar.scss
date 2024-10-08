@@ -1,8 +1,11 @@
 .sidebar {
   flex: 1 1 30%;
-  background-color: red;
   position: sticky;
   top: 2em;
+
+  .logo-img {
+    width: -webkit-fill-available;
+  }
 
   &-container {
     margin-left: 1rem;

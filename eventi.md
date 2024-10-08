@@ -4,12 +4,29 @@ title: "Eventi"
 description: "Cosa facciamo"
 ---
 
-# Eventi Organizzati da P2.0 Occupata
+{% assign today = 'now' | date: "%Y-%m-%d" %}
 
-{% assign events = site.events | sort: 'date' %}
-
-<ul>
-{% for event in events %}
-  {% include _components/event_card.html event=event %}
+{% assign next_events = site.events | sort: 'date' %}
+{% for event in next_events %} 
+  {% assign event_date = event.date | date: "%Y-%m-%d" %}
+  {% if event_date >= today %}
+# Prossimo evento
+  <div>
+      {% include _components/next_event_card.html event=next_event %}
+  </div>
+  {% break %}
+  {% endif %}
 {% endfor %}
-</ul>
+
+## Timeline eventi
+{% assign sorted_events = site.events | sort: 'date' | reverse %}
+<div class="timeline">
+{% for event in sorted_events %}
+  {% assign event_date = event.date | date: "%Y-%m-%d" %}
+  {% if event_date >= today %}
+    {% include _components/event_card.html event=event %}
+  {% else %}
+    {% include _components/event_card.html event=event %}
+  {% endif %}
+{% endfor %}
+</div>

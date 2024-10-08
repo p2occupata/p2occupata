@@ -5,13 +5,21 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  p2occupata
 
 locale: it
+date_locale: it
+
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-date-localization
+  - jekyll-toc
 
 collections:
   events:
     output: true
+
+toc:
+  min_level: 1
+  max_level: 6
 
 sass:
   sass_dir: _sass
