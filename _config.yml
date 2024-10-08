@@ -1,7 +1,7 @@
 title: "P2.0 Occupata"
 description: "Sito ufficiale dell'aula P2.0 Occupata dell'UNICAL"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://p2occupata.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/p2occupata" # the subpath of your site, e.g. /blog
 github_username:  p2occupata
 
 locale: it
