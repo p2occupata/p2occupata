@@ -1,0 +1,6 @@
+<li>
+    <h2><a href="{{ event.url }}">{{ event.title }}</a></h2>
+    <p><strong>Data:</strong> {{ event.date | date: "%d %B %Y" | locale: 'it' }}</p>
+    <p><strong>Luogo:</strong> {{ event.location }}</p>
+    <p>{{ event.description }}</p>
+</li>

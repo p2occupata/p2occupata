@@ -4,9 +4,14 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  p2occupata
 
+locale: it
 theme: minima
 plugins:
   - jekyll-feed
+
+collections:
+  events:
+    output: true
 
 sass:
   sass_dir: _sass

@@ -4,8 +4,12 @@ title: "Eventi"
 description: "Cosa facciamo"
 ---
 
-# Prossimi eventi
-Lorem Ipsum
+# Eventi Organizzati da P2.0 Occupata
 
-# Eventi passati
-Lorem Ipsum
+{% assign events = site.events | sort: 'date' %}
+
+<ul>
+{% for event in events %}
+  {% include _components/event_card.html event=event %}
+{% endfor %}
+</ul>
