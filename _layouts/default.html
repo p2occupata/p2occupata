@@ -18,7 +18,7 @@
             <div class="col top-navbar d-flex justify-content-end">
                 <ul>
                     {% for link in site.data.menus.top_navbar.links %}
-                    <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                    <li><a href="{{ site.baseurl }}{{ link.url }}">{{ link.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -33,7 +33,7 @@
                         <div class="nav-container">
                             {% for link in site.data.menus.navbar.links %}
                             <div class="nav-item">
-                                <a href="{{ link.url }}">{{ link.name }}</a>
+                                <a href="{{ site.baseurl }}{{ link.url }}">{{ link.name }}</a>
                             </div>
                             {% endfor %}
                         </div>

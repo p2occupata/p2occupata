@@ -20,10 +20,6 @@ collections:
     output: true
     permalink: /eventi/:title/
 
-toc:
-  min_level: 1
-  max_level: 6
-
 sass:
   sass_dir: _sass
 
