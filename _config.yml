@@ -8,6 +8,7 @@ locale: it
 date_locale: it
 
 theme: minima
+
 plugins:
   - jekyll-feed
   - jekyll-date-localization
@@ -16,6 +17,7 @@ plugins:
 collections:
   events:
     output: true
+    permalink: /eventi/:title/
 
 toc:
   min_level: 1

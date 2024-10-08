@@ -13,8 +13,9 @@ $top_padding: 0.5em;
     height: 100%;
     background-color: #000000;
     z-index: 1000;
-    top: 0;
-    left: 1em; /* Regola questo valore in base alla larghezza di .timeline-date e padding */
+    top: 1em;
+    left: 1em;
+
   }
 
   &-event {
@@ -66,10 +67,9 @@ $top_padding: 0.5em;
   }
 }
 
-%next-event {
+.next-event {
     padding: 3em 0em 4em 1em;
-
-    .next-event-date {
+    &-date {
         background: #b9ffb9;
         border-radius: 50%;
         width: 12em;
@@ -80,24 +80,16 @@ $top_padding: 0.5em;
         align-items: center;
     }
 
-    .next-event-day {
+    &-day {
         font-size: 5em;
         font-weight: 900;
     }
 
-    .next-event-month {
+    &-month {
         display: flex;
         position: relative;
         top: -1em;
         font-size: 1.5em;
         font-weight: 900;
     }
-}
-
-.next-event {
-    @extend %next-event;
-}
-
-.xs.next-event {
-    @extend %next-event;
 }
