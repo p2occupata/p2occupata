@@ -1,5 +1,5 @@
 ---
-layout: event
+layout: default
 title: "Serata giochi"
 date: 2024-10-07
 location: "Aula P2.0 Occupata"

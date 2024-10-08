@@ -14,6 +14,7 @@ plugins:
   - jekyll-date-localization
   - jekyll-toc
 
+future: true
 collections:
   events:
     output: true

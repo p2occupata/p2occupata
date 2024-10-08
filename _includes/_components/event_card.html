@@ -3,7 +3,7 @@
     <div class="timeline-content-container">
         <div class="timeline-date">{{ event.date | localize: "%d %B %Y" }}</div>
         <div class="timeline-content">
-            <h3 class="timeline-title"><a href="{{ event.url }}">{{ event.title }}</a></h3>
+            <h3 class="timeline-title"><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
             <div class="timeline-description">
                 {{ event.short_description }}
             </div>
