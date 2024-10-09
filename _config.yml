@@ -11,7 +11,8 @@ theme: minima
 
 plugins:
   - jekyll-feed
-  - jekyll-date-localization
+#  - jekyll-date-localization
+
 
 future: true
 collections:

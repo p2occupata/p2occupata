@@ -1,3 +1,10 @@
+{% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
+
+{% assign giorno = event.date | date: "%-d" %}
+{% assign mese_indice = event.date | date: "%-m" | minus: 1 %}
+{% assign mese_nome = mesi[mese_indice] %}
+{% assign anno = event.date | date: "%Y" %}
+
 <div class="next-event container">
     <div class="row">
 <!--    visibile solo sopra xs-->
@@ -5,15 +12,15 @@
             <div class="col-4" style="min-width: 15em;">
                 <div class="next-event-date">
                     <div class="next-event-day">
-                        {{ event.date | localize: "%d" }}
+                        {{ giorno }}
                     </div>
                     <div class="next-event-month">
-                        {{ event.date | localize: "%B" }}
+                        {{ mese_nome }}
                 </div>
             </div>
             </div>
             <div class="col next-event-content col">
-                <h3 class="next-event-title"><a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a></h3>
+                <h3 class="next-event-title"><a href="{{ event.url | relative_url}}">{{ event.title }}</a></h3>
                 <div class="next-event-description">
                     {{ event.description }}
                 </div>
@@ -32,7 +39,7 @@
                 </div>
             </div>
             <div class="next-event-content col">
-                <h3 class="next-event-title"><a href="{{ event.url }}">{{ event.title }}</a></h3>
+                <h3 class="next-event-title"><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
                 <div class="next-event-description">
                     {{ event.description }}
                 </div>
