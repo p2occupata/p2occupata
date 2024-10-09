@@ -12,7 +12,7 @@ description: "Cosa facciamo"
   {% if event_date >= today %}
 # Prossimo evento
   <div>
-      {% include _components/next_event_card.html event=next_event %}
+      {% include _components/next_event_card.html event=event %}
   </div>
   {% break %}
   {% endif %}
