@@ -4,6 +4,15 @@ title: "Benvenuti"
 description: "Ecco le novità"
 ---
 
+# Articoli recenti
+
+{% assign sorted_posts = site.posts | sort: 'publication_date' | limit: 2 %}
+<div class="post-list mb-5">
+  {% for post in sorted_posts %}
+    {% include _components/post_card.html post=post %}
+  {% endfor %}
+</div>
+
 # Eventi in programma
 {% assign today = 'now' | date: "%Y-%m-%d" %}
 
@@ -31,16 +40,6 @@ description: "Ecco le novità"
   {% endif %}
 {% endfor %}
 </div>
-
-# Articoli recenti
-
-{% assign sorted_posts = site.posts | sort: 'publication_date' | limit: 3 %}
-<div class="post-list mb-5">
-  {% for post in sorted_posts %}
-    {% include _components/post_card.html post=post %}
-  {% endfor %}
-</div>
-
 # Rimani in contatto
 
 Ci piacerebbe conoscere la tua opinione! Seguici sui nostri [canali]({{ site.baseurl }}/contatti).

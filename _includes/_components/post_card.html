@@ -1,4 +1,4 @@
-{% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
+{% assign mesi = "Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre" | split: "," %}
 
 {% assign giorno = post.publication_date | date: "%-d" %}
 {% assign mese_indice = post.publication_date | date: "%-m" | minus: 1 %}
@@ -8,7 +8,7 @@
 <div class="post-container container mt-5">
     <div class="d-flex">
         <div class="post-date">
-            <strong>Pubblicato il: {{ giorno }} {{ mese_nome }} {{ anno }}</strong>
+            <strong>{{ giorno }} {{ mese_nome }} {{ anno }}</strong>
         </div>
     </div>
 
