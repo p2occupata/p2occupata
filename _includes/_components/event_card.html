@@ -8,9 +8,9 @@
 <div class="timeline-event">
     <div class="timeline-circle-container"><div class="timeline-circle"></div></div>
     <div class="timeline-content-container">
-        <div class="timeline-date">{{ giorno }} {{ mese_nome }} {{ anno }}</div>
+        <div class="timeline-date pb-2">{{ giorno }} {{ mese_nome }} {{ anno }}</div>
         <div class="timeline-content">
-            <h3 class="timeline-title"><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+            <h3 class="timeline-title"><a class="underline" href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
             <div class="timeline-description">
                 {{ event.short_description }}
             </div>

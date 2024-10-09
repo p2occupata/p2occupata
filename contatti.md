@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Ecco i nostri contatti"
+title: "Ecco i nostri canali"
 description: ""
 ---
 

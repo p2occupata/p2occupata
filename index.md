@@ -34,7 +34,12 @@ description: "Ecco le novità"
 
 # Articoli recenti
 
-Coming soon
+{% assign sorted_posts = site.posts | sort: 'publication_date' | limit: 3 %}
+<div class="post-list mb-5">
+  {% for post in sorted_posts %}
+    {% include _components/post_card.html post=post %}
+  {% endfor %}
+</div>
 
 # Rimani in contatto
 

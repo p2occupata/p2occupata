@@ -1,5 +1,9 @@
-# ChatGPT Prende la Mira
-## Trasformare il Gioco delle Freccette con l’AI
+---
+layout: default
+title: "ChatGPT Prende la Mira"
+description: "Trasformare il Gioco delle Freccette con l’AI"
+publication_date: 2024-10-09
+---
 
 Era una di quelle serate perfette per una sfida tra amici.
 
@@ -9,56 +13,76 @@ Eccoci lì, tra l’eccitazione di una nuova partita e il dubbio su come imposta
 
 Con un po’ di ingegnosità e una dose sana di curiosità geek, ho deciso di vedere se potevo utilizzare ChatGPT per trasformare una normale partita a freccette in un’avventura interattiva, adattabile a qualsiasi variante del gioco semplicemente modificando una parola nel prompt. In questo articolo, condividerò con voi come sono arrivato a creare un’interfaccia che ha rivoluzionato il modo in cui gioco a freccette, rendendo ogni partita un’esperienza unica e personalizzabile. E il bello? La conclusione a cui sono arrivato è sorprendentemente semplice e accessibile a tutti.
 
+<img
+src="{{ site.baseurl }}/assets/images/posts/chat_gpt_prende_la_mira.webp"
+alt="Immagine articolo"
+style=" width: 100%;
+">
+
 # Conclusione rapida per chi ha fretta di giocare
 
 Se siete qui solo per farvi una partita a freccette, ecco la formula magica: il prompt finale.
 
-> Quali sono le regole di **killer** a freccette?  
+<hr>
+<hr>
+
+> Quali sono le regole di **{inserisci variante freccette}** a freccette?  
 > Da adesso sei un menu interattivo che aiuta un gruppo di giocatori a giocare al gioco che hai descritto un passo alla volta.  
 > Basati sulle regole che hai descritto e aiuta questo gruppo di giocatori ad impostare la partita facendo una domanda alla volta. Ottieni il nome dei giocatori e l’ordine di inserimento sarà l’ordine dei turni per i giocatori. Se nelle regole sono previste azioni preliminari fai compiere tutte le azioni necessarie ai giocatori descritte sul regolamento senza saltare i turni dei giocatori. Nel momento in cui il primo giocatore dovrà tirare la prima freccetta devi mostrare anche un tabellone in ascii, prima di ogni domanda che farai, adeguato per questo gioco. Assicurati che vengano mostrate tutte le informazioni per gestire la partita e aiutare i giocatori ad avere tutte le informazioni, inserendo anche le informazioni riguardo ai punteggi e ai turni.
 
+<hr>
 La bellezza di questo prompt risiede nella sua semplicità: cambiando solamente il nome del gioco potrete adattare l’interfaccia a qualsiasi variante delle freccette. Se sei solo un appassionato di freccette ora che conosci il trucco puoi tornare a lanciare le freccette con questo nuovo strumento, ma se sei curioso di sapere il viaggio ed i prompt utilizzati per arrivare a questa conclusione allora ti consiglio di continuare a leggere.
 
 # Inizia la partita
 
 La creazione del prompt definitivo è stata un’avventura fatta di diverse fasi e numerosi tentativi andati male. L’idea di usare ChatGPT per assistere il nostro gioco a freccette è nata quasi per caso. Avevamo scelto di giocare a Scram, ma non sapevamo esattamente le regole, quindi ho chiesto a ChatGPT di spiegarcele. Le regole sembravano complesse, così per semplificarle, ho richiesto:
 
-> Dammi la lista dei passi da fare e elencami i turni per Giocatore 1, Giocatore 2 e Giocatore 3.
+<hr>
+<hr>
 
+Dammi la lista dei passi da fare e elencami i turni per Giocatore 1, Giocatore 2 e Giocatore 3.
+<hr>
 Questo ci ha aiutato a rendere le regole meno oscure. In breve, un giocatore colpisce il bersaglio (scram) e se il giocatore successivo colpisce lo stesso numero, il primo non guadagna punti (unscram).
 
 Era arrivato il momento di tenere traccia dei punti, chiedendo a ChatGPT di visualizzare un’immagine del bersaglio con le sezioni colpite, ma i risultati erano disastrosi, quindi ho optato per un tabellone in grafica ASCII.
 
 Anche questo tentativo non ha dato i frutti sperati, le informazioni rappresentate erano insufficienti per gestire adeguatamente la nostra partita. Così, armato di infinita pazienza, ho iniziato a inserire manualmente tutte le informazioni necessarie fino a raggiungere una soluzione soddisfacente:
 
+<hr>
+<hr>
+
 > Giocatore 1 ha colpito i numeri 4, 14 e 10. Dal momento che il 14 era stato “unscrammato” nel turno precedente, ora è stato “scrammato” di nuovo da Giocatore 1. I numeri 4 e 10 sono nuovi “scrammati”.  
 > Ecco la tabella aggiornata dei numeri “scrammati”:
 
-| **1** | 2 | 3 | **4** | 5 |  
-| **6** | 7 | **8** | **9** | **10** |  
-| 11 | 12 | 13 | **14** | 15 |  
-| 16 | 17 | **18** | 19 | 20 |
+>| **1** | 2 | 3 | **4** | 5 |  
+>| **6** | 7 | **8** | **9** | **10** |  
+>| 11 | 12 | 13 | **14** | 15 |  
+>| 16 | 17 | **18** | 19 | 20 |
 
-E la lista aggiornata dei numeri “scrammati”:
+>E la lista aggiornata dei numeri “scrammati”:
 
-- 1: Scrammato da Giocatore 2
-- 4: Scrammato da Giocatore 1
-- 6: Scrammato da Giocatore 1
-- 8: Scrammato da Giocatore 2
-- 9: Scrammato da Giocatore 3
-- 10: Scrammato da Giocatore 1
-- 14: Scrammato da Giocatore 1
-- 18: Scrammato da Giocatore 3
+>- 1: Scrammato da Giocatore 2
+>- 4: Scrammato da Giocatore 1
+>- 6: Scrammato da Giocatore 1
+>- 8: Scrammato da Giocatore 2
+>- 9: Scrammato da Giocatore 3
+>- 10: Scrammato da Giocatore 1
+>- 14: Scrammato da Giocatore 1
+>- 18: Scrammato da Giocatore 3
 
-Riepilogo dei punti:
+>Riepilogo dei punti:
 
-- Giocatore 1: Ha “scrammato” 4, 6, 10 e 14.
-- Giocatore 2: Ha “scrammato” 1 e 8.
-- Giocatore 3: Ha “scrammato” 9 e 18.
+>- Giocatore 1: Ha “scrammato” 4, 6, 10 e 14.
+>- Giocatore 2: Ha “scrammato” 1 e 8.
+>- Giocatore 3: Ha “scrammato” 9 e 18.
 
-Ora è il turno di Giocatore 2, che può cercare di “scrammare” nuovi numeri o “unscrammare” quelli attivi. Dopo il turno di Giocatore 2, fammi sapere quali numeri ha colpito.
+>Ora è il turno di Giocatore 2, che può cercare di “scrammare” nuovi numeri o “unscrammare” quelli attivi. Dopo il turno di Giocatore 2, fammi sapere quali numeri ha colpito.
 
+<hr>
 Nonostante tutto, il risultato non era ancora all’altezza delle aspettative. Pertanto, con la stessa perseveranza, ho personalizzato ulteriormente la visualizzazione:
+
+<hr>
+<hr>
 
 > Dammi la risposta in questo modo:
 > - Turno corrente: <nome del giocatore>
@@ -76,7 +100,11 @@ Nonostante tutto, il risultato non era ancora all’altezza delle aspettative. P
 > - Numeri Scrammati:
 > - <numero>: <giocatore che lo ha scrammato> per ogni giocatore.
 
+<hr>
 Questo è il risultato:
+
+<hr>
+<hr>
 
 > Turno corrente: Giocatore 2  
 > Numeri da unscrammare: Nessuno (Giocatore 1 non ha colpito alcun numero nel turno precedente)  
@@ -97,6 +125,7 @@ Questo è il risultato:
 
 > Dopo il turno di Giocatore 2, fammi sapere quali numeri ha colpito.
 
+<hr>
 Poiché non ci prendiamo troppo sul serio, abbiamo anche deciso di aggiungere una telecronaca e commenti dal vivo in dialetto locale per rendere la serata incredibilmente divertente!!!
 
 # Giochiamo ancora
@@ -113,9 +142,13 @@ Fu in quel momento che iniziai a riflettere su soluzioni per un prompt facilment
 
 Finalmente capii il problema principale del mio approccio… ero andato in tunnel vision. Mi ero fissato sull’idea che il tabellone dovesse contenere tutte le informazioni, quando in realtà queste potevano essere tranquillamente discorsive. Non c’era bisogno di schematizzarle in una tabella; il tabellone doveva semplicemente servire a tenere traccia dei punti e non gestire anche le informazioni sulla partita. Inoltre, l’idea di trasformarlo in un UX designer aveva funzionato quasi alla perfezione. Quindi, perché non trasformarlo in quello che realmente cercavo? Ovvero, un menù interattivo che ti guida passo dopo passo, facendo una domanda alla volta!
 
+<hr>
+<hr>
+
 > Da adesso sei un menu interattivo che aiuta un gruppo di giocatori a giocare a **killer** a freccette un passo alla volta.  
 > Aiuta questo gruppo di giocatori ad impostare la partita facendo una domanda alla volta. Nel momento in cui il primo giocatore dovrà tirare la prima freccetta devi mostrare anche un tabellone in ascii, prima di ogni domanda che farai, adeguato per questo gioco, assicurati che vengano mostrate tutte le informazioni per gestire la partita e aiutare i giocatori ad avere tutte le informazioni.
 
+<hr>
 Durante i miei esperimenti, notai che le regole esposte cambiavano di tanto in tanto, a volte anche specificando il motivo; ad esempio, le regole possono variare a seconda della regione o del pub in cui si gioca. Quasi stavo per arrendermi, pensando che avrei dovuto inserire le regole del gioco ogni volta che desideravo giocare… ma poi un’illuminazione! Le regole me le può fornire lui, quindi perché non far creare direttamente il prompt a ChatGPT?
 
 E così si concluse questa fantastica e soddisfacente avventura. Il prompt che avevo trovato era esattamente quello che cercavo; bastava cambiare il nome della variante del gioco desiderata e in un attimo eri pronto per giocare a freccette, anche se era la tua prima volta.
