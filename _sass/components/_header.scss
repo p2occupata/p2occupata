@@ -22,11 +22,10 @@
 
             a{
                 font-size: 1.3em;
-                color: $gray-color;
+                color: $p-color;
 
                 &:hover {
                     font-weight: 500;
-                    color: darken($gray-color, 10%);;
                     text-decoration: underline;
                 }
             }

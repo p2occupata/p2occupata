@@ -1,19 +1,18 @@
-$date-color: #f1c8f2;
-$color: #fee3ff;
+@import "colors/posts_colors";
 
 .post-container {
     .post-date {
-        border-top: 0 solid $date-color;
-        border-left: 0 solid $date-color;
-        border-right: 0 solid $date-color;
+        border-top: 0 solid $dark-primary-color;
+        border-left: 0 solid $dark-primary-color;
+        border-right: 0 solid $dark-primary-color;
+        background-color: $dark-primary-color;
         border-top-left-radius: 1em;
         border-top-right-radius: 1em;
-        background-color: $date-color;
         padding: 0.5em 1em 0 1em;
     }
 
     .post-content {
-        background-color: $color;
+        background-color: $primary-color;
         padding: 1em 1em;
         border-bottom-left-radius: 1em;
         border-bottom-right-radius: 1em;

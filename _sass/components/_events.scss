@@ -1,7 +1,10 @@
 @import "colors";
 
+$title-background-color: #6b484f;
+$content-bckground-color: #ba9d9d;
+
 $date-height: 3em;
-$date-padding: $date-height/2 0.5em $date-height/2 0.5em;
+$date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
 
 .timeline {
   position: relative;
@@ -13,7 +16,7 @@ $date-padding: $date-height/2 0.5em $date-height/2 0.5em;
     position: absolute;
     width: 3px;
     height: 100%;
-    background-color: #000000;
+    background-color: $white-color;
     z-index: 1000;
     top: 1em;
     left: 1em;
@@ -41,8 +44,8 @@ $date-padding: $date-height/2 0.5em $date-height/2 0.5em;
     position: relative;
     min-width: 20px;
     height: 20px;
-    background-color: #ffffff;
-    border: 3px solid #000000;
+    background-color: $background-color;
+    border: 3px solid $white-color;
     border-radius: 50%;
     z-index: 1001;
   }

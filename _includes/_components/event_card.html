@@ -7,12 +7,12 @@
 
 <div class="timeline-event">
     <div class="timeline-circle-container">
-        <div class="timeline-circle"></div>
+        <div class="timeline-circle bg-dark"></div>
     </div>
     <div class="timeline-content-container">
         <div class="timeline-date">{{ giorno }} {{ mese_nome }} {{ anno }}</div>
-        <div class="timeline-content">
-            <h3 class="timeline-title"><a class="underline" href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+        <div class="timeline-content text-dark">
+            <h3 class="timeline-title"><a class="underline text-dark" href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
             <div class="timeline-description">
                 {{ event.short_description }}
             </div>

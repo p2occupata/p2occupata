@@ -28,7 +28,6 @@ description: "Ecco le novità"
   {% endif %}
 {% endfor %}
 
-## Altri eventi organizzati
 {% assign sorted_events = site.events | sort: 'date' | reverse %}
 <div class="timeline">
 {% for event in sorted_events %}
