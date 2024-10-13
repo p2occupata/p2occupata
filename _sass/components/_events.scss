@@ -23,6 +23,10 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
 
   }
 
+  .timeline-content-container {
+      box-shadow: 7px 7px 10px -3px #8b0000;
+  }
+
   &-event {
     display: flex;
     align-items: flex-start;
@@ -38,6 +42,7 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
     padding-top: 0.45em;
     background: $dark-primary-color;
     border-top-right-radius: 1em;
+    color: $secondary-color;
   }
 
   &-circle {
@@ -57,9 +62,7 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
 
   &-content {
     padding: 1em 1em 1em 1em;
-    background: $primary-color;
-    border-bottom-right-radius: 1em;
-    border-bottom-left-radius: 1em;
+    background-color: $card-background;
   }
 
   &-content-container {
@@ -81,14 +84,15 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
 .next-event {
     padding: 3em 0em 4em 1em;
     &-date {
-        background: #b9ffb9;
-        border-radius: 50%;
+        border-radius: 1.6em;
         width: 12em;
         height: 12em;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background: $dark-primary-color;
+        color: $secondary-color;
     }
 
     &-day {

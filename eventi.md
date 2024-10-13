@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Eventi"
-description: "Cosa facciamo"
+#description: "Cosa facciamo"
 ---
 
 {% assign today = 'now' | date: "%Y-%m-%d" %}
@@ -18,7 +18,7 @@ description: "Cosa facciamo"
   {% endif %}
 {% endfor %}
 
-## Timeline eventi
+## Timeline
 {% assign sorted_events = site.events | sort: 'date' | reverse %}
 <div class="timeline">
 {% for event in sorted_events %}

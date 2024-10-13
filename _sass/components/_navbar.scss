@@ -29,13 +29,12 @@
     height: $navbar-height;
 
     .navbar-collapse {
-        justify-content: center;
+        background-color: $secondary-color;
     }
     .nav-item {
         font-size: 1.3em;
         text-decoration: none;
         color: $link-color;
-        padding-right: 3em !important;
 
         &:hover{
             color: $link-hover-color;
