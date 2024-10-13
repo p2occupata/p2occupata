@@ -1,65 +1,47 @@
-$overlay-color: rgba(0, 0, 0, 0.5);
+// Colori principali
+$primary-color: #C85C5C; // Rosso tenue e caldo, per titoli e elementi principali
+$dark-primary-color: #A04040; // Rosso scuro, per testo importante o hover sui bottoni
 
-$primary-color: #ba9d9d;;
-$dark-primary-color: #6b484f;
+// Colori secondari
+$secondary-color: #F5E5E5; // Rosa chiaro tenue, per sfondi leggeri o sezioni del blog
+$dark-secondary-color: #D9B3B3; // Rosa antico chiaro, per sezioni secondarie o sfondi dei pulsanti
 
-$secondary-color: white;
-$dark-secondary-color: white;
+// Colore d'accento
+$accent-color: #F28C28; // Arancione caldo per pulsanti o call to action, per contrastare il rosso
 
-$red: red;
-$gray-color: #53595e;
-$white-color: white;
+// Colore di sfondo generale
+$background-color: #FAF3F3; // Bianco sporco con un leggero tono rosato, per l'intero background del blog
 
-$p-color: white;
-$secondary-p-color: black;
+// Colore del testo
+$text-color: #3E3E3E; // Grigio scuro, per massima leggibilità
+$text-muted-color: #7A7A7A; // Grigio più chiaro per testo meno importante o descrizioni
 
-$background-color: #F8F9FA;
+// Overlay e trasparenze
+$overlay-color: rgba(0, 0, 0, 0.4); // Nero semi-trasparente per sovrapposizioni di immagini
+$light-overlay-color: rgba(255, 255, 255, 0.6); // Bianco semi-trasparente per sovrapposizioni su sfondo scuro
 
+// Colori per bottoni
+$button-primary-background: #A04040; // Rosso scuro per bottoni primari
+$button-primary-text: white; // Testo bianco per bottoni primari
 
-// // Colori principali
-// $primary-color: #C85C5C; // Rosso tenue e caldo, per titoli e elementi principali
-// $dark-primary-color: #A04040; // Rosso scuro, per testo importante o hover sui bottoni
-//
-// // Colori secondari
-// $secondary-color: #F5E5E5; // Rosa chiaro tenue, per sfondi leggeri o sezioni del blog
-// $dark-secondary-color: #D9B3B3; // Rosa antico chiaro, per sezioni secondarie o sfondi dei pulsanti
-//
-// // Colore d'accento
-// $accent-color: #F28C28; // Arancione caldo per pulsanti o call to action, per contrastare il rosso
-//
-// // Colore di sfondo generale
-// $background-color: #FAF3F3; // Bianco sporco con un leggero tono rosato, per l'intero background del blog
-//
-// // Colore del testo
-// $text-color: #3E3E3E; // Grigio scuro, per massima leggibilità
-// $text-muted-color: #7A7A7A; // Grigio più chiaro per testo meno importante o descrizioni
-//
-// // Overlay e trasparenze
-// $overlay-color: rgba(0, 0, 0, 0.4); // Nero semi-trasparente per sovrapposizioni di immagini
-// $light-overlay-color: rgba(255, 255, 255, 0.6); // Bianco semi-trasparente per sovrapposizioni su sfondo scuro
-//
-// // Colori per bottoni
-// $button-primary-background: #A04040; // Rosso scuro per bottoni primari
-// $button-primary-text: white; // Testo bianco per bottoni primari
-//
-// $button-secondary-background: #F28C28; // Arancione per bottoni secondari
-// $button-secondary-text: white; // Testo bianco per bottoni secondari
-//
-// // Colore delle bordature
-// $border-color: #D1A1A1; // Rosa antico per bordi sottili su carte o sezioni
-//
-// // Colori per le carte e sezioni
-// $card-background: #FFFFFF; // Bianco puro per sezioni delle carte
-// $card-shadow: rgba(0, 0, 0, 0.08); // Ombra leggera per creare profondità nelle carte
-//
-// // Colori per errori o avvisi
-// $error-color: #E63946; // Rosso brillante per messaggi di errore
-// $success-color: #4CAF50; // Verde per messaggi di successo
-// $warning-color: #FFA726; // Arancione intenso per avvisi
-//
-// // Colori per i link
-// $link-color: #A04040; // Rosso scuro per i link
-// $link-hover-color: #C85C5C; // Rosso tenue per il hover sui link
+$button-secondary-background: #F28C28; // Arancione per bottoni secondari
+$button-secondary-text: white; // Testo bianco per bottoni secondari
+
+// Colore delle bordature
+$border-color: #D1A1A1; // Rosa antico per bordi sottili su carte o sezioni
+
+// Colori per le carte e sezioni
+$card-background: #FFFFFF; // Bianco puro per sezioni delle carte
+$card-shadow: rgba(0, 0, 0, 0.08); // Ombra leggera per creare profondità nelle carte
+
+// Colori per errori o avvisi
+$error-color: #E63946; // Rosso brillante per messaggi di errore
+$success-color: #4CAF50; // Verde per messaggi di successo
+$warning-color: #FFA726; // Arancione intenso per avvisi
+
+// Colori per i link
+$link-hover-color: #A04040; // Rosso scuro per i link
+$link-color: #C85C5C; // Rosso tenue per il hover sui link
 
 // Mixin per generare una palette di colori dinamica
 @mixin generate-palette($primary-color) {

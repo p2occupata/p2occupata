@@ -13,9 +13,10 @@
   &:hover {
     background-color: darken($bg-color, 10%);
     color: lighten($text-color, 10%);
+    border: 2px solid lighten($border-color, 10%);
   }
 }
 
 %secondary-button{
-    @include make_button(transparent, $secondary-color, $secondary-color)
+    @include make_button(transparent, $text-color, $text-color)
 }

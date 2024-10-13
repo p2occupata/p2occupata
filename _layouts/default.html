@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 
-<body class="bg-dark">
+<body>
     <div class="container pre-header">
         <div class="row d-flex justify-content-between">
             <div class="col">
@@ -25,6 +25,7 @@
             </div>
         </div>
     </div>
+
     {% include navbar.html %}
 
     <header class="hero" style="background-image: url('{{ page.header_image | default: site.default_header_image | relative_url }}');">
@@ -32,18 +33,8 @@
             <div class="row overlay"></div>
             <div class="row hero-content pt-5">
                 <div class="col">
-
-<!--                    <nav class="row navbar">-->
-<!--                        <div class="nav-container">-->
-<!--                            {% for link in site.data.menus.navbar.links %}-->
-<!--                            <div class="nav-item">-->
-<!--                                <a href="{{ site.baseurl }}{{ link.url }}">{{ link.name }}</a>-->
-<!--                            </div>-->
-<!--                            {% endfor %}-->
-<!--                        </div>-->
-<!--                    </nav>-->
                     <div class="row mt-3">
-                        <h1>{{ page.title }}</h1>
+                        <h1 class="text-white">{{ page.title }}</h1>
                     </div>
                     <div class="row">
                         <p>{{ page.description }}</p>

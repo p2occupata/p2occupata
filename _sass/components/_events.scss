@@ -16,7 +16,7 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
     position: absolute;
     width: 3px;
     height: 100%;
-    background-color: $white-color;
+    background-color: $dark-primary-color;
     z-index: 1000;
     top: 1em;
     left: 1em;
@@ -45,7 +45,7 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
     min-width: 20px;
     height: 20px;
     background-color: $background-color;
-    border: 3px solid $white-color;
+    border: 3px solid $dark-primary-color;
     border-radius: 50%;
     z-index: 1001;
   }

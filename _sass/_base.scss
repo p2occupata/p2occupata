@@ -10,5 +10,16 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: $background-color;
-  color: $white-color;
+  color: $text-color;
+}
+
+h1 {
+    color: $primary-color;
+}
+
+a {
+    color: $link-color;
+    &:hover{
+        color: $link-hover-color;
+    }
 }

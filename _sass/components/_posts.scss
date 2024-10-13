@@ -2,17 +2,17 @@
 
 .post-container {
     .post-date {
-        border-top: 0 solid $dark-primary-color;
-        border-left: 0 solid $dark-primary-color;
-        border-right: 0 solid $dark-primary-color;
-        background-color: $dark-primary-color;
+        border-top: 0 solid $primary-color;
+        border-left: 0 solid $primary-color;
+        border-right: 0 solid $primary-color;
+        background-color: $primary-color;
         border-top-left-radius: 1em;
         border-top-right-radius: 1em;
         padding: 0.5em 1em 0 1em;
     }
 
     .post-content {
-        background-color: $primary-color;
+        background-color: $card-background;
         padding: 1em 1em;
         border-bottom-left-radius: 1em;
         border-bottom-right-radius: 1em;
