@@ -4,6 +4,21 @@ layout: default
 #description: "UNICAL, Cubo 41c Ponte Carrabile"
 ---
 
+{% assign today = 'now' | date: "%Y-%m-%d" %}
+
+{% assign next_events = site.events | sort: 'date' %}
+{% for event in next_events %}
+    {% assign event_date = event.date | date: "%Y-%m-%d" %}
+        {% if event_date >= today %}
+
+# Prossimo evento
+  <div>
+      {% include _components/next_event_card.html event=event %}
+  </div>
+        {% break %}
+    {% endif %}
+{% endfor %}
+
 # Blog
 {% assign sorted_posts = site.posts | sort: 'publication_date' | limit: 2 %}
 <div class="post-list row">
@@ -13,21 +28,6 @@ layout: default
     </div>
   {% endfor %}
 </div>
-
-{% assign today = 'now' | date: "%Y-%m-%d" %}
-
-{% assign next_events = site.events | sort: 'date' %}
-{% for event in next_events %}
-{% assign event_date = event.date | date: "%Y-%m-%d" %}
-{% if event_date >= today %}
-
-# Prossimo evento
-  <div>
-      {% include _components/next_event_card.html event=event %}
-  </div>
-  {% break %}
-  {% endif %}
-{% endfor %}
 
 # Eventi
 {% assign sorted_events = site.events | sort: 'date' | reverse %}
