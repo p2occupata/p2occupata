@@ -14,7 +14,8 @@ body {
 }
 
 h1 {
-    color: $primary-color;
+    color: $text-color;
+    font-size: calc(1rem + 1.5vw);
 }
 
 a {
@@ -22,4 +23,9 @@ a {
     &:hover{
         color: $link-hover-color;
     }
+}
+
+.logo-small{
+    height: 2em;
+    width: 3em;
 }

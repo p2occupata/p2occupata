@@ -1,20 +1,27 @@
-@import "colors/posts_colors";
+@import "colors";
 
 .post-container {
+    border: 1px solid #ff8484;
+    border-radius: 0.7em;
+    box-shadow: 7px 7px 10px -3px #8b0000;
     .post-date {
-        border-top: 0 solid $primary-color;
-        border-left: 0 solid $primary-color;
-        border-right: 0 solid $primary-color;
-        background-color: $primary-color;
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
+//         border-top: 0 solid $primary-color;
+//         border-left: 0 solid $primary-color;
+//         border-right: 0 solid $primary-color;
+//         background-color: $primary-color;
+//         border-top-left-radius: 1em;
+//         border-top-right-radius: 1em;
         padding: 0.5em 1em 0 1em;
     }
 
     .post-content {
         background-color: $card-background;
-        padding: 1em 1em;
+        margin: 1em 1em;
         border-bottom-left-radius: 1em;
         border-bottom-right-radius: 1em;
+    }
+
+    .post-title {
+            font-size: 1.7em;
     }
 }

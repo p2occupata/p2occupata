@@ -4,16 +4,18 @@ title: "Benvenuti"
 description: "Ecco le novità"
 ---
 
-# Articoli recenti
+# Blog
 
 {% assign sorted_posts = site.posts | sort: 'publication_date' | limit: 2 %}
-<div class="post-list mb-5">
+<div class="post-list row">
   {% for post in sorted_posts %}
-    {% include _components/post_card.html post=post %}
+    <div class="col-4">
+        {% include _components/post_card.html post=post %}
+    </div>
   {% endfor %}
 </div>
 
-# Eventi in programma
+# Eventi
 {% assign today = 'now' | date: "%Y-%m-%d" %}
 
 {% assign next_events = site.events | sort: 'date' %}

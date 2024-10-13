@@ -11,20 +11,20 @@
 </head>
 
 <body>
-    <div class="container pre-header">
-        <div class="row d-flex justify-content-between">
-            <div class="col">
-                <a class="title d-inline-grid" href="{{ site.url}}{{ site.baseurl }}"><strong>{{ site.title }}</strong></a>
-            </div>
-            <div class="col top-navbar d-flex justify-content-end">
-                <ul>
-                    {% for link in site.data.menus.top_navbar.links %}
-                    <li><a href="{{ site.baseurl }}{{ link.url }}">{{ link.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
+<!--    <div class="container pre-header">-->
+<!--        <div class="row d-flex justify-content-between">-->
+<!--            <div class="col">-->
+<!--                <a class="title d-inline-grid" href="{{ site.url}}{{ site.baseurl }}"><strong>{{ site.title }}</strong></a>-->
+<!--            </div>-->
+<!--            <div class="col top-navbar d-flex justify-content-end">-->
+<!--                <ul>-->
+<!--                    {% for link in site.data.menus.top_navbar.links %}-->
+<!--                    <li><a href="{{ site.baseurl }}{{ link.url }}">{{ link.name }}</a></li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
     {% include navbar.html %}
 
@@ -48,18 +48,18 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="sidebar-container col-12 col-lg-3 mb-3">
-                    <aside class="sidebar">
-                        {% if page.sidebar %}
-                        {{ page.sidebar }}
-                        {% else %}
-                        <!-- Contenuto di default per la sidebar -->
-                        <div>
-                            <img class="logo-img" src="{{ '/assets/images/logo_big.png' | relative_url }}" alt="Logo grande" />
-                        </div>
-                        {% endif %}
-                    </aside>
-                </div>
+<!--                <div class="sidebar-container col-12 col-lg-3 mb-3">-->
+<!--                    <aside class="sidebar">-->
+<!--                        {% if page.sidebar %}-->
+<!--                        {{ page.sidebar }}-->
+<!--                        {% else %}-->
+<!--                        &lt;!&ndash; Contenuto di default per la sidebar &ndash;&gt;-->
+<!--                        <div>-->
+<!--                            <img class="logo-img" src="{{ '/assets/images/logo_big.png' | relative_url }}" alt="Logo grande" />-->
+<!--                        </div>-->
+<!--                        {% endif %}-->
+<!--                    </aside>-->
+<!--                </div>-->
                 <div class="col mb-3">
                     <div class="content">
                         {{ content }}

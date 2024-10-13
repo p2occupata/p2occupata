@@ -1,7 +1,9 @@
+@import "variables";
+
 .sidebar {
   flex: 1 1 30%;
   position: sticky;
-  top: 2em;
+  top: $navbar-height + 1em;
 
   .logo-img {
     width: -webkit-fill-available;

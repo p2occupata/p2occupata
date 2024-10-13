@@ -5,13 +5,7 @@
 {% assign mese_nome = mesi[mese_indice] %}
 {% assign anno = post.publication_date | date: "%Y" %}
 
-<div class="post-container container mt-5">
-    <div class="d-flex">
-        <div class="post-date">
-            <strong>{{ giorno }} {{ mese_nome }} {{ anno }}</strong>
-        </div>
-    </div>
-
+<div class="post-container container mb-4 mx-1">
     <div class="post-content">
         <h2 class="post-title"><a class="underline" href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         {% if post.description %}
@@ -19,5 +13,11 @@
             {{ post.description }}
         </div>
         {% endif %}
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <div class="post-date">
+            <strong>{{ giorno }} {{ mese_nome }} {{ anno }}</strong>
+        </div>
     </div>
 </div>
