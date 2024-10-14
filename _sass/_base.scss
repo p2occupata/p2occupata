@@ -13,6 +13,11 @@ body {
   color: $text-color;
 }
 
+footer {
+    position: fixed;
+    z-index: 2000;
+}
+
 h1 {
     color: $text-color;
     font-size: calc(1rem + 1.5vw);
@@ -25,7 +30,7 @@ a {
     }
 }
 
-.logo-small{
+.logo-small {
     height: 2em;
     width: 3em;
 }
