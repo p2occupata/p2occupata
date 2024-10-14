@@ -34,12 +34,14 @@ layout: default
     {% for i in (0..100) %}
       {% assign current_date = current_date | date: "%s" | plus: step | date: "%Y-%m-%d" %}
 
-      {% assign events = events | push: event %}
-      {% assign dates = dates | push: current_date %}
 
       {% if current_date > today %}
         {% break %}
       {% endif %}
+
+      {% assign events = events | push: event %}
+      {% assign dates = dates | push: current_date %}
+
     {% endfor %}
 {% endif %}
 {% endfor %}
