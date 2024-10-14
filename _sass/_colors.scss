@@ -14,7 +14,7 @@ $background-color: white;//lighten($primary-color, 35%) ; // Sfondi molto chiari
 
 // Colore del testo
 $text-color: black;//darken($primary-color, 80%) ; // Testo principale, scurito dell'80% per leggibilità
-$text-muted-color: darken($primary-color, 60%) ; // Testo meno importante (muted), scurito del 60%
+$text-muted-color: #ebb1b1; // Testo meno importante (muted), scurito del 60%
 
 // Overlay e trasparenze
 $overlay-color: rgba($primary-color, 0.4) ; // Sovrapposizione semi-trasparente con il colore principale (40% opacità)

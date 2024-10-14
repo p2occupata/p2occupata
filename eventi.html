@@ -1,18 +1,8 @@
 ---
 layout: default
-#title: "Aula P2.0"
-#description: "UNICAL, Cubo 41c Ponte Carrabile"
+title: "Eventi"
+#description: "Cosa facciamo"
 ---
-
-# Blog
-{% assign sorted_posts = site.posts | sort: 'publication_date' | limit: 2 %}
-<div class="post-list row">
-  {% for post in sorted_posts %}
-    <div class="col-12 col-lg-6 col-xl-4">
-        {% include _components/post_card.html post=post %}
-    </div>
-  {% endfor %}
-</div>
 
 {% assign today = 'now' | date: "%Y-%m-%d" %}
 
@@ -21,15 +11,15 @@ layout: default
 {% assign today = "now" | date: "%Y-%m-%d" %}
 
 {% for event in site.events %}
-{% assign start_date = event.start_date | date: "%Y-%m-%d" %}
-{% assign end_date = event.end_date | default: '9999-12-31' | date: "%Y-%m-%d" %}
-{% assign step = event.step | default: 0 | times: 86400 %}
-{% assign current_date = start_date | date: "%Y-%m-%d "%}
+  {% assign start_date = event.start_date | date: "%Y-%m-%d" %}
+  {% assign end_date = event.end_date | default: '9999-12-31' | date: "%Y-%m-%d" %}
+  {% assign step = event.step | default: 0 | times: 86400 %}
+  {% assign current_date = start_date | date: "%Y-%m-%d "%}
 
-{% assign events = events | push: event %}
-{% assign dates = dates | push: current_date %}
+  {% assign events = events | push: event %}
+  {% assign dates = dates | push: current_date %}
 
-{% if step > 0 %}
+  {% if step > 0 %}
   <!-- Event repeats -->
     {% for i in (0..100) %}
       {% assign current_date = current_date | date: "%s" | plus: step | date: "%Y-%m-%d" %}
@@ -41,7 +31,7 @@ layout: default
         {% break %}
       {% endif %}
     {% endfor %}
-{% endif %}
+  {% endif %}
 {% endfor %}
 
 <!-- sorting -->
@@ -50,10 +40,10 @@ layout: default
 {% assign sorted = false %}
 
 {% for i in (0..200) %}
-{% assign sorted = true %}
-{% for i in (0..n | minus: 2) %}
-{% assign date_i = dates[i] %}
-{% assign date_j = dates[i | plus: 1] %}
+  {% assign sorted = true %}
+  {% for i in (0..n | minus: 2) %}
+    {% assign date_i = dates[i] %}
+    {% assign date_j = dates[i | plus: 1] %}
 
     {% if date_i > date_j %}
       <!-- Scambia le date -->
@@ -71,35 +61,34 @@ layout: default
     {% if sorted %}
       {% break %}
     {% endif %}
-{% endfor %}
+  {% endfor %}
 {% endfor %}
 
 {% for event in events %}
-{% assign event_date = dates[forloop.index0] %}
-{% if event_date >= today %}
-# Prossimo evento
-<div>
-{% include _components/next_event_card.html event=event event_date=event_date %}
-</div>
-{% break %}
-{% endif %}
+  {% assign event_date = dates[forloop.index0] %}
+  {% if event_date >= today %}
+    <h1>Prossimo evento</h1>
+    <div>
+      {% include _components/next_event_card.html event=event event_date=event_date %}
+    </div>
+    {% break %}
+  {% endif %}
 {% endfor %}
 
 {% assign events = events | reverse %}
 {% assign dates = dates | reverse %}
 
-## Timeline
+<h2>Timeline</h2>
 <div class="timeline">
-    {% for event in events %}
+  {% for event in events %}
     {% assign event_date = dates[forloop.index0] %}
     {% if event_date >= today %}
-    {% assign active = true %}
+      {% assign active = true %}
     {% else %}
-    {% assign active = false %}
+      {% assign active = false %}
     {% endif %}
     {% include _components/event_card.html event=event current_date=event_date active=active %}
-    {% endfor %}
+  {% endfor %}
 </div>
-# Rimani in contatto
 
-Ci piacerebbe conoscere la tua opinione! Seguici sui nostri [canali]({{ site.baseurl }}/contatti).
+

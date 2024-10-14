@@ -1,16 +1,15 @@
 {% assign mesi = "Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre" | split: "," %}
-
-{% assign giorno = event.date | date: "%-d" %}
-{% assign mese_indice = event.date | date: "%-m" | minus: 1 %}
+{% assign giorno = event_date | date: "%-d" %}
+{% assign mese_indice = event_date | date: "%-m" | minus: 1 %}
 {% assign mese_nome = mesi[mese_indice] %}
-{% assign anno = event.date | date: "%Y" %}
-
+<!--{% assign anno = event_date | date: "%Y" %}-->
+{% assign active = active | default: false %}
 <div class="timeline-event">
-    <div class="timeline-circle-container">
+    <div class="timeline-circle-container{% if active == false %} past{% endif %}">
         <div class="timeline-circle"></div>
     </div>
     <div class="timeline-content-container">
-        <div class="timeline-date">{{ giorno }} {{ mese_nome }} {{ anno }}</div>
+        <div class="timeline-date{% if active == false %} past{% endif %}">{{ giorno }} {{ mese_nome }} {{ anno }}</div>
         <div class="timeline-content text-dark">
             <h3 class="timeline-title"><a class="underline text-dark" href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
             <div class="timeline-description">

@@ -79,6 +79,9 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
     padding-left: 0;
     position: relative;
   }
+  .past {
+    background-color: $text-muted-color;
+  }
 }
 
 .next-event {
