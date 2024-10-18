@@ -85,10 +85,8 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
 }
 
 .next-event {
-    padding: 3em 0em 4em 1em;
     display: flex;
     justify-content: center;
-
     &-date {
         width: 12em;
         height: 12em;
@@ -116,6 +114,7 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
         background: $dark-primary-color;
         color: $secondary-color;
         border-radius: 1.6em;
+        width: 100%;
     }
 
     .next-date-container {
@@ -126,11 +125,12 @@ $date-padding: calc($date-height / 2) 0.5em calc($date-height / 2) 0.5em;
     .content-container {
         display: flex;
         align-items: center;
-        padding: 2em;
+        padding: 0 2em 2em 2em;
     }
 
     a {
         color: $secondary-color;
         font-weight: 600;
+        font-size: 1.5em;
     }
 }
