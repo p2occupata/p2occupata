@@ -1,4 +1,5 @@
 @import "colors";
+@import "typography";
 
 * {
   margin: 0;
@@ -11,6 +12,7 @@ body {
   line-height: 1.6;
   background-color: $background-color;
   color: $text-color;
+  font-size: $text-size;
 }
 
 footer {
@@ -20,7 +22,7 @@ footer {
 
 h1 {
     color: $text-color;
-    font-size: calc(1rem + 1.5vw);
+    font-size: 2em;
 }
 
 a {
@@ -28,6 +30,10 @@ a {
     &:hover{
         color: $link-hover-color;
     }
+}
+
+p {
+    font-size: 1.3em;
 }
 
 .logo-small {

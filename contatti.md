@@ -1,11 +1,6 @@
 ---
 layout: default
-title: "Ecco i nostri canali"
-description: ""
+title: "I nostri canali"
 ---
 
-# Instagram
-Rimani sempre aggiornato, seguici su [Instagram](https://www.instagram.com/aulap2.0occupata/).
-
-# Telegram
-Entra a far parte della nostra community  [Telegram](https://web.telegram.org/)
+{% include _pages/_contatti.html %}
