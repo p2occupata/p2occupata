@@ -4,7 +4,7 @@ title: "Chi siamo"
 ---
 
 # Aula P2, La nostra storia
-L'aula P2 dell'Università della Calabria ha una storia significativa e intensa, iniziata molti anni fa con l'occupazione
+L'aula **P2** dell'Università della Calabria ha una storia significativa e intensa, iniziata molti anni fa con l'occupazione
 da parte degli studenti. Questo spazio è diventato rapidamente un **simbolo di resistenza e autogestione**.
 La P2 è stata il fulcro di numerose attività culturali e sociali promosse dai collettivi studenteschi.
 
