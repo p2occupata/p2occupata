@@ -1,7 +1,6 @@
 ---
 layout: default
-#title: "Aula P2.0"
-description: "UNICAL<br>Cubo 41c Ponte Carrabile"
+title: "Home"
 ---
 
 {% include _pages/_blog.html %}

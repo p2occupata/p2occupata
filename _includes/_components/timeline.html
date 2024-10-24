@@ -12,7 +12,6 @@
 {% assign dates = dates | push: current_date %}
 
 {% if step > 0 %}
-<!-- Event repeats -->
 {% for i in (0..100) %}
 {% assign current_date = current_date | date: "%s" | plus: step | date: "%Y-%m-%d" %}
 
