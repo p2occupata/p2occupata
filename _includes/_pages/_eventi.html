@@ -4,20 +4,24 @@
 {% assign dates = "" | split: "" %}
 {% assign today = "now" | date: "%Y-%m-%d" %}
 
+{% assign seven_days = 7 | times: 86400 %}
+{% assign one_week_from_today = today | date: "%s" | plus: seven_days | date: "%Y-%m-%d" %}
+
 {% for event in site.events %}
     {% assign start_date = event.start_date | date: "%Y-%m-%d" %}
     {% assign end_date = event.end_date | default: '9999-12-31' | date: "%Y-%m-%d" %}
     {% assign step = event.step | default: 0 | times: 86400 %}
+
     {% assign current_date = start_date | date: "%Y-%m-%d "%}
 
     {% assign events = events | push: event %}
     {% assign dates = dates | push: current_date %}
 
     {% if step > 0 %}
-        {% for i in (0..100) %}
+        {% for i in (0..10) %}
             {% assign current_date = current_date | date: "%s" | plus: step | date: "%Y-%m-%d" %}
 
-            {% if current_date > today %}
+            {% if current_date > one_week_from_today %}
                 {% break %}
             {% endif %}
 

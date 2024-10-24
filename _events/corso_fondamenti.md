@@ -7,7 +7,7 @@ end_date: 2024-12-13
 location: "Aula P2.0 Occupata"
 ---
 
-Il Corso gratuito e tutoraggio sui Fondamenti di Informatica è pensato per adattarsi alle esigenze individuali dei partecipanti. 
+Il **Corso gratuito e tutoraggio sui Fondamenti di Informatica** è pensato per adattarsi alle esigenze individuali dei partecipanti. 
 Che tu abbia bisogno di assistenza per prepararti all'esame o semplicemente desideri approfondire la tua curiosità 
 sull'informatica, questo è quello che cerchi.
 
@@ -27,6 +27,8 @@ che sia per motivi accademici o per curiosità personale.
 ## Come partecipare?
 Non serve registrarsi! **Basta presentarsi nell'aula P2.0 nel giorno stabilito**, e saremo pronti ad aiutarti.
 Non ci sono costi, limiti di tempo, o requisiti specifici.
+
+<br>
 
 ## Domande?
 **Se ti servono informazioni ci trovi in aula**
