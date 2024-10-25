@@ -10,4 +10,4 @@ description: "Ogni venerdì alle 18:30 assemblea aperta a tutti coloro che vogli
 
 # Assemblea
 
-Ogni venerdì alle 18:30 si tiene un'assemblea aperta a tutti coloro che desiderano partecipare e contribuire con le proprie idee.
+**Ogni venerdì alle 18:30** si tiene un'**assemblea aperta a tutti** coloro che desiderano partecipare e contribuire con le proprie idee.

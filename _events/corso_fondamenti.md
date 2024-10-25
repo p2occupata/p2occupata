@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Corso gratuito e tutoraggio fondamenti di informatica"
+short_description: "Impara la programmazione"
 start_date: 2024-11-07
 step: 7
 end_date: 2024-12-13
@@ -21,6 +22,12 @@ senza un programma rigido: **il contenuto e la durata sono definiti in base ai p
 **Non c’è una struttura predefinita**. Il programma del corso viene creato in base alle esigenze di chi partecipa.
 Saremo lì per rispondere a domande, chiarire concetti e aiutarti nel tuo percorso di apprendimento,
 che sia per motivi accademici o per curiosità personale.
+
+<br>
+
+## Data e Orario
+
+🗓 Giovedì 7 novembre a partire dalle 18:30
 
 <br>
 
