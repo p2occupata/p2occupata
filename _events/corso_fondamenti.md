@@ -27,7 +27,7 @@ che sia per motivi accademici o per curiosità personale.
 
 ## Data e Orario
 
-🗓 Giovedì 7 novembre a partire dalle 18:30
+🗓 Ogni Giovedì a partire dal 7 novembre ore 18:30
 
 <br>
 
