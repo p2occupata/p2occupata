@@ -38,4 +38,4 @@ Non ci sono costi, limiti di tempo, o requisiti specifici.
 <br>
 
 ## Domande?
-**Se ti servono informazioni ci trovi in aula**
+**Se vuoi informazioni ci trovi in aula tutti i giorni.** Oppure puoi contattarci su **[Instagram](https://www.instagram.com/aulap2.0occupata/)**. 
