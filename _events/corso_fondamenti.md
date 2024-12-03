@@ -6,6 +6,7 @@ start_date: 2024-11-07
 step: 7
 end_date: 2024-12-13
 location: "Aula P2.0 Occupata"
+description: "Ogni Giovedì a partire dal 7 novembre ore 18:30. Vi aspettiamo"
 ---
 
 Il **Corso gratuito e tutoraggio sui Fondamenti di Informatica** è pensato per adattarsi alle esigenze individuali dei partecipanti. 

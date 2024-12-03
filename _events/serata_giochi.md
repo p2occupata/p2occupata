@@ -6,6 +6,10 @@ start_date: 2024-11-07
 step: 7
 end_date: 2024-11-22
 location: "Aula P2.0 Occupata"
+description: "Unisciti a noi per una serata di puro divertimento, giochi e compagnia! Dai giochi da tavolo ai videogiochi, 
+c'è qualcosa per tutti. Non perderti quest'occasione per staccare la spina, fare nuove amicizie e mettere 
+alla prova le tue abilità!"
+
 ---
 
 # 🎲 Serata Giochi in Aula P2.0! 🎮
