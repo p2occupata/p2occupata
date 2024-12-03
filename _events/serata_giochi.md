@@ -29,7 +29,7 @@ alla prova le tue abilità!**
 ## Luogo
 
 **Aula P2.0**
-<br>UNICAL, Cubo 41c Ponte Carrabile
+<br>UNICAL, Cubo 40c Ponte Carrabile
 
 <br>
 

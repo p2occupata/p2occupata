@@ -28,7 +28,7 @@ l'occasione perfetta per salutare il 2024 con risate, premi e tanta compagnia. ð
 ## Luogo
 
 **Aula P2.0**
-<br>UNICAL, Cubo 41c Ponte Carrabile
+<br>UNICAL, Cubo 40c Ponte Carrabile
 
 <br>
 
