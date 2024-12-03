@@ -6,11 +6,11 @@ start_date: 2024-12-05
 step: 7
 end_date: 2024-11-22
 location: "Aula P2.0 Occupata"
-description: "Dopo il successo della prima edizione, l'aula P2.0 occupata ripropone la serata a tema giochi"
+description: "Dopo il successo delle prime serate, l'aula P2.0 occupata ripropone la serata a tema giochi"
 ---
 
 # 🎲 Serata Giochi in Aula P2.0! Di nuovo! 🎮
-Dopo il successo della prima edizione, l'aula P2.0 occupata ripropone la serata a tema giochi
+Dopo il successo delle prime serate, l'aula P2.0 occupata ripropone la serata a tema giochi
 
 <br>
 
