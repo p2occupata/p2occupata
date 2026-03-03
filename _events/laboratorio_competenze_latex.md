@@ -13,7 +13,6 @@ description: "Scopri LaTeX, lo strumento usato in università e ricerca per crea
   <div class="container">
     <h1>{{ page.title }}</h1>
     <p class="event-meta">
-      <strong>Data:</strong> {{ page.start_date }}<br>
       <strong>Luogo:</strong> {{ page.location }}
     </p>
     <p class="event-description">
@@ -25,7 +24,7 @@ description: "Scopri LaTeX, lo strumento usato in università e ricerca per crea
 <section class="event-content">
   <div class="container">
 
-    <h2>📘 Introduzione a LaTeX</h2>
+    <h2>Introduzione a LaTeX</h2>
 
     <p>
       Il primo appuntamento del <strong>Laboratorio delle Competenze</strong> è dedicato a 
@@ -93,7 +92,7 @@ description: "Scopri LaTeX, lo strumento usato in università e ricerca per crea
     </blockquote>
 
     <p>
-      <strong>Workshop gratuito e aperto a tuttə.</strong><br>
+      <strong>Workshop gratuito.</strong><br>
       Porta il tuo computer se vuoi sperimentare direttamente.
     </p>
 
