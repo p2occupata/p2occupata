@@ -19,11 +19,11 @@ A differenza dei comuni editor di testo, LaTeX separa il contenuto dalla formatt
 
 Durante il workshop scopriremo:
 
-• cos’è LaTeX e perché viene usato in università e ricerca
-• come scrivere un documento ben strutturato fin da subito
-• come inserire formule matematiche, immagini e bibliografie
-• come lavorare online e collaborare con altre persone
-• come creare PDF professionali senza impazzire con la formattazione
+* cos’è LaTeX e perché viene usato in università e ricerca
+* come scrivere un documento ben strutturato fin da subito
+* come inserire formule matematiche, immagini e bibliografie
+* come lavorare online e collaborare con altre persone
+* come creare PDF professionali senza impazzire con la formattazione
 
 Non serve esperienza tecnica: partiremo dalle basi.
 
