@@ -9,25 +9,93 @@ location: "Aula P2.0 Occupata"
 description: "Scopri LaTeX, lo strumento usato in università e ricerca per creare documenti puliti, ordinati e professionali. Impareremo le basi per scrivere testi ben strutturati, inserire formule, immagini e bibliografie, e generare PDF di alta qualità."
 ---
 
-### Workshop gratuito: Introduzione a LaTeX
+<section class="event-hero">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    <p class="event-meta">
+      <strong>Data:</strong> {{ page.start_date }}<br>
+      <strong>Luogo:</strong> {{ page.location }}
+    </p>
+    <p class="event-description">
+      {{ page.description }}
+    </p>
+  </div>
+</section>
 
-**Scrivere documenti professionali in modo semplice e collaborativo**
+<section class="event-content">
+  <div class="container">
 
-LaTeX è uno strumento usato in tutto il mondo per creare documenti puliti, ordinati e professionali: tesi, articoli, dispense, CV, libri e presentazioni.
+    <h2>📘 Introduzione a LaTeX</h2>
 
-A differenza dei comuni editor di testo, LaTeX separa il contenuto dalla formattazione: tu ti concentri su ciò che scrivi, e il documento prende automaticamente una forma chiara ed elegante.
+    <p>
+      Il primo appuntamento del <strong>Laboratorio delle Competenze</strong> è dedicato a 
+      <strong>LaTeX</strong>, lo strumento utilizzato in università e ricerca per produrre 
+      documenti strutturati, precisi e visivamente impeccabili.
+    </p>
 
-Durante il workshop scopriremo:
+    <p>
+      A guidarci sarà 
+      <a href="https://www.linkedin.com/in/giusy-varano/" target="_blank" rel="noopener">
+        <strong>Giusy Varano</strong>
+      </a>, PhD Student in Fisica, che utilizza LaTeX quotidianamente per la scrittura 
+      scientifica e la produzione di documenti accademici.
+    </p>
 
-* cos’è LaTeX e perché viene usato in università e ricerca
-* come scrivere un documento ben strutturato fin da subito
-* come inserire formule matematiche, immagini e bibliografie
-* come lavorare online e collaborare con altre persone
-* come creare PDF professionali senza impazzire con la formattazione
+    <hr>
 
-Non serve esperienza tecnica: partiremo dalle basi.
+    <h3>Cos’è LaTeX?</h3>
 
-👉 È utile per studenti, insegnanti, ricercatori, scrittori, maker e chiunque voglia produrre documenti ordinati e leggibili.
-👉 Porta il tuo computer se vuoi provare direttamente.
+    <p>
+      LaTeX è un sistema di composizione tipografica che permette di concentrarsi sul contenuto, 
+      lasciando al sistema la gestione della formattazione.
+    </p>
 
-**Condividere strumenti significa rendere il sapere più accessibile.**
+    <p>È particolarmente potente per:</p>
+
+    <ul>
+      <li>Formule matematiche</li>
+      <li>Articoli scientifici</li>
+      <li>Tesi di laurea e dottorato</li>
+      <li>Bibliografie automatiche</li>
+      <li>Documenti lunghi e strutturati</li>
+    </ul>
+
+    <hr>
+
+    <h3>Cosa faremo durante il workshop</h3>
+
+    <ul>
+      <li>Creare il tuo primo documento</li>
+      <li>Capire la struttura base di un file LaTeX</li>
+      <li>Inserire formule matematiche</li>
+      <li>Gestire immagini e riferimenti</li>
+      <li>Creare automaticamente una bibliografia</li>
+      <li>Scoprire strumenti online per iniziare subito</li>
+    </ul>
+
+    <p>
+      Non è richiesta esperienza tecnica: partiremo dalle basi.
+    </p>
+
+    <hr>
+
+    <h3>Perché partecipare?</h3>
+
+    <ul>
+      <li>Risparmi tempo sulla formattazione</li>
+      <li>Migliori la qualità dei tuoi documenti</li>
+      <li>Impari uno standard internazionale accademico</li>
+      <li>Scopri uno strumento potente e collaborativo</li>
+    </ul>
+
+    <blockquote>
+      La conoscenza cresce quando è condivisa — e ogni competenza diventa una possibilità in più per tutti.
+    </blockquote>
+
+    <p>
+      <strong>Workshop gratuito e aperto a tuttə.</strong><br>
+      Porta il tuo computer se vuoi sperimentare direttamente.
+    </p>
+
+  </div>
+</section>
