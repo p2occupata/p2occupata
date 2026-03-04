@@ -6,7 +6,7 @@ start_date: 2026-11-03
 step: 7
 end_date: 2026-18-03
 location: "Aula P2.0 Occupata"
-description: "Scopri LaTeX, lo strumento usato in università e ricerca per creare documenti puliti, ordinati e professionali. Impareremo le basi per scrivere testi ben strutturati, inserire formule, immagini e bibliografie, e generare PDF di alta qualità."
+description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e professionali."
 ---
 
 <section class="event-hero">
