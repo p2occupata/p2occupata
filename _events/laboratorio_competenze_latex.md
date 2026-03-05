@@ -2,9 +2,9 @@
 layout: default
 title: "Laboratorio delle Competenze - LaTeX"
 short_description: "Workshop su LaTeX"
-start_date: 2026-11-03
+start_date: 2026-03-11
 step: 7
-end_date: 2026-18-03
+end_date: 2026-03-18
 location: "Aula P2.0 Occupata"
 description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e professionali."
 ---
@@ -104,7 +104,7 @@ description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e 
     <div class="event-meta">
       <div class="meta-box">
         <strong>📅 Data</strong><br>
-        {{ page.start_date }}
+        11 e 18 marzo 2026
       </div>
 
       <div class="meta-box">
@@ -190,7 +190,7 @@ description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e 
 
   <div class="cta">
     <p>
-      Workshop gratuito e aperto a tuttə.
+      Workshop gratuito e aperto a tutti.
       Porta il tuo computer se vuoi provare direttamente.
     </p>
   </div>
