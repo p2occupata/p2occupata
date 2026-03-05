@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: "Laboratorio delle Competenze - LaTeX"
