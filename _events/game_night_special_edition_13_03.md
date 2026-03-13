@@ -44,7 +44,7 @@ Durante la serata troverai diversi giochi tra cui:
 
 - Cluedo  
 - Bang!  
-- Lupu in tabula  
+- Lupus in tabula  
 - Monopoli
 - Cattivissimi 7
 - Claim
