@@ -9,7 +9,7 @@ description: "La serata più divertente dell'UNICAL"
 
 # 🎲 Game Night – Special Edition
 <br>
-Una serata di giochi, pizza e socialità all'**Aula P2.0 Occupata**.
+Una serata di giochi, pizza e socialità in **Aula P2.0 Occupata**.
 
 ---
 
