@@ -8,7 +8,7 @@ description: "La serata più divertente dell'UNICAL"
 ---
 
 # 🎲 Game Night – Special Edition
-
+<br>
 Una serata di giochi, pizza e socialità all'**Aula P2.0 Occupata**.
 
 ---
@@ -34,7 +34,7 @@ Durante la **Game Night della P2.0** potrai:
 - 👥 Partecipare a **giochi di gruppo**  
 - 🧠 Conoscere nuove persone e condividere una serata diversa nel campus
 
-L'evento è **aperto a tutte e tutti**, anche se non hai mai partecipato prima.
+L'evento è **aperto a tutti**, anche se non hai mai partecipato prima.
 
 ---
 
@@ -49,7 +49,7 @@ Durante la serata troverai diversi giochi tra cui:
 - Cattivissimi 7
 - Claim
 
-e tanti altri
+e tanti altri!!!
 
 💡 **Hai un gioco che vuoi far provare agli altri? Portalo!**
 
