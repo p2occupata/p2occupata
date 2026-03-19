@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Laboratorio delle Competenze - LaTeX"
-short_description: "Workshop su LaTeX"
-start_date: 2026-03-11
-step: 7
-end_date: 2026-03-18
+title: "Laboratorio delle Competenze - Come nasce un'impresa"
+short_description: "Mettersi in proprio"
+start_date: 2026-03-25
+step: 8
+end_date: 2026-03-25
 location: "Aula P2.0 Occupata"
-description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e professionali."
+description: "Dall’idea alla realtà: il percorso per creare un’impresa partendo da zero."
 ---
 
 <style>
@@ -104,7 +104,7 @@ description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e 
     <div class="event-meta">
       <div class="meta-box">
         <strong>📅 Data</strong><br>
-        11 e 18 marzo 2026
+        25 marzo 2026, ore 18:30
       </div>
 
       <div class="meta-box">
@@ -120,51 +120,51 @@ description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e 
   </div>
 
   <div class="section">
-    <h2>Cos’è LaTeX</h2>
+    <h2>Come nasce un'impresa</h2>
 
     <p>
-      LaTeX è uno strumento utilizzato in università e nel mondo della ricerca per creare
-      documenti strutturati, precisi e tipograficamente eleganti.
+      Mettersi in proprio è un percorso fatto di idee, tentativi, scelte e rischi.
+      Non esiste una formula unica, ma esistono esperienze reali da cui imparare.
     </p>
 
     <p>
-      A differenza dei normali editor di testo, permette di concentrarsi sul contenuto
-      mentre il sistema si occupa automaticamente della formattazione.
-      Il risultato sono documenti puliti, leggibili e professionali.
+      In questo incontro, Salvatore Russo racconterà la nascita di
+      <strong>River Trekking Experience</strong>, partendo dall’idea iniziale
+      fino alla sua realizzazione concreta.
     </p>
   </div>
 
   <div class="section">
-    <h2>Cosa impareremo</h2>
+    <h2>Cosa vedremo</h2>
 
     <ul>
-      <li>Creare il primo documento LaTeX</li>
-      <li>Strutturare correttamente un testo</li>
-      <li>Inserire formule matematiche</li>
-      <li>Aggiungere immagini e riferimenti</li>
-      <li>Gestire bibliografie in modo automatico</li>
-      <li>Generare PDF di alta qualità</li>
+      <li>Come nasce un’idea imprenditoriale</li>
+      <li>I primi passi per trasformarla in qualcosa di concreto</li>
+      <li>Difficoltà, errori e ostacoli lungo il percorso</li>
+      <li>Come si costruisce un progetto nel tempo</li>
+      <li>Esperienza diretta di chi ha già iniziato</li>
     </ul>
 
     <p>
-      Il workshop parte dalle basi e non richiede esperienza tecnica.
+      Un confronto aperto, pratico e reale per capire cosa significa davvero mettersi in proprio.
     </p>
   </div>
 
   <div class="section">
-    <h2>Relatrice</h2>
+    <h2>Relatore</h2>
 
     <div class="speaker">
-      <h3>Giusy Varano</h3>
+      <h3>Salvatore Russo</h3>
       <p>
-        PhD Student in Fisica. Utilizza LaTeX quotidianamente
-        per la scrittura scientifica e la produzione di documenti accademici.
+        CEO di River Trekking Experience.
+        Ha trasformato un’idea in un’attività concreta,
+        costruendo un progetto imprenditoriale legato al territorio.
       </p>
 
       <p>
-        Profilo LinkedIn:
-        <a href="https://www.linkedin.com/in/giusy-varano/" target="_blank">
-          linkedin.com/in/giusy-varano
+        Instagram:
+        <a href="https://www.instagram.com/river.trekking/" target="_blank">
+          @river.trekking
         </a>
       </p>
     </div>
@@ -179,7 +179,7 @@ description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e 
     </p>
 
     <p>
-      Tecnica, arte, scrittura, strumenti digitali, manualità:
+      Tecnica, esperienze, strumenti e percorsi di vita:
       ogni sapere ha valore quando viene messo in circolo.
     </p>
 
@@ -191,7 +191,6 @@ description: "LaTeX, lo strumento usato per creare documenti puliti, ordinati e 
   <div class="cta">
     <p>
       Workshop gratuito e aperto a tutti.
-      Porta il tuo computer se vuoi provare direttamente.
     </p>
   </div>
 
