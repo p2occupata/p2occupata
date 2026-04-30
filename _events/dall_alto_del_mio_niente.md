@@ -14,7 +14,7 @@ Un momento di **incontro, racconto e condivisione** all’interno dell’aula P2
 
 La presentazione del libro illustrato *“Dall’alto del mio niente”* sarà accompagnata da un’esposizione delle illustrazioni e da un confronto diretto con gli artisti.
 
-Un’occasione per attraversare insieme **processi creativi, immaginari e percorsi personali**, in uno spazio libero e aperto.
+Un’occasione per attraversare insieme **processi creativi, immaginari e percorsi personali**.
 
 <br>
 
