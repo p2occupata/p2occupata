@@ -1,49 +1,75 @@
 ---
 layout: default
-title: "Dall'alto del mio niente"
-short_description: "Presentazione libro"
-start_date: 2024-12-05
-step: 7
-end_date: 2024-11-22
+title: "Dall’alto del mio niente"
+short_description: "Presentazione libro illustrato e incontro con gli artisti"
+start_date: 2026-05-25
+end_date: 2026-05-25
 location: "Aula P2.0 Occupata"
-description: "Dopo il successo delle prime serate, l'aula P2.0 occupata ripropone la serata a tema giochi"
+description: "Presentazione del libro illustrato con esposizione e incontro con gli artisti"
 ---
 
-# 🎲 Serata Giochi in Aula P2.0! Di nuovo! 🎮
-Dopo il successo delle prime serate, l'aula P2.0 occupata ripropone la serata a tema giochi
+# 📖 Dall’alto del mio niente 🎨
+
+Un momento di **incontro, racconto e condivisione** all’interno dell’aula P2.0.
+
+La presentazione del libro illustrato *“Dall’alto del mio niente”* sarà accompagnata da un’esposizione delle illustrazioni e da un confronto diretto con gli artisti.
+
+Un’occasione per attraversare insieme **processi creativi, immaginari e percorsi personali**, in uno spazio libero e aperto.
 
 <br>
 
-## Data e Orario
+## Il Libro
 
-**🗓 Giovedì 5 dicembre a partire dalle 20:30**<br>
-Unisciti a noi per una serata di **puro divertimento**, giochi e compagnia! Dai giochi da tavolo ai videogiochi,
-c'è qualcosa per tutti. Non perderti quest'occasione per staccare la spina, fare nuove amicizie e **mettere
-alla prova le tue abilità!**
+“Dall’alto del mio niente” è un libro illustrato che racconta la nascita e l’evoluzione del processo creativo di un aspirante autore.
 
-**🗓 Giovedì 19 dicembre a partire dalle 20:30 🎄 Tombolata di Fine Anno 🎅**<br>
-Concludiamo l'anno con una serata all'insegna del divertimento e della tradizione! La Tombolata di Fine Anno è
-l'occasione perfetta per salutare il 2024 con risate, premi e tanta compagnia. 🎉
+Attraverso una struttura che richiama il **viaggio dell’eroe**, il protagonista si muove tra ricordi, flashback e percorsi interiori, cercando di convincersi che la sua storia merita di essere raccontata.
+
+La narrazione attraversa temi come:
+- processi interiori  
+- relazioni complesse  
+- esperienze di vita e trasformazione  
+
+Un racconto visivo e narrativo che mescola **introspezione, immaginario e tensione creativa**.
+
+<br>
+
+## Gli Artisti
+
+**✍️ Gabriella Capraro (Gab)**  
+Copywriter e ghostwriter, la sua scrittura si muove tra introspezione e flusso di coscienza, alternando profondità e ironia quotidiana. Tra le sue influenze: David Foster Wallace e Dion Fortune.
+
+<br>
+
+**🎨 Alberto Cianflone (Raudo)**  
+Illustratore e artista visivo, con un background nel writing e nei graffiti. La sua estetica si ispira a immaginari horror e punk, con richiami al fumetto argentino e americano.
+
+<br>
+
+**🌙 Susanna Nicolazzo (Sue)**  
+Illustratrice e social media manager, il suo lavoro unisce narrazione visiva e illustrazione digitale, creando atmosfere oniriche, intime e surreali.
+
+<br>
+
+## Programma
+
+**🗓 Domenica 25 Maggio 2026**  
+**🕕 Ore 18:00**
+
+- Presentazione del libro  
+- Esposizione delle illustrazioni  
+- Incontro e dialogo con gli artisti  
+
+<br>
 
 ## Luogo
 
-**Aula P2.0**
-<br>UNICAL, Cubo 40c Ponte Carrabile
+**Aula P2.0 Occupata**  
+UNICAL – Cubo 40C, Ponte Carrabile  
 
 <br>
 
-## Attività della Serata
-
-**Scegli il tuo gioco e prepara la sfida!**
-
-[//]: # (- **Giochi da Tavolo**: Dixit, Catan, Uno, Risiko e tanti altri classici!)
-
-[//]: # (- **Videogiochi Multiplayer**: FIFA, Mario Kart, e giochi in modalità cooperativa!)
-
-[//]: # (- **Giochi di Ruolo**: Sessione introduttiva a D&D e mini-avventure.)
-
-[//]: # (- **Tornei e Quiz**: Sfide, quiz di cultura generale e mini-gare per tutti.)
+Uno spazio libero, autogestito e aperto, dove la cultura si costruisce insieme.
 
 <br>
 
-**Per qualsiasi domanda ci trovi sempre in aula o puoi contattarci sul nostro [Instagram](https://www.instagram.com/aulap2.0occupata/)**.
+**Per aggiornamenti e info seguici sui nostri [SOCIAL](https://linktr.ee/p2_0_occupata)**.
