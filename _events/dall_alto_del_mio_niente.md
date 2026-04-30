@@ -55,7 +55,7 @@ Illustratrice e social media manager, il suo lavoro unisce narrazione visiva e i
 
 ## Programma
 
-**🗓 Domenica 25 Maggio 2026**  
+**🗓 Lunedì 25 Maggio 2026**  
 **🕕 Ore 18:00**
 
 - Presentazione del libro  
