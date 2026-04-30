@@ -37,7 +37,7 @@ Un racconto visivo e narrativo che mescola **introspezione, immaginario e tensio
 
 **✍️ Gabriella Capraro (Gab)**  
 Copywriter e ghostwriter, la sua scrittura si muove tra introspezione e flusso di coscienza, alternando profondità e ironia quotidiana.  
-🔗 Instagram: [@ga_ogab_piuablativo](https://instagram.com/ga_ogab_piuablativo)
+🔗 Instagram: [@ga_o_gab_piuablativo](https://instagram.com/ga_o_gab_piuablativo)
 
 <br>
 
