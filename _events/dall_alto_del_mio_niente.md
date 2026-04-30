@@ -36,17 +36,20 @@ Un racconto visivo e narrativo che mescola **introspezione, immaginario e tensio
 ## Gli Artisti
 
 **✍️ Gabriella Capraro (Gab)**  
-Copywriter e ghostwriter, la sua scrittura si muove tra introspezione e flusso di coscienza, alternando profondità e ironia quotidiana. Tra le sue influenze: David Foster Wallace e Dion Fortune.
+Copywriter e ghostwriter, la sua scrittura si muove tra introspezione e flusso di coscienza, alternando profondità e ironia quotidiana.  
+🔗 Instagram: [@ga_ogab_piuablativo](https://instagram.com/ga_ogab_piuablativo)
 
 <br>
 
 **🎨 Alberto Cianflone (Raudo)**  
-Illustratore e artista visivo, con un background nel writing e nei graffiti. La sua estetica si ispira a immaginari horror e punk, con richiami al fumetto argentino e americano.
+Illustratore e artista visivo, con un background nel writing e nei graffiti. La sua estetica si ispira a immaginari horror e punk, con richiami al fumetto argentino e americano.  
+🔗 Instagram: [@alien_raudo](https://instagram.com/alien_raudo)
 
 <br>
 
 **🌙 Susanna Nicolazzo (Sue)**  
-Illustratrice e social media manager, il suo lavoro unisce narrazione visiva e illustrazione digitale, creando atmosfere oniriche, intime e surreali.
+Illustratrice e social media manager, il suo lavoro unisce narrazione visiva e illustrazione digitale, creando atmosfere oniriche, intime e surreali.  
+🔗 Instagram: [@illustration__sue](https://instagram.com/illustration__sue)
 
 <br>
 
