@@ -19,7 +19,7 @@ layout: default
                 </div>
                 <h1 class="evento-page-title">{{ page.titolo }}</h1>
                 <div class="evento-meta-row">
-                    <span class="evento-meta-item">📅 {{ page.data | date: "%d %B %Y" }}</span>
+                    <span class="evento-meta-item">📅 {{ page.data | date: "%d/%m/%Y" }}</span>
                     {% if page.ora %}<span class="evento-meta-item">🕐 {{ page.ora }}</span>{% endif %}
                     {% if page.luogo %}<span class="evento-meta-item">📍 {{ page.luogo }}</span>{% endif %}
                 </div>
