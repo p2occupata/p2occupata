@@ -2,44 +2,42 @@
 layout: default
 ---
 
-<article class="evento-page">
-    <div class="evento-hero">
-        <div class="container">
-            <a href="{{ '/' | relative_url }}#eventi" class="evento-back">← Torna agli eventi</a>
-            <div class="evento-hero-content">
-                <div class="evento-badge evento-badge--{{ page.categoria | default: 'altro' }}">
-                    {% case page.categoria %}
-                        {% when 'concerto' %}🎵 Concerto
-                        {% when 'dibattito' %}💬 Dibattito
-                        {% when 'proiezione' %}🎬 Proiezione
-                        {% when 'workshop' %}🛠️ Workshop
-                        {% when 'assemblea' %}📋 Assemblea
-                        {% else %}📌 Evento
-                    {% endcase %}
-                </div>
-                <h1 class="evento-page-title">{{ page.titolo }}</h1>
-                <div class="evento-meta-row">
-                    <span class="evento-meta-item">📅 {{ page.data | date: "%d/%m/%Y" }}</span>
-                    {% if page.ora %}<span class="evento-meta-item">🕐 {{ page.ora }}</span>{% endif %}
-                    {% if page.luogo %}<span class="evento-meta-item">📍 {{ page.luogo }}</span>{% endif %}
-                </div>
-            </div>
+{% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
+{% assign indice_mese = page.data | date: "%-m" | minus: 1 %}
+{% case page.categoria %}
+    {% when 'concerto' %}{% assign nome_categoria = "Concerto" %}
+    {% when 'dibattito' %}{% assign nome_categoria = "Dibattito" %}
+    {% when 'proiezione' %}{% assign nome_categoria = "Proiezione" %}
+    {% when 'workshop' %}{% assign nome_categoria = "Workshop" %}
+    {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
+    {% else %}{% assign nome_categoria = "Evento" %}
+{% endcase %}
+
+<article>
+    <header class="sezione sezione--acqua">
+        <div class="contenitore evento-testata">
+            <a class="link" href="{{ '/' | relative_url }}#eventi">Torna agli eventi</a>
+            <span class="etichetta etichetta--{{ page.categoria | default: 'altro' }}">{{ nome_categoria }}</span>
+            <h1 class="titolo-xl">{{ page.titolo }}</h1>
+            <ul class="dati-evento">
+                <li><span>Quando</span><strong>{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</strong></li>
+                {% if page.ora %}<li><span>Ora</span><strong>{{ page.ora }}</strong></li>{% endif %}
+                {% if page.luogo %}<li><span>Dove</span><strong>{{ page.luogo }}</strong></li>{% endif %}
+            </ul>
         </div>
-    </div>
+    </header>
 
-    <div class="evento-body">
-        <div class="container">
-            <div class="evento-content-wrapper">
-                {% if page.descrizione %}
-                <p class="evento-description">{{ page.descrizione }}</p>
-                {% endif %}
+    <div class="sezione">
+        <div class="contenitore evento-corpo">
+            {% if page.descrizione %}
+            <p class="attacco">{{ page.descrizione }}</p>
+            {% endif %}
 
-                {% if content != "" and content != "\n" %}
-                <div class="evento-text">
-                    {{ content }}
-                </div>
-                {% endif %}
+            {% if content != "" and content != "\n" %}
+            <div class="evento-testo">
+                {{ content }}
             </div>
+            {% endif %}
         </div>
     </div>
 </article>

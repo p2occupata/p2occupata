@@ -1,0 +1,1047 @@
+/*
+ * Aula P2.0 Occupata — componenti del design system
+ *
+ * Richiede tokens.css. Le classi usano nomi italiani e un solo livello
+ * di specificità (una classe), con varianti nella forma `--variante`.
+ * Gli stati (`:hover`, `:focus-visible`) sono l'unica eccezione.
+ *
+ * Il pezzo forte è lo striscione: uno per pagina. Tutto il resto è calmo.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Base                                                               */
+/* ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--muro);
+    color: var(--inchiostro);
+    font-family: var(--font-testo);
+    font-size: var(--testo-m);
+    line-height: var(--interlinea-testo);
+    overflow-x: clip;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-titoli);
+    font-weight: var(--peso-titoli);
+    line-height: var(--interlinea-titoli);
+    text-wrap: balance;
+}
+
+p {
+    max-width: var(--misura);
+    text-wrap: pretty;
+}
+
+::selection {
+    background: var(--sedia);
+    color: var(--inchiostro);
+}
+
+:focus-visible {
+    outline: 3px solid var(--sedia);
+    outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Tipografia                                                         */
+/* ------------------------------------------------------------------ */
+
+/* Le classi dei titoli valgono anche su elementi che non sono h1–h4 */
+.titolo-xl,
+.titolo-l,
+.titolo-m,
+.titolo-s,
+.titolo-xs {
+    display: block;
+    font-family: var(--font-titoli);
+    font-weight: var(--peso-titoli);
+    line-height: var(--interlinea-titoli);
+    text-wrap: balance;
+}
+
+.titolo-xl {
+    font-size: var(--titolo-xl);
+    font-weight: var(--peso-titoli);
+    line-height: 0.95;
+}
+
+.titolo-l {
+    font-size: var(--titolo-l);
+    font-weight: var(--peso-titoli);
+    line-height: 0.95;
+}
+
+.titolo-m {
+    font-size: var(--titolo-m);
+}
+
+.titolo-s {
+    font-size: var(--titolo-s);
+    line-height: 1;
+}
+
+.titolo-xs {
+    font-size: var(--titolo-xs);
+    font-weight: var(--peso-titoli);
+    line-height: 1.05;
+}
+
+.attacco {
+    max-width: 40ch;
+    font-size: var(--testo-l);
+    line-height: 1.5;
+}
+
+.nota {
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+}
+
+/* ------------------------------------------------------------------ */
+/* Impaginazione                                                      */
+/* ------------------------------------------------------------------ */
+
+.contenitore {
+    width: min(100% - 2 * var(--margine-pagina), var(--larghezza));
+    margin-inline: auto;
+}
+
+.sezione {
+    position: relative;
+    padding-block: var(--spazio-sezione);
+    isolation: isolate;
+}
+
+.sezione--foglio {
+    background: var(--foglio);
+}
+
+.sezione--inchiostro {
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+}
+
+.sezione--acqua {
+    background: var(--acqua-scura);
+    color: var(--su-scuro);
+}
+
+.sezione--rosso {
+    background: var(--rosso);
+    color: var(--su-scuro);
+}
+
+.intestazione {
+    display: grid;
+    gap: var(--spazio-5);
+    max-width: 760px;
+    margin-bottom: var(--spazio-8);
+}
+
+.intestazione > p:not(.nota) {
+    font-size: var(--testo-l);
+    line-height: 1.5;
+}
+
+.sezione--foglio .intestazione > p:not(.nota),
+.intestazione--tenue > p:not(.nota) {
+    color: var(--inchiostro-tenue);
+}
+
+.colonne {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(40px, 8vw, 120px);
+    align-items: center;
+}
+
+/* ------------------------------------------------------------------ */
+/* Striscione (il pezzo forte: uno per pagina, in apertura)           */
+/* ------------------------------------------------------------------ */
+
+.striscione {
+    position: relative;
+    padding: clamp(28px, 4vw, 52px) var(--margine-pagina) clamp(32px, 4.5vw, 60px);
+    background: var(--rosso);
+    color: var(--su-scuro);
+}
+
+/* Occhielli agli angoli, dove passa la corda */
+.striscione::before,
+.striscione::after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    border: 3px solid var(--muro-ombra);
+    border-radius: 50%;
+    background: var(--inchiostro);
+}
+
+.striscione::before {
+    left: 14px;
+}
+
+.striscione::after {
+    right: 14px;
+}
+
+.striscione-testo {
+    display: block;
+    width: min(100%, var(--larghezza));
+    margin-inline: auto;
+    font-family: var(--font-striscione);
+    font-size: var(--titolo-xl);
+    font-weight: var(--peso-titoli);
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+/* L'unico movimento automatico: lo striscione si srotola */
+.striscione--srotola .striscione-testo {
+    animation: srotola var(--durata-striscione) var(--curva) 200ms both;
+}
+
+@keyframes srotola {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.striscione--inchiostro {
+    background: var(--inchiostro);
+    color: var(--sedia);
+}
+
+/* ------------------------------------------------------------------ */
+/* Macchia (la forma del logo: al massimo una per pagina)             */
+/* ------------------------------------------------------------------ */
+
+.macchia {
+    position: absolute;
+    z-index: -1;
+    width: var(--misura-macchia, 360px);
+    aspect-ratio: 1;
+    background: var(--acqua);
+    pointer-events: none;
+    -webkit-mask: url('forme/macchia-1.svg') center / contain no-repeat;
+    mask: url('forme/macchia-1.svg') center / contain no-repeat;
+}
+
+/* ------------------------------------------------------------------ */
+/* Bottoni                                                            */
+/* ------------------------------------------------------------------ */
+
+.bottone {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spazio-3);
+    padding: var(--spazio-3) var(--spazio-6);
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+    background: transparent;
+    color: var(--inchiostro);
+    font-family: var(--font-titoli);
+    font-size: var(--testo-l);
+    font-weight: var(--peso-titoli);
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background var(--durata-breve) var(--curva),
+        color var(--durata-breve) var(--curva),
+        border-color var(--durata-breve) var(--curva);
+}
+
+.bottone:hover {
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+}
+
+.bottone--primario {
+    border-color: var(--rosso);
+    background: var(--rosso);
+    color: var(--su-scuro);
+}
+
+.bottone--primario:hover {
+    border-color: var(--rosso-testo);
+    background: var(--rosso-testo);
+}
+
+.bottone--su-scuro {
+    border-color: var(--su-scuro);
+    color: var(--su-scuro);
+}
+
+.bottone--su-scuro:hover {
+    background: var(--su-scuro);
+    color: var(--inchiostro);
+}
+
+.bottone--piccolo {
+    min-height: 42px;
+    padding: var(--spazio-2) var(--spazio-5);
+    font-size: var(--testo-m);
+}
+
+/* ------------------------------------------------------------------ */
+/* Link                                                               */
+/* ------------------------------------------------------------------ */
+
+.link {
+    font-weight: 700;
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--rosso);
+    text-underline-offset: 0.22em;
+    transition: text-decoration-thickness var(--durata-breve) var(--curva);
+}
+
+.link:hover {
+    text-decoration-thickness: 4px;
+}
+
+.sezione--acqua .link,
+.sezione--inchiostro .link,
+.sezione--rosso .link {
+    text-decoration-color: var(--sedia);
+}
+
+/* La freccia compare solo sui link che portano fuori dal sito */
+.link--esterno::after {
+    content: '\2009\2197' / '';
+}
+
+/* Elenco di link grandi, per "come arrivare" e "contatti" */
+.elenco-link {
+    display: grid;
+    padding: 0;
+    list-style: none;
+    border-top: 2px solid currentColor;
+}
+
+.elenco-link a {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spazio-5);
+    padding-block: var(--spazio-4);
+    border-bottom: 2px solid currentColor;
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    font-weight: var(--peso-titoli);
+    line-height: 1.1;
+    text-decoration: none;
+}
+
+.elenco-link a::after {
+    content: '\2197' / '';
+    flex: none;
+    transition: transform var(--durata-breve) var(--curva);
+}
+
+.elenco-link a:hover {
+    color: var(--sedia);
+}
+
+.elenco-link a:hover::after {
+    transform: translate(3px, -3px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Etichette (categorie degli eventi, didascalie brevi)               */
+/* ------------------------------------------------------------------ */
+
+.etichetta {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    padding: 2px var(--spazio-3);
+    border-radius: var(--raggio-s);
+    background: var(--muro-ombra);
+    color: var(--inchiostro);
+    font-family: var(--font-titoli);
+    font-size: var(--testo-m);
+    font-weight: var(--peso-titoli);
+    line-height: 1.5;
+}
+
+.etichetta--concerto {
+    background: var(--rosso);
+    color: var(--su-scuro);
+}
+
+.etichetta--dibattito {
+    background: var(--acqua-scura);
+    color: var(--su-scuro);
+}
+
+.etichetta--proiezione {
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+}
+
+.etichetta--workshop {
+    background: var(--banco);
+}
+
+.etichetta--assemblea {
+    background: var(--sedia);
+}
+
+/* ------------------------------------------------------------------ */
+/* Nastro adesivo                                                     */
+/* ------------------------------------------------------------------ */
+
+.nastro {
+    position: absolute;
+    z-index: 2;
+    width: 96px;
+    height: 26px;
+    background: var(--nastro);
+    clip-path: polygon(
+        0 8%, 6% 0, 12% 10%, 20% 2%, 100% 0, 96% 50%, 100% 100%,
+        88% 92%, 80% 100%, 0 100%, 4% 50%
+    );
+    pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Manifesto (foto incollata al muro, l'unico elemento inclinato)     */
+/* ------------------------------------------------------------------ */
+
+.manifesto {
+    position: relative;
+    padding: var(--spazio-3) var(--spazio-3) var(--spazio-5);
+    border-radius: var(--raggio-foglio);
+    background: var(--foglio);
+    box-shadow: 0 1px 0 var(--muro-ombra), 0 18px 40px -18px rgba(29, 42, 44, 0.45);
+    rotate: var(--inclinazione-manifesto);
+}
+
+.manifesto img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.manifesto::before,
+.manifesto::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: -12px;
+    width: 104px;
+    height: 28px;
+    background: var(--nastro);
+    clip-path: polygon(
+        0 8%, 6% 0, 12% 10%, 20% 2%, 100% 0, 96% 50%, 100% 100%,
+        88% 92%, 80% 100%, 0 100%, 4% 50%
+    );
+}
+
+.manifesto::before {
+    left: 12%;
+    rotate: -4deg;
+}
+
+.manifesto::after {
+    right: 12%;
+    rotate: 3deg;
+}
+
+.manifesto figcaption {
+    margin-top: var(--spazio-3);
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    font-weight: var(--peso-titoli);
+    line-height: 1.1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Voci (attività dell'aula, senza numerazione)                       */
+/* ------------------------------------------------------------------ */
+
+.voci {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(28px, 4vw, 56px);
+    padding: 0;
+    list-style: none;
+}
+
+.voce {
+    display: grid;
+    align-content: start;
+    gap: var(--spazio-4);
+    padding-top: var(--spazio-5);
+    border-top: 4px solid currentColor;
+}
+
+.voce h3 {
+    font-size: var(--titolo-m);
+}
+
+.voce p {
+    max-width: 34ch;
+}
+
+/* ------------------------------------------------------------------ */
+/* Citazione (una frase del collettivo in evidenza)                   */
+/* ------------------------------------------------------------------ */
+
+.citazione {
+    padding-left: var(--spazio-5);
+    border-left: 6px solid var(--rosso);
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-m);
+    font-weight: var(--peso-titoli);
+    line-height: 1;
+    text-wrap: balance;
+}
+
+/* ------------------------------------------------------------------ */
+/* Bacheca e volantini (eventi)                                       */
+/* ------------------------------------------------------------------ */
+
+.bacheca {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: clamp(32px, 4vw, 44px) clamp(20px, 3vw, 32px);
+    padding: var(--spazio-4) 0 0;
+    list-style: none;
+}
+
+.volantino {
+    position: relative;
+    display: grid;
+    height: 100%;
+    min-height: 300px;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--spazio-4);
+    padding: var(--spazio-6) var(--spazio-5) var(--spazio-5);
+    border: var(--tratto);
+    border-radius: var(--raggio-foglio);
+    background: var(--foglio);
+    box-shadow: var(--ombra-foglio);
+    text-decoration: none;
+    transition:
+        transform var(--durata-media) var(--curva),
+        box-shadow var(--durata-media) var(--curva);
+}
+
+/* Striscia di nastro in alto, al centro */
+.volantino::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    width: 96px;
+    height: 26px;
+    translate: -50% 0;
+    background: var(--nastro);
+    clip-path: polygon(
+        0 8%, 6% 0, 12% 10%, 20% 2%, 100% 0, 96% 50%, 100% 100%,
+        88% 92%, 80% 100%, 0 100%, 4% 50%
+    );
+}
+
+a.volantino:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--ombra-foglio-su);
+}
+
+.volantino-data {
+    display: grid;
+    font-family: var(--font-titoli);
+    font-weight: var(--peso-titoli);
+    line-height: 0.85;
+}
+
+.volantino-giorno {
+    color: var(--rosso);
+    font-size: clamp(3.5rem, 6vw, 4.5rem);
+}
+
+.volantino-mese {
+    font-size: var(--titolo-xs);
+    font-weight: var(--peso-titoli);
+}
+
+.volantino-titolo {
+    display: block;
+    align-self: end;
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-s);
+    font-weight: var(--peso-titoli);
+    line-height: 1;
+    text-wrap: balance;
+}
+
+.volantino-dove {
+    display: block;
+    margin-top: var(--spazio-2);
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+}
+
+/* Volantini passati: più piccoli e sbiaditi, senza ombra */
+.volantino--passato {
+    min-height: 0;
+    border-color: var(--inchiostro-tenue);
+    background: var(--muro-ombra);
+    box-shadow: none;
+}
+
+.volantino--passato::before {
+    opacity: 0.5;
+}
+
+.volantino--passato .volantino-giorno {
+    color: var(--inchiostro-tenue);
+    font-size: var(--titolo-m);
+}
+
+.volantino--passato .volantino-titolo {
+    font-size: var(--titolo-xs);
+}
+
+/* Bacheca vuota: un foglio solo con un invito */
+.bacheca-vuota {
+    position: relative;
+    display: grid;
+    max-width: 720px;
+    gap: var(--spazio-5);
+    justify-items: start;
+    padding: clamp(32px, 5vw, 56px);
+    border: var(--tratto);
+    border-radius: var(--raggio-foglio);
+    background: var(--foglio);
+    box-shadow: var(--ombra-foglio);
+}
+
+.bacheca-vuota::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 48px;
+    width: 112px;
+    height: 28px;
+    background: var(--nastro);
+    clip-path: polygon(
+        0 8%, 6% 0, 12% 10%, 20% 2%, 100% 0, 96% 50%, 100% 100%,
+        88% 92%, 80% 100%, 0 100%, 4% 50%
+    );
+}
+
+.bacheca-vuota p {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-s);
+    font-weight: var(--peso-titoli);
+    line-height: 1.05;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cassetto (details/summary, es. eventi passati)                     */
+/* ------------------------------------------------------------------ */
+
+.cassetto {
+    margin-top: var(--spazio-8);
+}
+
+.cassetto > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spazio-3);
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    font-weight: var(--peso-titoli);
+    list-style: none;
+    cursor: pointer;
+}
+
+.cassetto > summary::-webkit-details-marker {
+    display: none;
+}
+
+.cassetto > summary::before {
+    content: '+';
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: var(--raggio-s);
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+    font-family: var(--font-testo);
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: rotate var(--durata-media) var(--curva);
+}
+
+.cassetto[open] > summary::before {
+    rotate: 45deg;
+}
+
+.cassetto > :not(summary) {
+    margin-top: var(--spazio-6);
+}
+
+/* ------------------------------------------------------------------ */
+/* Dati di un evento                                                  */
+/* ------------------------------------------------------------------ */
+
+.dati-evento {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spazio-5) var(--spazio-7);
+    padding: var(--spazio-5) 0 0;
+    border-top: 2px solid currentColor;
+    list-style: none;
+}
+
+.dati-evento li {
+    display: grid;
+    line-height: 1.2;
+}
+
+.dati-evento span {
+    color: var(--su-scuro-tenue);
+    font-size: var(--testo-s);
+}
+
+.dati-evento strong {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-s);
+    font-weight: var(--peso-titoli);
+}
+
+/* ------------------------------------------------------------------ */
+/* Pannello (blocco di testo lungo, es. storia o corpo evento)        */
+/* ------------------------------------------------------------------ */
+
+.pannello {
+    display: grid;
+    gap: var(--spazio-5);
+    padding: clamp(28px, 4vw, 48px);
+    border-radius: var(--raggio-m);
+    background: var(--foglio);
+}
+
+.pannello p {
+    font-size: var(--testo-l);
+    line-height: 1.65;
+}
+
+/* Il pannello è sempre chiaro: i link tornano rossi anche su sezioni scure */
+.pannello .link {
+    text-decoration-color: var(--rosso);
+}
+
+/* ------------------------------------------------------------------ */
+/* Navigazione                                                        */
+/* ------------------------------------------------------------------ */
+
+.navigazione {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--muro);
+    border-bottom: var(--tratto);
+}
+
+.navigazione-interno {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spazio-5);
+}
+
+.navigazione-marchio img {
+    width: 80px;
+    height: auto;
+}
+
+.navigazione-voci {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2.4vw, 32px);
+}
+
+.navigazione-voci a:not(.bottone) {
+    font-family: var(--font-titoli);
+    font-size: var(--testo-l);
+    font-weight: var(--peso-titoli);
+    text-decoration-line: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color var(--durata-breve) var(--curva);
+}
+
+.navigazione-voci a:not(.bottone):hover,
+.navigazione-voci a[aria-current] {
+    text-decoration-color: var(--rosso);
+}
+
+.navigazione-apri {
+    display: none;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+    background: transparent;
+    cursor: pointer;
+}
+
+.navigazione-apri span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 4px auto;
+    background: var(--inchiostro);
+    transition: transform var(--durata-media) var(--curva);
+}
+
+.navigazione-apri[aria-expanded='true'] span:first-child {
+    transform: translateY(3px) rotate(45deg);
+}
+
+.navigazione-apri[aria-expanded='true'] span:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+}
+
+/* ------------------------------------------------------------------ */
+/* Piede di pagina                                                    */
+/* ------------------------------------------------------------------ */
+
+.piede {
+    padding-block: var(--spazio-8) var(--spazio-6);
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+}
+
+.piede-interno {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spazio-7);
+}
+
+.piede-interno img {
+    width: 128px;
+    height: auto;
+    margin-bottom: var(--spazio-4);
+}
+
+.piede-interno p {
+    max-width: 32ch;
+    color: var(--su-scuro-tenue);
+}
+
+.piede-link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spazio-3) var(--spazio-6);
+    padding: 0;
+    list-style: none;
+}
+
+.piede-link a {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    font-weight: var(--peso-titoli);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--sedia);
+    text-underline-offset: 0.25em;
+}
+
+.piede-link a:hover {
+    color: var(--sedia);
+}
+
+.piede-fondo {
+    margin-top: var(--spazio-7);
+    padding-top: var(--spazio-5);
+    border-top: 1px solid rgba(255, 253, 248, 0.25);
+    color: var(--su-scuro-tenue);
+    font-size: var(--testo-xs);
+}
+
+/* ------------------------------------------------------------------ */
+/* Salta al contenuto                                                 */
+/* ------------------------------------------------------------------ */
+
+.salta {
+    position: fixed;
+    top: var(--spazio-2);
+    left: var(--spazio-2);
+    z-index: 100;
+    padding: var(--spazio-2) var(--spazio-4);
+    border-radius: var(--raggio-s);
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+    transform: translateY(-160%);
+}
+
+.salta:focus {
+    transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------ */
+/* Schermi piccoli                                                    */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+    .colonne {
+        grid-template-columns: 1fr;
+    }
+
+    .voci {
+        grid-template-columns: 1fr;
+        gap: var(--spazio-7);
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        scroll-padding-top: 80px;
+    }
+
+    .navigazione-interno {
+        min-height: 66px;
+    }
+
+    .navigazione-marchio img {
+        width: 66px;
+    }
+
+    .navigazione-apri {
+        display: block;
+    }
+
+    .navigazione-voci {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: var(--spazio-3) var(--margine-pagina) var(--spazio-6);
+        border-bottom: var(--tratto);
+        background: var(--muro);
+    }
+
+    .navigazione-voci.is-aperta {
+        display: flex;
+    }
+
+    .navigazione-voci a:not(.bottone) {
+        padding-block: var(--spazio-3);
+        font-size: var(--titolo-xs);
+    }
+
+    .navigazione-voci .bottone {
+        margin-top: var(--spazio-4);
+    }
+
+    .striscione::before,
+    .striscione::after {
+        top: 8px;
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+    }
+
+    .striscione::before {
+        left: 8px;
+    }
+
+    .striscione::after {
+        right: 8px;
+    }
+
+    .elenco-link a {
+        font-size: var(--testo-l);
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Movimento ridotto                                                  */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: 1ms !important;
+    }
+}

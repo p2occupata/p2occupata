@@ -1,0 +1,27 @@
+{% comment %}
+    Volantino di un evento nella bacheca.
+    Parametri: evento (documento della collezione eventi), passato (true per gli eventi già fatti).
+{% endcomment %}
+{% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
+{% assign indice_mese = include.evento.data | date: "%-m" | minus: 1 %}
+{% case include.evento.categoria %}
+    {% when 'concerto' %}{% assign nome_categoria = "Concerto" %}
+    {% when 'dibattito' %}{% assign nome_categoria = "Dibattito" %}
+    {% when 'proiezione' %}{% assign nome_categoria = "Proiezione" %}
+    {% when 'workshop' %}{% assign nome_categoria = "Workshop" %}
+    {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
+    {% else %}{% assign nome_categoria = "Evento" %}
+{% endcase %}
+<li>
+    <a class="volantino{% if include.passato %} volantino--passato{% endif %}" href="{{ include.evento.url | relative_url }}">
+        {% unless include.passato %}<span class="etichetta etichetta--{{ include.evento.categoria | default: 'altro' }}">{{ nome_categoria }}</span>{% endunless %}
+        <span class="volantino-data">
+            <span class="volantino-giorno">{{ include.evento.data | date: "%-d" }}</span>
+            <span class="volantino-mese">{{ mesi[indice_mese] }}{% if include.passato %} {{ include.evento.data | date: "%Y" }}{% endif %}</span>
+        </span>
+        <span>
+            <span class="volantino-titolo">{{ include.evento.titolo }}</span>
+            {% unless include.passato %}{% if include.evento.ora or include.evento.luogo %}<span class="volantino-dove">{% if include.evento.ora %}Ore {{ include.evento.ora }}{% endif %}{% if include.evento.ora and include.evento.luogo %}, {% endif %}{{ include.evento.luogo }}</span>{% endif %}{% endunless %}
+        </span>
+    </a>
+</li>

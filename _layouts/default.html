@@ -6,71 +6,53 @@
     <meta name="description" content="{{ page.meta_description | default: site.description | escape }}">
     <title>{{ page.title | default: site.title | escape }}</title>
     <link rel="icon" type="image/png" href="{{ '/images/logo.png' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/tokens.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/componenti.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/sito.css' | relative_url }}">
 </head>
 <body>
-    <a class="skip-link" href="#contenuto">Vai al contenuto</a>
-    <nav class="site-nav" aria-label="Navigazione principale">
-        <div class="container nav-inner">
-            <a class="brand" href="{{ '/' | relative_url }}#inizio" aria-label="Aula P2.0 Occupata, torna all'inizio">
-                <img src="{{ '/images/logo.png' | relative_url }}" alt="" width="86" height="55">
+    <a class="salta" href="#contenuto">Vai al contenuto</a>
+
+    <nav class="navigazione" aria-label="Navigazione principale">
+        <div class="contenitore navigazione-interno">
+            <a class="navigazione-marchio" href="{{ '/' | relative_url }}#inizio" aria-label="Aula P2.0 Occupata, torna all'inizio">
+                <img src="{{ '/images/logo.png' | relative_url }}" alt="" width="80" height="51">
             </a>
-            <button class="menu-toggle" type="button" aria-label="Apri il menu" aria-controls="nav-links" aria-expanded="false">
-                <span></span><span></span><span></span>
+            <button class="navigazione-apri" type="button" aria-label="Apri il menu" aria-controls="navigazione-voci" aria-expanded="false">
+                <span></span><span></span>
             </button>
-            <div class="nav-links" id="nav-links">
+            <div class="navigazione-voci" id="navigazione-voci">
                 <a href="{{ '/' | relative_url }}#vieni">Vieni in aula</a>
                 <a href="{{ '/' | relative_url }}#cosa-facciamo">La vita in P2.0</a>
                 <a href="{{ '/' | relative_url }}#storia">La storia</a>
                 <a href="{{ '/' | relative_url }}#eventi">Eventi</a>
-                <a class="nav-participate" href="{{ '/' | relative_url }}#partecipa">Partecipa ↗</a>
+                <a class="bottone bottone--piccolo" href="{{ '/' | relative_url }}#partecipa">Partecipa</a>
             </div>
         </div>
     </nav>
 
     <div id="contenuto">{{ content }}</div>
 
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div>
-                <img src="{{ '/images/logo.png' | relative_url }}" alt="Aula P2.0 Occupata" width="120" height="77">
-                <p>Uno spazio autogestito all'Università della Calabria.</p>
+    <footer class="piede">
+        <div class="contenitore">
+            <div class="piede-interno">
+                <div>
+                    <img src="{{ '/images/logo.png' | relative_url }}" alt="Aula P2.0 Occupata" width="128" height="82">
+                    <p>Uno spazio autogestito all'Università della Calabria.</p>
+                </div>
+                <ul class="piede-link">
+                    <li><a href="https://maps.app.goo.gl/3ZutjPXAodVsWJPg7" target="_blank" rel="noopener noreferrer">Dove siamo</a></li>
+                    <li><a href="https://t.me/aulap2punto0community" target="_blank" rel="noopener noreferrer">Telegram</a></li>
+                    <li><a href="https://www.instagram.com/aulap2.0occupata/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                </ul>
             </div>
-            <div class="footer-links">
-                <a href="https://maps.app.goo.gl/3ZutjPXAodVsWJPg7" target="_blank" rel="noopener noreferrer">Dove siamo ↗</a>
-                <a href="https://t.me/aulap2punto0community" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
-                <a href="https://www.instagram.com/aulap2.0occupata/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-            </div>
+            <p class="piede-fondo">Aula P2.0 Occupata. Fatto per essere usato, condiviso e vissuto.</p>
         </div>
-        <div class="container footer-bottom">Aula P2.0 Occupata · Fatto per essere usato, condiviso e vissuto.</div>
     </footer>
 
-    <script>
-        const menuButton = document.querySelector('.menu-toggle');
-        const menuLinks = document.querySelector('.nav-links');
-
-        if (menuButton && menuLinks) {
-            const closeMenu = () => {
-                menuButton.setAttribute('aria-expanded', 'false');
-                menuButton.setAttribute('aria-label', 'Apri il menu');
-                menuLinks.classList.remove('is-open');
-            };
-
-            menuButton.addEventListener('click', () => {
-                const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-                menuButton.setAttribute('aria-expanded', String(!isOpen));
-                menuButton.setAttribute('aria-label', isOpen ? 'Apri il menu' : 'Chiudi il menu');
-                menuLinks.classList.toggle('is-open', !isOpen);
-            });
-
-            menuLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-            document.addEventListener('keydown', event => {
-                if (event.key === 'Escape') closeMenu();
-            });
-        }
-    </script>
+    <script src="{{ '/assets/navigazione.js' | relative_url }}"></script>
 </body>
 </html>

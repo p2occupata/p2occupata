@@ -1,0 +1,101 @@
+/*
+ * Aula P2.0 Occupata — token del design system
+ *
+ * Accogliente, ma occupata. Il calore viene dalla carta, dalle foto vere
+ * e da un testo facile da leggere; l'occupazione dallo striscione,
+ * dai titoli da manifesto in Anton e dal rosso usato con decisione ma di rado.
+ *
+ * Regola di contrasto:
+ * - il rosso pieno va su superfici, titoli grandi e bottoni (bianco sopra: 4,8:1);
+ * - per testo piccolo rosso su fondo chiaro si usa --rosso-testo (5,5:1);
+ * - l'acqua chiara è solo decorativa; le sezioni usano --acqua-scura (7,4:1).
+ */
+
+:root {
+    /* Superfici */
+    --muro: #f1eee6;
+    --muro-ombra: #e4dfd3;
+    --foglio: #fffdf8;
+    --inchiostro: #1d2a2c;
+    --acqua-scura: #1e5c66;
+
+    /* Inchiostri e accenti */
+    --inchiostro-tenue: #4a5856;
+    --rosso: #d92b1b;
+    --rosso-testo: #b8231a;
+    --acqua: #2f8a96;
+    --banco: #b9dec9;
+    --sedia: #f2a33a;
+
+    /* Testo su fondi scuri */
+    --su-scuro: #fffdf8;
+    --su-scuro-tenue: #cfe0dc;
+
+    /* Nastro adesivo: semitrasparente, lascia vedere cosa c'è sotto */
+    --nastro: rgba(242, 163, 58, 0.5);
+
+    /* Linee */
+    --tratto: 2px solid var(--inchiostro);
+    --tratto-tenue: 1px solid #cfc8b8;
+
+    /* Caratteri */
+    --font-titoli: 'Anton', 'Arial Narrow', sans-serif;
+    --font-striscione: 'Anton', 'Arial Narrow', sans-serif;
+
+    /* Anton ha un solo peso: tutte le regole dei titoli usano questo */
+    --peso-titoli: 400;
+    --font-testo: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', Arial, sans-serif;
+
+    /* Scala tipografica, rapporto 1.333 (quarta).
+       I titoli sono condensati: le misure grandi compensano la larghezza. */
+    --testo-xs: 0.844rem;
+    --testo-s: 0.938rem;
+    --testo-m: 1.0625rem;
+    --testo-l: 1.333rem;
+    --titolo-xs: 1.5rem;
+    --titolo-s: clamp(1.75rem, 2.6vw, 2.125rem);
+    --titolo-m: clamp(2.125rem, 4vw, 3.25rem);
+    --titolo-l: clamp(2.5rem, 5.5vw, 4.5rem);
+    --titolo-xl: clamp(3rem, 8.5vw, 7rem);
+
+    /* Interlinea */
+    --interlinea-titoli: 1;
+    --interlinea-testo: 1.6;
+
+    /* Misura del testo */
+    --misura: 66ch;
+
+    /* Spaziature (base 4px) */
+    --spazio-1: 4px;
+    --spazio-2: 8px;
+    --spazio-3: 12px;
+    --spazio-4: 16px;
+    --spazio-5: 24px;
+    --spazio-6: 32px;
+    --spazio-7: 48px;
+    --spazio-8: 72px;
+    --spazio-9: 112px;
+    --spazio-sezione: clamp(72px, 9vw, 128px);
+
+    /* Arrotondamenti: piccoli, per togliere lo spigolo senza fare bolle */
+    --raggio-s: 4px;
+    --raggio-m: 8px;
+    --raggio-foglio: 2px;
+
+    /* Ombra di stampa: solo per i fogli attaccati alla bacheca */
+    --ombra-foglio: 4px 4px 0 var(--inchiostro);
+    --ombra-foglio-su: 7px 7px 0 var(--inchiostro);
+
+    /* L'unica inclinazione della pagina: il manifesto in apertura */
+    --inclinazione-manifesto: -1.5deg;
+
+    /* Movimento: breve e senza rimbalzi */
+    --durata-breve: 150ms;
+    --durata-media: 240ms;
+    --durata-striscione: 900ms;
+    --curva: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* Contenitore */
+    --larghezza: 1180px;
+    --margine-pagina: clamp(16px, 4vw, 32px);
+}

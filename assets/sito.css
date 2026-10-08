@@ -1,0 +1,152 @@
+/*
+ * Aula P2.0 Occupata — impaginazione delle pagine del sito
+ *
+ * Richiede tokens.css e componenti.css, copiati dal design system
+ * (cartella design-system/). Qui ci sono solo le composizioni
+ * specifiche delle pagine; i componenti si modificano nel design system.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Apertura                                                           */
+/* ------------------------------------------------------------------ */
+
+.apertura-corpo {
+    padding-block: var(--spazio-7) var(--spazio-sezione);
+}
+
+.apertura-testo {
+    display: grid;
+    gap: var(--spazio-6);
+    padding-top: var(--spazio-5);
+}
+
+.apertura-azioni {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spazio-4) var(--spazio-6);
+}
+
+/* Il manifesto sale sopra il bordo dello striscione */
+.apertura-foto {
+    position: relative;
+    margin-top: clamp(-120px, -9vw, -48px);
+}
+
+.apertura-foto .macchia {
+    top: -40px;
+    right: -90px;
+    --misura-macchia: clamp(240px, 32vw, 440px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Storia                                                             */
+/* ------------------------------------------------------------------ */
+
+.storia {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(40px, 7vw, 96px);
+    align-items: start;
+}
+
+.storia-lato {
+    display: grid;
+    gap: var(--spazio-7);
+}
+
+.storia .pannello {
+    color: var(--inchiostro);
+}
+
+/* ------------------------------------------------------------------ */
+/* Partecipa                                                          */
+/* ------------------------------------------------------------------ */
+
+.partecipa {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(40px, 7vw, 96px);
+    align-items: end;
+}
+
+.partecipa-azioni {
+    display: grid;
+    gap: var(--spazio-4);
+    justify-items: start;
+}
+
+.partecipa-azioni div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spazio-4);
+}
+
+/* ------------------------------------------------------------------ */
+/* Pagina di un evento                                                */
+/* ------------------------------------------------------------------ */
+
+.evento-testata {
+    display: grid;
+    gap: var(--spazio-6);
+    justify-items: start;
+}
+
+.evento-corpo {
+    display: grid;
+    gap: var(--spazio-6);
+    max-width: 760px;
+}
+
+/* Testo scritto in Markdown nel file dell'evento */
+.evento-testo {
+    display: grid;
+    gap: var(--spazio-4);
+}
+
+.evento-testo h2 {
+    margin-top: var(--spazio-6);
+    font-size: var(--titolo-m);
+}
+
+.evento-testo h3 {
+    margin-top: var(--spazio-5);
+    font-size: var(--titolo-s);
+}
+
+.evento-testo ul,
+.evento-testo ol {
+    display: grid;
+    gap: var(--spazio-2);
+    padding-left: 1.2em;
+}
+
+.evento-testo li::marker {
+    color: var(--rosso);
+}
+
+.evento-testo a {
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--rosso);
+    text-underline-offset: 0.22em;
+}
+
+.evento-testo img {
+    border-radius: var(--raggio-m);
+}
+
+/* ------------------------------------------------------------------ */
+/* Schermi piccoli                                                    */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+    .storia,
+    .partecipa {
+        grid-template-columns: 1fr;
+    }
+
+    .apertura-foto {
+        margin-top: var(--spazio-5);
+    }
+}
