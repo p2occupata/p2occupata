@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Eventi | Aula P2.0 Occupata"
-meta_description: "La timeline degli eventi dell'Aula P2.0 Occupata: prossime iniziative e archivio degli incontri passati."
+title: "I nostri eventi | Aula P2.0 Occupata"
+meta_description: "I nostri eventi all'Aula P2.0 Occupata: il prossimo appuntamento, il calendario e l'archivio degli incontri passati."
 permalink: /eventi/
 ---
 
@@ -20,16 +20,30 @@ permalink: /eventi/
 {% assign eventi_passati = eventi_passati | sort: "data" | reverse %}
 
 <header class="striscione">
-    <h1 class="striscione-testo">Gli eventi della P2.0</h1>
+    <h1 class="striscione-testo">I nostri eventi</h1>
 </header>
 
 <main data-eventi data-eventi-url="{{ '/eventi/archivio.json' | relative_url }}">
-    <section class="sezione eventi-intro" aria-labelledby="eventi-intro-titolo">
+    <section class="sezione eventi-intro" aria-labelledby="prossimo-titolo">
         <div class="contenitore">
-            <div class="intestazione">
-                <h2 id="eventi-intro-titolo" class="titolo-l">Ci vediamo in aula.</h2>
-                <p>Assemblee, proiezioni, laboratori e incontri: qui trovi le prossime iniziative e le tracce di quelle già vissute.</p>
+            <div class="intestazione eventi-intestazione">
+                <h2 id="prossimo-titolo" class="titolo-l">Il prossimo evento</h2>
             </div>
+            <div class="evento-in-evidenza" data-prossimo-evento aria-live="polite">
+                <p>Caricamento del prossimo evento…</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sezione sezione--foglio eventi-calendario" aria-labelledby="calendario-titolo">
+        <div class="contenitore">
+            <div class="intestazione eventi-intestazione">
+                <h2 id="calendario-titolo" class="titolo-l">Calendario</h2>
+                <p>Le date attorno a oggi: gli eventi in programma e quelli appena passati.</p>
+            </div>
+            <p class="calendario-intervallo" data-calendario-intervallo></p>
+            <ol class="calendario-griglia" data-calendario aria-label="Calendario di 35 giorni centrato su oggi"></ol>
+            <div class="calendario-elenco" data-calendario-elenco></div>
         </div>
     </section>
 

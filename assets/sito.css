@@ -149,6 +149,139 @@
     margin-bottom: var(--spazio-7);
 }
 
+.evento-in-evidenza {
+    max-width: 860px;
+    padding: clamp(24px, 4vw, 40px);
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+    background: var(--foglio);
+}
+
+.evento-in-evidenza-scheda {
+    display: grid;
+    gap: var(--spazio-4);
+    color: inherit;
+    text-decoration: none;
+}
+
+.evento-in-evidenza-scheda:hover .timeline-link {
+    text-decoration-color: var(--inchiostro);
+}
+
+.evento-in-evidenza-scheda p {
+    color: var(--inchiostro-tenue);
+}
+
+.evento-in-evidenza-data {
+    color: var(--rosso-testo);
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-s);
+    text-transform: capitalize;
+}
+
+.eventi-calendario {
+    padding-block: var(--spazio-8) var(--spazio-sezione);
+}
+
+.calendario-intervallo {
+    margin-bottom: var(--spazio-4);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.calendario-griglia {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    padding: 0;
+    border-top: var(--tratto-tenue);
+    border-left: var(--tratto-tenue);
+    list-style: none;
+}
+
+.calendario-giorno {
+    position: relative;
+    min-width: 0;
+    min-height: 160px;
+    padding: var(--spazio-3);
+    border-right: var(--tratto-tenue);
+    border-bottom: var(--tratto-tenue);
+    background: var(--muro);
+}
+
+.calendario-giorno--oggi {
+    z-index: 1;
+    background: var(--banco);
+    box-shadow: inset 0 0 0 3px var(--rosso);
+}
+
+.calendario-giorno--oggi::after {
+    content: 'Oggi';
+    display: block;
+    margin-top: var(--spazio-2);
+    color: var(--rosso-testo);
+    font-size: var(--testo-xs);
+    font-weight: 700;
+}
+
+.calendario-data {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--spazio-1);
+    font-weight: 700;
+}
+
+.calendario-settimana {
+    text-transform: capitalize;
+}
+
+.calendario-numero {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    line-height: 1;
+}
+
+.calendario-mese {
+    color: var(--inchiostro-tenue);
+}
+
+.calendario-conteggio {
+    display: inline-grid;
+    min-width: 1.5em;
+    min-height: 1.5em;
+    margin-top: var(--spazio-2);
+    padding-inline: var(--spazio-1);
+    place-items: center;
+    border-radius: 50%;
+    background: var(--rosso);
+    color: var(--su-scuro);
+    font-size: var(--testo-xs);
+    font-weight: 700;
+}
+
+.calendario-eventi {
+    display: grid;
+    gap: var(--spazio-2);
+    margin-top: var(--spazio-2);
+    padding: 0;
+    list-style: none;
+}
+
+.calendario-eventi a {
+    display: block;
+    overflow-wrap: anywhere;
+    color: var(--inchiostro);
+    font-size: var(--testo-s);
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration-color: var(--rosso);
+    text-underline-offset: 0.2em;
+}
+
+.calendario-elenco {
+    display: none;
+}
+
 .timeline {
     display: grid;
     padding: 0;
@@ -392,6 +525,67 @@
 }
 
 @media (max-width: 620px) {
+    .calendario-giorno {
+        min-height: 86px;
+        padding: var(--spazio-1);
+    }
+
+    .calendario-data {
+        display: grid;
+        gap: 0;
+        justify-items: center;
+        font-size: var(--testo-xs);
+        line-height: 1.1;
+    }
+
+    .calendario-numero {
+        font-size: var(--testo-m);
+    }
+
+    .calendario-mese {
+        font-size: 0.7rem;
+    }
+
+    .calendario-conteggio {
+        display: grid;
+        width: fit-content;
+        margin-inline: auto;
+        margin-top: var(--spazio-1);
+        font-size: 0.7rem;
+    }
+
+    .calendario-giorno--oggi::after {
+        margin-top: var(--spazio-1);
+        font-size: 0.65rem;
+        text-align: center;
+    }
+
+    .calendario-eventi {
+        display: none;
+    }
+
+    .calendario-elenco:not(:empty) {
+        display: grid;
+        gap: var(--spazio-4);
+        margin-top: var(--spazio-6);
+    }
+
+    .calendario-elenco-giorno {
+        padding-bottom: var(--spazio-4);
+        border-bottom: var(--tratto-tenue);
+    }
+
+    .calendario-elenco-giorno h4 {
+        margin-bottom: var(--spazio-2);
+        text-transform: capitalize;
+    }
+
+    .calendario-elenco-giorno ul {
+        display: grid;
+        gap: var(--spazio-2);
+        padding-left: 1.2em;
+    }
+
     .timeline-elemento {
         grid-template-columns: 20px minmax(0, 1fr);
         gap: var(--spazio-2) var(--spazio-4);
