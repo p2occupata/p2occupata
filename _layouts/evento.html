@@ -12,6 +12,7 @@ layout: default
     {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
     {% else %}{% assign nome_categoria = "Evento" %}
 {% endcase %}
+{% assign nome_categoria = page.categoria_nome | default: nome_categoria %}
 
 <article>
     <header class="sezione sezione--acqua">
@@ -21,7 +22,16 @@ layout: default
             {% if page.esempio %}<span class="etichetta">Evento di esempio · dettagli da confermare</span>{% endif %}
             <h1 class="titolo-xl">{{ page.titolo }}</h1>
             <ul class="dati-evento">
-                <li><span>Quando</span><strong>{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</strong></li>
+                <li>
+                    <span>{% if page.date_aggiuntive %}Date{% else %}Quando{% endif %}</span>
+                    <strong class="date-evento">
+                        <time datetime="{{ page.data | date: '%Y-%m-%d' }}">{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</time>
+                        {% for data_aggiuntiva in page.date_aggiuntive %}
+                            {% assign indice_mese_aggiuntivo = data_aggiuntiva | date: "%-m" | minus: 1 %}
+                            <time datetime="{{ data_aggiuntiva | date: '%Y-%m-%d' }}">{{ data_aggiuntiva | date: "%-d" }} {{ mesi[indice_mese_aggiuntivo] }} {{ data_aggiuntiva | date: "%Y" }}</time>
+                        {% endfor %}
+                    </strong>
+                </li>
                 {% if page.ora %}<li><span>Ora</span><strong>{{ page.ora }}</strong></li>{% endif %}
                 {% if page.luogo %}<li><span>Dove</span><strong>{{ page.luogo }}</strong></li>{% endif %}
             </ul>

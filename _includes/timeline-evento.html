@@ -8,7 +8,8 @@
     {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
     {% else %}{% assign nome_categoria = "Evento" %}
 {% endcase %}
-<li class="timeline-elemento" data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}">
+{% assign nome_categoria = include.evento.categoria_nome | default: nome_categoria %}
+<li class="timeline-elemento" data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}" data-fine-evento="{{ include.evento.fine | default: include.evento.data | date: '%Y-%m-%d' }}" data-url-evento="{{ include.evento.url | relative_url }}">
     <time class="timeline-data" datetime="{{ include.evento.data | date: '%Y-%m-%d' }}">
         <span class="timeline-giorno">{{ include.evento.data | date: "%-d" }}</span>
         <span class="timeline-mese">{{ mesi[indice_mese] }} {{ include.evento.data | date: "%Y" }}</span>
@@ -18,6 +19,7 @@
         {% if include.evento.esempio %}<span class="etichetta">Evento di esempio</span>{% endif %}
         <h3 class="titolo-s">{{ include.evento.titolo | escape }}</h3>
         {% if include.evento.descrizione %}<p>{{ include.evento.descrizione | escape }}</p>{% endif %}
+        {% if include.evento.date_aggiuntive %}<span class="timeline-dettagli">{{ include.evento.date_aggiuntive.size | plus: 1 }} date</span>{% endif %}
         {% if include.evento.ora or include.evento.luogo %}
         <span class="timeline-dettagli">
             {% if include.evento.ora %}Ore {{ include.evento.ora | escape }}{% endif %}{% if include.evento.ora and include.evento.luogo %} · {% endif %}{% if include.evento.luogo %}{{ include.evento.luogo | escape }}{% endif %}

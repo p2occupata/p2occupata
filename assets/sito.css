@@ -17,6 +17,11 @@
     gap: var(--spazio-2);
 }
 
+.cassetto > .link {
+    display: inline-block;
+    margin-top: var(--spazio-5);
+}
+
 /* ------------------------------------------------------------------ */
 /* Apertura                                                           */
 /* ------------------------------------------------------------------ */
@@ -228,6 +233,24 @@
 
 .eventi-archivio .timeline-scheda {
     background: var(--foglio);
+}
+
+.eventi-carica {
+    margin-top: var(--spazio-7);
+}
+
+.eventi-carica:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.eventi-stato {
+    margin-top: var(--spazio-4);
+}
+
+.date-evento {
+    display: grid;
+    gap: var(--spazio-2);
 }
 
 /* ------------------------------------------------------------------ */

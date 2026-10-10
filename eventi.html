@@ -9,7 +9,7 @@ permalink: /eventi/
 {% assign eventi_futuri = "" | split: "" %}
 {% assign eventi_passati = "" | split: "" %}
 {% for evento in site.eventi %}
-    {% assign evento_data = evento.data | date: "%Y-%m-%d" %}
+    {% assign evento_data = evento.fine | default: evento.data | date: "%Y-%m-%d" %}
     {% if evento_data >= oggi %}
         {% assign eventi_futuri = eventi_futuri | push: evento %}
     {% else %}
@@ -51,17 +51,21 @@ permalink: /eventi/
         </div>
     </section>
 
-    <section class="sezione eventi-sezione eventi-archivio" aria-labelledby="passati-titolo" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
+    <section id="passati" class="sezione eventi-sezione eventi-archivio" aria-labelledby="passati-titolo" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
         <div class="contenitore">
             <div class="intestazione eventi-intestazione">
                 <h2 id="passati-titolo" class="titolo-l">Eventi passati</h2>
                 <p>Un archivio delle iniziative, dalle più recenti.</p>
             </div>
             <ol class="timeline" data-eventi-passati>
-                {% for evento in eventi_passati %}
+                {% for evento in eventi_passati limit: 8 %}
                     {% include timeline-evento.html evento=evento %}
                 {% endfor %}
             </ol>
+            {% if eventi_passati.size > 8 %}
+            <button class="bottone eventi-carica" type="button" data-carica-eventi data-archivio-url="{{ '/eventi/archivio.json' | relative_url }}">Mostra altri eventi</button>
+            <p class="nota eventi-stato" data-stato-archivio role="status" hidden></p>
+            {% endif %}
         </div>
     </section>
 </main>

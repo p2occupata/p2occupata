@@ -86,7 +86,7 @@ meta_description: "Aula P2.0 Occupata: uno spazio autogestito all'Università de
     {% assign eventi_futuri = "" | split: "" %}
     {% assign eventi_passati = "" | split: "" %}
     {% for evento in site.eventi %}
-        {% assign evento_data = evento.data | date: "%Y-%m-%d" %}
+        {% assign evento_data = evento.fine | default: evento.data | date: "%Y-%m-%d" %}
         {% if evento_data >= oggi %}
             {% assign eventi_futuri = eventi_futuri | push: evento %}
         {% else %}
@@ -115,10 +115,11 @@ meta_description: "Aula P2.0 Occupata: uno spazio autogestito all'Università de
             <details class="cassetto" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
                 <summary>Eventi passati</summary>
                 <ul class="bacheca" data-eventi-passati>
-                    {% for evento in eventi_passati %}
+                    {% for evento in eventi_passati limit: 4 %}
                     {% include volantino.html evento=evento passato=true %}
                     {% endfor %}
                 </ul>
+                <a class="link" href="{{ '/eventi/#passati' | relative_url }}">Vedi tutti gli eventi passati</a>
             </details>
         </div>
     </section>

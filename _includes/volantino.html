@@ -12,7 +12,8 @@
     {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
     {% else %}{% assign nome_categoria = "Evento" %}
 {% endcase %}
-<li data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}">
+{% assign nome_categoria = include.evento.categoria_nome | default: nome_categoria %}
+<li data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}" data-fine-evento="{{ include.evento.fine | default: include.evento.data | date: '%Y-%m-%d' }}">
     <a class="volantino{% if include.passato %} volantino--passato{% endif %}" href="{{ include.evento.url | relative_url }}">
         <span class="volantino-etichette">
             <span class="etichetta etichetta--{{ include.evento.categoria | default: 'altro' }}">{{ nome_categoria }}</span>
