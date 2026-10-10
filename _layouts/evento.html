@@ -4,22 +4,13 @@ layout: default
 
 {% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
 {% assign indice_mese = page.data | date: "%-m" | minus: 1 %}
-{% case page.categoria %}
-    {% when 'concerto' %}{% assign nome_categoria = "Concerto" %}
-    {% when 'dibattito' %}{% assign nome_categoria = "Dibattito" %}
-    {% when 'proiezione' %}{% assign nome_categoria = "Proiezione" %}
-    {% when 'workshop' %}{% assign nome_categoria = "Workshop" %}
-    {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
-    {% else %}{% assign nome_categoria = "Evento" %}
-{% endcase %}
-{% assign nome_categoria = page.categoria_nome | default: nome_categoria %}
 
 <article>
     <header class="sezione sezione--acqua">
         <div class="contenitore evento-testata">
             <a class="link" href="{{ '/eventi/' | relative_url }}">Torna agli eventi</a>
-            <span class="etichetta etichetta--{{ page.categoria | default: 'altro' }}">{{ nome_categoria }}</span>
-            {% if page.esempio %}<span class="etichetta">Evento di esempio · dettagli da confermare</span>{% endif %}
+            {% include categorie-evento.html evento=page %}
+            {% if page.esempio %}<span class="etichetta">Dettagli da confermare</span>{% endif %}
             <h1 class="titolo-xl">{{ page.titolo }}</h1>
             <ul class="dati-evento">
                 <li>

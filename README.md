@@ -2,6 +2,27 @@
 
 Ogni file Markdown in `_eventi/` produce una sola pagina di dettaglio. Le date nel front matter devono essere stringhe ISO tra apici (`'AAAA-MM-GG'`), così GitHub Pages può ordinarle senza errori.
 
+## Categorie
+
+Un evento può avere più categorie. Sono mostrate tutte con lo stesso peso nella timeline, nella homepage e nella pagina di dettaglio:
+
+```yaml
+categorie:
+  - workshop
+  - dibattito
+```
+
+Per una categoria con un nome personalizzato si può indicare anche il testo da mostrare:
+
+```yaml
+categorie:
+  - workshop
+  - id: arte
+    nome: Arte
+```
+
+Il colore dipende dal nome visibile della categoria: lo stesso nome mantiene lo stesso colore. La scelta avviene tra i cinque colori già usati dal sito; categorie diverse possono condividere un colore. I vecchi campi `categoria` e `categoria_nome` continuano a funzionare per gli eventi esistenti.
+
 ## Date definite
 
 `data` è la prima data. Ogni voce in `date_aggiuntive` produce un'altra scheda nella timeline, collegata alla stessa pagina. Le date future compaiono tutte; quelle passate sono accessibili con «Mostra altri eventi».

@@ -1,0 +1,11 @@
+<span class="categorie-etichette">
+    {% if include.evento.categorie and include.evento.categorie.size > 0 %}
+        {% for categoria in include.evento.categorie %}
+            {% include categoria-chip.html categoria=categoria %}
+        {% endfor %}
+    {% else %}
+        {% assign categoria_singola = include.evento.categoria | default: 'altro' %}
+        {% include categoria-chip.html categoria=categoria_singola nome=include.evento.categoria_nome %}
+    {% endif %}
+    {% if include.evento.esempio %}<span class="etichetta">Evento di esempio</span>{% endif %}
+</span>

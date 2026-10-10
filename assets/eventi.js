@@ -4,12 +4,45 @@
         'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
         'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'
     ];
-    const categories = {
+    const categoryNames = {
         concerto: 'Concerto',
         dibattito: 'Dibattito',
         proiezione: 'Proiezione',
         workshop: 'Workshop',
-        assemblea: 'Assemblea'
+        assemblea: 'Assemblea',
+        altro: 'Evento'
+    };
+    const categoryTones = {
+        concerto: 0,
+        dibattito: 1,
+        proiezione: 2,
+        workshop: 3,
+        assemblea: 4
+    };
+
+    const categoryTone = (name) => {
+        const normalized = name.trim().normalize('NFKC').toLocaleLowerCase('it');
+        if (Object.prototype.hasOwnProperty.call(categoryTones, normalized)) {
+            return categoryTones[normalized];
+        }
+        let hash = 2166136261;
+        for (const character of normalized) {
+            hash = Math.imul(hash ^ character.codePointAt(0), 16777619);
+        }
+        return (hash >>> 0) % 5;
+    };
+
+    const normalizeCategories = (event) => {
+        const entries = Array.isArray(event.categorie) && event.categorie.length
+            ? event.categorie
+            : [{ id: event.categoria || 'altro', nome: event.categoria_nome }];
+        return entries.map((entry) => {
+            const id = typeof entry === 'string' ? entry : entry?.id;
+            if (typeof id !== 'string' || !id.trim()) return null;
+            const fallback = categoryNames[id] || id.replace(/-/g, ' ').replace(/^./, (letter) => letter.toLocaleUpperCase('it'));
+            const name = typeof entry === 'string' ? fallback : entry.nome || fallback;
+            return { name: String(name).trim() };
+        }).filter(Boolean);
     };
 
     const formatDay = (day) => new Date(day * dayMilliseconds).toISOString().slice(0, 10);
@@ -38,7 +71,8 @@
                 .filter((day) => day !== null)
         ])].sort((a, b) => a - b);
 
-        return { ...raw, start, dates, interval: recurring ? interval : null, until };
+        return { ...raw, start, dates, interval: recurring ? interval : null, until,
+            categories: normalizeCategories(raw) };
     };
 
     const compareOccurrences = (left, right) =>
@@ -120,7 +154,14 @@
         };
     };
 
-    const categoryName = (event) => event.categoria_nome || categories[event.categoria] || 'Evento';
+    const addCategoryChips = (parent, event) => {
+        const group = addElement(parent, 'span', 'categorie-etichette');
+        event.categories.forEach(({ name }) => {
+            const chip = addElement(group, 'span', `etichetta categoria-chip categoria-chip--tono-${categoryTone(name)}`, name);
+            chip.dataset.categoriaNome = name;
+        });
+        if (event.esempio) addElement(group, 'span', 'etichetta', 'Evento di esempio');
+    };
 
     const occurrenceLabel = ({ event, index }) => {
         if (event.interval) return event.interval === 1 ? 'Ogni giorno' : `Ogni ${event.interval} giorni`;
@@ -142,8 +183,7 @@
 
         const card = addElement(item, 'a', 'timeline-scheda');
         card.href = event.url;
-        addElement(card, 'span', `etichetta etichetta--${event.categoria || 'altro'}`, categoryName(event));
-        if (event.esempio) addElement(card, 'span', 'etichetta', 'Evento di esempio');
+        addCategoryChips(card, event);
         addElement(card, 'h3', 'titolo-s', event.titolo);
         if (event.descrizione) addElement(card, 'p', '', event.descrizione);
         const label = occurrenceLabel(occurrence);
@@ -165,8 +205,7 @@
         item.dataset.dataEvento = parts.iso;
         const card = addElement(item, 'a', `volantino${past ? ' volantino--passato' : ''}`);
         card.href = event.url;
-        const labels = addElement(card, 'span', 'volantino-etichette');
-        addElement(labels, 'span', `etichetta etichetta--${event.categoria || 'altro'}`, categoryName(event));
+        addCategoryChips(card, event);
         const date = addElement(card, 'span', 'volantino-data');
         addElement(date, 'span', 'volantino-giorno', parts.number);
         addElement(date, 'span', 'volantino-mese', parts.monthYear);
@@ -215,6 +254,10 @@
         section.querySelector('[data-vuoto-futuri]').hidden = future.length > 0;
         section.querySelector('[data-gruppo-passati]').hidden = past.length === 0;
     };
+
+    document.querySelectorAll('.categoria-chip').forEach((chip) => {
+        chip.classList.add(`categoria-chip--tono-${categoryTone(chip.dataset.categoriaNome || chip.textContent)}`);
+    });
 
     document.querySelectorAll('[data-eventi]').forEach(async (section) => {
         const loadButton = section.querySelector('[data-carica-eventi]');

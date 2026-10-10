@@ -10,11 +10,42 @@
     display: none !important;
 }
 
-.volantino-etichette {
+.volantino-etichette,
+.categorie-etichette {
     display: flex;
     flex-wrap: wrap;
     align-content: start;
     gap: var(--spazio-2);
+}
+
+/* I cinque toni sono i colori già presenti nel design system. */
+.categoria-chip--tono-0 {
+    background: var(--rosso);
+    color: var(--su-scuro);
+}
+
+.categoria-chip--tono-1 {
+    background: var(--acqua-scura);
+    color: var(--su-scuro);
+}
+
+.categoria-chip--tono-2 {
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+}
+
+.categoria-chip--tono-3 {
+    background: var(--banco);
+    color: var(--inchiostro);
+}
+
+.categoria-chip--tono-4 {
+    background: var(--sedia);
+    color: var(--inchiostro);
+}
+
+.sezione--acqua .categoria-chip {
+    box-shadow: 0 0 0 2px var(--su-scuro);
 }
 
 .cassetto > .link {

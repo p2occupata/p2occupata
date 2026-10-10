@@ -1,0 +1,14 @@
+{% assign codice_categoria = include.categoria.id | default: include.categoria %}
+{% assign nome_categoria = include.categoria.nome | default: include.nome %}
+{% unless nome_categoria %}
+    {% case codice_categoria %}
+        {% when 'concerto' %}{% assign nome_categoria = 'Concerto' %}
+        {% when 'dibattito' %}{% assign nome_categoria = 'Dibattito' %}
+        {% when 'proiezione' %}{% assign nome_categoria = 'Proiezione' %}
+        {% when 'workshop' %}{% assign nome_categoria = 'Workshop' %}
+        {% when 'assemblea' %}{% assign nome_categoria = 'Assemblea' %}
+        {% when 'altro' %}{% assign nome_categoria = 'Evento' %}
+        {% else %}{% assign nome_categoria = codice_categoria | replace: '-', ' ' | capitalize %}
+    {% endcase %}
+{% endunless %}
+<span class="etichetta categoria-chip etichetta--{{ codice_categoria | slugify }}" data-categoria-nome="{{ nome_categoria | escape }}">{{ nome_categoria | escape }}</span>

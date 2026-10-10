@@ -10,6 +10,7 @@ permalink: /eventi/archivio.json
         "ricorrenza": {{ evento.ricorrenza | jsonify }},
         "url": {{ evento.url | relative_url | jsonify }},
         "titolo": {{ evento.titolo | jsonify }},
+        "categorie": {{ evento.categorie | jsonify }},
         "categoria": {{ evento.categoria | default: "altro" | jsonify }},
         "categoria_nome": {{ evento.categoria_nome | default: "" | jsonify }},
         "descrizione": {{ evento.descrizione | default: "" | jsonify }},
