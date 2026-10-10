@@ -5,15 +5,16 @@
 {% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
 {% assign indice_mese = include.evento.data | date: "%-m" | minus: 1 %}
 <li data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}" data-fine-evento="{{ include.evento.fine | default: include.evento.data | date: '%Y-%m-%d' }}">
-    <a class="volantino{% if include.passato %} volantino--passato{% endif %}" href="{{ include.evento.url | relative_url }}">
+    <a class="volantino{% if include.passato %} volantino--passato{% endif %}{% if include.evento.locandina %} volantino--locandina{% endif %}" href="{{ include.evento.url | relative_url }}">
         {% include categorie-evento.html evento=include.evento %}
         <span class="volantino-data">
             <span class="volantino-giorno">{{ include.evento.data | date: "%-d" }}</span>
             <span class="volantino-mese">{{ mesi[indice_mese] }} {{ include.evento.data | date: "%Y" }}</span>
         </span>
-        <span>
+        <span class="volantino-testo">
             <span class="volantino-titolo">{{ include.evento.titolo }}</span>
             {% if include.evento.ora or include.evento.luogo %}<span class="volantino-dove">{% if include.evento.ora %}Ore {{ include.evento.ora }}{% endif %}{% if include.evento.ora and include.evento.luogo %}, {% endif %}{{ include.evento.luogo }}</span>{% endif %}
         </span>
+        {% if include.evento.locandina %}<img class="locandina volantino-locandina" src="{{ include.evento.locandina | relative_url }}" alt="" loading="lazy">{% endif %}
     </a>
 </li>

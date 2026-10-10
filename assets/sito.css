@@ -44,8 +44,51 @@
     color: var(--inchiostro);
 }
 
-.sezione--acqua .categoria-chip {
+.sezione--acqua .categoria-chip,
+.eventi-prossimo .categoria-chip {
     box-shadow: 0 0 0 2px var(--su-scuro);
+}
+
+/* ------------------------------------------------------------------ */
+/* Locandine degli eventi (facoltative)                               */
+/* ------------------------------------------------------------------ */
+
+.locandina {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--raggio-foglio);
+}
+
+/* Nel volantino la locandina sta in alto a destra, accanto alla data */
+.volantino--locandina {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--spazio-3);
+}
+
+.volantino--locandina .categorie-etichette,
+.volantino--locandina .volantino-data {
+    grid-column: 1;
+}
+
+.volantino--locandina .volantino-testo {
+    grid-column: 1 / -1;
+}
+
+.volantino-locandina {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 76px;
+    border: var(--tratto-tenue);
+}
+
+.volantino--passato .volantino-locandina {
+    width: 56px;
+}
+
+/* Gli attributi width/height dell'immagine servono solo a riservare lo spazio */
+.manifesto img {
+    height: auto;
 }
 
 .cassetto > .link {
@@ -130,16 +173,8 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Timeline degli eventi                                              */
+/* Pagina degli eventi                                                */
 /* ------------------------------------------------------------------ */
-
-.eventi-intro {
-    padding-block: var(--spazio-8);
-}
-
-.eventi-intro .intestazione {
-    margin-bottom: 0;
-}
 
 .eventi-sezione {
     padding-block: var(--spazio-8) var(--spazio-sezione);
@@ -149,90 +184,231 @@
     margin-bottom: var(--spazio-7);
 }
 
-.evento-in-evidenza {
-    max-width: 860px;
-    padding: clamp(24px, 4vw, 40px);
-    border: var(--tratto);
-    border-radius: var(--raggio-s);
-    background: var(--foglio);
+/* Il prossimo evento: la fascia che apre la pagina */
+.eventi-prossimo {
+    padding-block: var(--spazio-8);
 }
 
-.evento-in-evidenza-scheda {
+.eventi-occhiello {
+    margin-bottom: var(--spazio-6);
+    color: var(--su-scuro-tenue);
+}
+
+.prossimo-scheda {
     display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(32px, 6vw, 88px);
+    align-items: start;
+}
+
+.prossimo-data {
+    display: grid;
+    gap: var(--spazio-3);
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-s);
+    line-height: 1;
+}
+
+.prossimo-settimana::first-letter {
+    text-transform: uppercase;
+}
+
+.prossimo-giorno {
+    color: var(--sedia);
+    font-size: clamp(6rem, 17vw, 13rem);
+    line-height: 0.82;
+}
+
+.prossimo-testo {
+    display: grid;
+    gap: var(--spazio-5);
+    justify-items: start;
+}
+
+.prossimo-testo .dati-evento {
+    width: 100%;
+}
+
+/* Più eventi nello stesso giorno: la data in testa, un foglio per evento */
+.prossimo-scheda--piu {
+    grid-template-columns: 1fr;
+    gap: var(--spazio-6);
+}
+
+.prossimo-scheda--piu .prossimo-data {
+    grid-template-areas:
+        "giorno settimana"
+        "giorno mese";
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--spazio-2) var(--spazio-5);
+}
+
+.prossimo-scheda--piu .prossimo-settimana {
+    grid-area: settimana;
+    align-self: end;
+}
+
+.prossimo-scheda--piu .prossimo-giorno {
+    grid-area: giorno;
+    font-size: clamp(5rem, 10vw, 8rem);
+}
+
+.prossimo-scheda--piu .prossimo-mese {
+    grid-area: mese;
+}
+
+.prossimo-fogli {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--spazio-5);
+    padding: 0;
+    list-style: none;
+}
+
+/* Quattro eventi: due righe da due, invece di tre più uno */
+.prossimo-fogli[data-eventi='4'] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+}
+
+.prossimo-foglio {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    align-content: start;
     gap: var(--spazio-4);
-    color: inherit;
-    text-decoration: none;
+    justify-items: start;
+    padding: var(--spazio-6) var(--spazio-5) var(--spazio-5);
+    border-top: 6px solid var(--sedia);
+    border-radius: var(--raggio-foglio);
+    background: var(--foglio);
+    color: var(--inchiostro);
 }
 
-.evento-in-evidenza-scheda:hover .timeline-link {
-    text-decoration-color: var(--inchiostro);
+.prossimo-ora {
+    color: var(--rosso);
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-m);
+    line-height: 1;
 }
 
-.evento-in-evidenza-scheda p {
+.prossimo-foglio p,
+.prossimo-dettagli {
     color: var(--inchiostro-tenue);
 }
 
-.evento-in-evidenza-data {
-    color: var(--rosso-testo);
-    font-family: var(--font-titoli);
-    font-size: var(--titolo-s);
-    text-transform: capitalize;
+.prossimo-dettagli {
+    font-size: var(--testo-s);
+    font-weight: 700;
 }
 
-.eventi-calendario {
-    padding-block: var(--spazio-8) var(--spazio-sezione);
+.prossimo-foglio .bottone {
+    align-self: end;
+}
+
+/* Con la locandina: a destra nell'evento singolo, di lato nei fogli */
+.prossimo-scheda--locandina {
+    grid-template-columns: auto minmax(0, 1fr) clamp(200px, 24vw, 300px);
+}
+
+.prossimo-locandina {
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6);
+}
+
+.prossimo-foglio--locandina {
+    grid-template-columns: minmax(0, 1fr) clamp(96px, 32%, 150px);
+    column-gap: var(--spazio-5);
+}
+
+.prossimo-foglio--locandina > * {
+    grid-column: 1;
+}
+
+.prossimo-foglio--locandina > .prossimo-foglio-locandina {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    border: var(--tratto-tenue);
+}
+
+/* In home, sotto la fascia, il rimando alla pagina eventi */
+.prossimo-tutti {
+    display: inline-block;
+    margin-top: var(--spazio-6);
+}
+
+.prossimo-vuoto {
+    display: grid;
+    gap: var(--spazio-5);
+    justify-items: start;
+}
+
+/* Nei volantini più alti della riga il giorno non deve toccare il mese */
+.volantino-data {
+    gap: var(--spazio-3);
+}
+
+/* Calendario: griglia compatta a sinistra, agenda delle date a destra */
+.calendario {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: clamp(32px, 6vw, 80px);
+    align-items: start;
 }
 
 .calendario-intervallo {
     margin-bottom: var(--spazio-4);
-    font-weight: 700;
-    text-transform: capitalize;
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    line-height: 1.1;
 }
 
+.calendario-nomi,
 .calendario-griglia {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: var(--spazio-1);
+}
+
+.calendario-nomi {
+    margin-bottom: var(--spazio-2);
+    padding-bottom: var(--spazio-2);
+    border-bottom: var(--tratto);
+    font-size: var(--testo-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.calendario-nomi span {
+    padding-inline: var(--spazio-2);
+}
+
+.calendario-griglia {
     padding: 0;
-    border-top: var(--tratto-tenue);
-    border-left: var(--tratto-tenue);
     list-style: none;
 }
 
 .calendario-giorno {
-    position: relative;
     min-width: 0;
-    min-height: 160px;
-    padding: var(--spazio-3);
-    border-right: var(--tratto-tenue);
-    border-bottom: var(--tratto-tenue);
-    background: var(--muro);
 }
 
-.calendario-giorno--oggi {
-    z-index: 1;
-    background: var(--banco);
-    box-shadow: inset 0 0 0 3px var(--rosso);
-}
-
-.calendario-giorno--oggi::after {
-    content: 'Oggi';
-    display: block;
-    margin-top: var(--spazio-2);
-    color: var(--rosso-testo);
-    font-size: var(--testo-xs);
-    font-weight: 700;
-}
-
-.calendario-data {
-    display: flex;
-    flex-wrap: wrap;
+.calendario-casella {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-content: space-between;
     align-items: baseline;
     gap: var(--spazio-1);
-    font-weight: 700;
+    min-height: clamp(52px, 6.4vw, 78px);
+    padding: var(--spazio-2);
+    width: 100%;
+    border: 0;
+    border-radius: var(--raggio-s);
+    background: var(--muro);
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    transition: background var(--durata-breve) var(--curva), color var(--durata-breve) var(--curva);
 }
 
-.calendario-settimana {
-    text-transform: capitalize;
+button.calendario-casella {
+    cursor: pointer;
 }
 
 .calendario-numero {
@@ -242,161 +418,241 @@
 }
 
 .calendario-mese {
+    overflow: hidden;
     color: var(--inchiostro-tenue);
-}
-
-.calendario-conteggio {
-    display: inline-grid;
-    min-width: 1.5em;
-    min-height: 1.5em;
-    margin-top: var(--spazio-2);
-    padding-inline: var(--spazio-1);
-    place-items: center;
-    border-radius: 50%;
-    background: var(--rosso);
-    color: var(--su-scuro);
     font-size: var(--testo-xs);
     font-weight: 700;
-}
-
-.calendario-eventi {
-    display: grid;
-    gap: var(--spazio-2);
-    margin-top: var(--spazio-2);
-    padding: 0;
-    list-style: none;
-}
-
-.calendario-eventi a {
-    display: block;
-    overflow-wrap: anywhere;
-    color: var(--inchiostro);
-    font-size: var(--testo-s);
-    font-weight: 700;
-    line-height: 1.25;
-    text-decoration-color: var(--rosso);
-    text-underline-offset: 0.2em;
-}
-
-.calendario-elenco {
-    display: none;
-}
-
-.timeline {
-    display: grid;
-    padding: 0;
-    list-style: none;
-}
-
-.timeline-elemento {
-    --colonna-data: clamp(112px, 17vw, 180px);
-    position: relative;
-    display: grid;
-    grid-template-columns: var(--colonna-data) 20px minmax(0, 1fr);
-    gap: var(--spazio-5);
-    align-items: start;
-    padding-bottom: var(--spazio-7);
-}
-
-.timeline-elemento::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(var(--colonna-data) + var(--spazio-5) + 8px);
-    width: 4px;
-    background: var(--inchiostro);
-}
-
-.timeline-elemento::after {
-    content: '';
-    position: absolute;
-    top: 18px;
-    left: calc(var(--colonna-data) + var(--spazio-5) + 2px);
-    width: 16px;
-    height: 16px;
-    border: 3px solid var(--inchiostro);
-    border-radius: 50%;
-    background: var(--rosso);
-}
-
-.timeline-elemento:last-child {
-    padding-bottom: 0;
-}
-
-.timeline-elemento:last-child::before {
-    bottom: auto;
-    height: 28px;
-}
-
-.timeline-data {
-    display: grid;
-    gap: var(--spazio-1);
-    padding-top: var(--spazio-2);
-    font-family: var(--font-titoli);
     line-height: 1;
     text-align: right;
 }
 
-.timeline-giorno {
-    color: var(--rosso-testo);
-    font-size: var(--titolo-m);
+.calendario-segni {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: 3px;
 }
 
-.timeline-mese {
-    font-size: var(--testo-l);
+.calendario-segni i {
+    width: 7px;
+    height: 7px;
+    background: var(--rosso);
 }
 
-.timeline-scheda {
-    display: grid;
-    grid-column: 3;
-    gap: var(--spazio-4);
-    max-width: 760px;
-    padding: clamp(24px, 4vw, 40px);
-    border: var(--tratto);
-    border-radius: var(--raggio-s);
-    background: var(--muro);
-    text-decoration: none;
-    transition: border-color var(--durata-breve) var(--curva), transform var(--durata-breve) var(--curva);
-}
-
-.timeline-scheda:hover {
-    border-color: var(--rosso);
-    transform: translateX(4px);
-}
-
-.timeline-scheda p {
+.calendario-giorno--passato .calendario-casella {
+    background: transparent;
     color: var(--inchiostro-tenue);
 }
 
-.timeline-dettagli {
-    font-weight: 700;
+.calendario-giorno--con-eventi .calendario-casella {
+    background: var(--banco);
+    color: var(--inchiostro);
 }
 
-.timeline-link {
-    width: fit-content;
-    font-family: var(--font-titoli);
-    font-size: var(--testo-l);
-    text-decoration: underline;
-    text-decoration-color: var(--rosso);
-    text-underline-offset: 0.25em;
+.calendario-giorno--passato.calendario-giorno--con-eventi .calendario-casella {
+    background: var(--muro-ombra);
 }
 
-.eventi-archivio .timeline-elemento::before {
+.calendario-giorno--passato .calendario-segni i {
     background: var(--inchiostro-tenue);
 }
 
-.eventi-archivio .timeline-elemento::after {
-    border-color: var(--inchiostro-tenue);
-    background: var(--muro);
+.calendario-giorno--oggi .calendario-casella {
+    box-shadow: inset 0 0 0 3px var(--rosso);
 }
 
-.eventi-archivio .timeline-giorno {
+.calendario-giorno--oggi .calendario-mese {
+    color: var(--rosso-testo);
+}
+
+button.calendario-casella:hover,
+.calendario-giorno--scelto .calendario-casella {
+    background: var(--inchiostro);
+    color: var(--su-scuro);
+}
+
+button.calendario-casella:hover .calendario-mese,
+.calendario-giorno--scelto .calendario-mese {
+    color: var(--su-scuro);
+}
+
+button.calendario-casella:hover .calendario-segni i,
+.calendario-giorno--scelto .calendario-segni i {
+    background: var(--sedia);
+}
+
+/* Pannello del giorno scelto nel calendario */
+.agenda {
+    display: grid;
+    align-content: start;
+    gap: var(--spazio-4);
+}
+
+.agenda-data {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spazio-2) var(--spazio-3);
+}
+
+.agenda-data time::first-letter {
+    text-transform: uppercase;
+}
+
+.agenda-oggi {
+    padding: 0 var(--spazio-2);
+    border-radius: var(--raggio-s);
+    background: var(--rosso);
+    color: var(--su-scuro);
+    font-size: var(--testo-m);
+    line-height: 1.5;
+}
+
+.agenda-eventi {
+    padding: 0;
+    border-top: var(--tratto);
+    list-style: none;
+}
+
+.agenda-eventi a {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    gap: var(--spazio-4);
+    align-items: center;
+    min-height: 64px;
+    padding-block: var(--spazio-3);
+    border-bottom: var(--tratto-tenue);
+    text-decoration: none;
+}
+
+.agenda-ora {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    line-height: 1;
+}
+
+.agenda-testo {
+    display: grid;
+    gap: var(--spazio-1);
+}
+
+.agenda-titolo {
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.agenda-luogo {
     color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
 }
 
-.eventi-archivio .timeline-scheda {
-    background: var(--foglio);
+.agenda-freccia {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    line-height: 1;
+    transition: transform var(--durata-breve) var(--curva);
+}
+
+.agenda-eventi a:hover .agenda-titolo {
+    color: var(--rosso-testo);
+}
+
+.agenda-eventi a:hover .agenda-freccia {
+    transform: translateX(4px);
+}
+
+/* Archivio: un anno per blocco, una riga per evento */
+.archivio {
+    display: grid;
+    gap: var(--spazio-8);
+}
+
+.archivio-anno {
+    display: grid;
+    grid-template-columns: clamp(96px, 15vw, 200px) minmax(0, 1fr);
+    gap: var(--spazio-4) clamp(24px, 5vw, 64px);
+    align-items: start;
+}
+
+.archivio-anno-titolo {
+    position: sticky;
+    top: 108px;
+    font-size: var(--titolo-l);
+    line-height: 0.95;
+}
+
+.archivio-elenco {
+    padding: 0;
+    border-top: var(--tratto);
+    list-style: none;
+}
+
+.archivio-riga {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) auto auto;
+    gap: var(--spazio-3) var(--spazio-5);
+    align-items: center;
+    padding-block: var(--spazio-4);
+    border-bottom: var(--tratto-tenue);
+    text-decoration: none;
+}
+
+.archivio-riga--locandina {
+    grid-template-columns: 4rem 44px minmax(0, 1fr) auto auto;
+}
+
+.archivio-locandina {
+    border: var(--tratto-tenue);
+}
+
+.archivio-data {
+    display: grid;
+    gap: var(--spazio-1);
+    font-family: var(--font-titoli);
+    line-height: 1;
+}
+
+.archivio-giorno {
+    font-size: var(--titolo-s);
+}
+
+.archivio-mese {
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-m);
+}
+
+.archivio-testo {
+    display: grid;
+    gap: var(--spazio-1);
+}
+
+.archivio-titolo {
+    font-size: var(--titolo-xs);
+    line-height: 1.1;
+    transition: color var(--durata-breve) var(--curva);
+}
+
+.archivio-dettagli {
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+}
+
+.archivio-riga .categorie-etichette {
+    justify-content: end;
+}
+
+.archivio-freccia {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    line-height: 1;
+    transition: transform var(--durata-breve) var(--curva);
+}
+
+.archivio-riga:hover .archivio-titolo {
+    color: var(--rosso-testo);
+}
+
+.archivio-riga:hover .archivio-freccia {
+    transform: translateX(4px);
 }
 
 .eventi-carica {
@@ -431,6 +687,23 @@
     display: grid;
     gap: var(--spazio-6);
     max-width: 760px;
+}
+
+/* Con la locandina il testo si affianca al manifesto */
+.evento-pagina--locandina {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(240px, 32%, 380px);
+    gap: clamp(32px, 6vw, 88px);
+    align-items: start;
+}
+
+.evento-locandina {
+    position: sticky;
+    top: 108px;
+}
+
+.evento-locandina img {
+    aspect-ratio: auto;
 }
 
 /* Testo scritto in Markdown nel file dell'evento */
@@ -522,98 +795,226 @@
     .apertura-foto {
         margin-top: var(--spazio-5);
     }
+
+    .prossimo-scheda--locandina {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .prossimo-locandina {
+        grid-column: 2;
+        max-width: 280px;
+    }
+
+    .evento-pagina--locandina {
+        grid-template-columns: 1fr;
+    }
+
+    .evento-locandina {
+        position: static;
+        max-width: 360px;
+        order: -1;
+    }
+
+    .calendario {
+        grid-template-columns: 1fr;
+    }
+
+    .archivio-anno {
+        grid-template-columns: 1fr;
+    }
+
+    .archivio-anno-titolo {
+        position: static;
+        font-size: var(--titolo-m);
+    }
 }
 
+/* Smartphone: è lo schermo più usato. Schede compatte, informazioni essenziali per prime. */
 @media (max-width: 620px) {
-    .calendario-giorno {
-        min-height: 86px;
-        padding: var(--spazio-1);
+    .eventi-sezione {
+        padding-block: var(--spazio-7) var(--spazio-8);
     }
 
-    .calendario-data {
-        display: grid;
-        gap: 0;
-        justify-items: center;
-        font-size: var(--testo-xs);
-        line-height: 1.1;
+    .eventi-intestazione {
+        gap: var(--spazio-3);
+        margin-bottom: var(--spazio-6);
     }
 
-    .calendario-numero {
+    .eventi-prossimo {
+        padding-block: var(--spazio-6) var(--spazio-7);
+    }
+
+    .eventi-occhiello {
+        margin-bottom: var(--spazio-4);
+    }
+
+    .prossimo-scheda {
+        grid-template-columns: 1fr;
+        gap: var(--spazio-5);
+    }
+
+    .prossimo-data {
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--spazio-3) var(--spazio-4);
+        align-items: end;
+    }
+
+    .prossimo-settimana {
+        grid-column: 1 / -1;
+    }
+
+    .prossimo-giorno {
+        font-size: 6rem;
+    }
+
+    /* Prima cosa, quando e dove; poi la descrizione e il bottone */
+    .prossimo-testo {
+        gap: var(--spazio-4);
+    }
+
+    .prossimo-testo .attacco {
+        order: 1;
         font-size: var(--testo-m);
     }
 
+    .prossimo-testo .bottone {
+        order: 2;
+        width: 100%;
+    }
+
+    .prossimo-scheda--locandina {
+        grid-template-columns: minmax(0, 1fr) 116px;
+        align-items: center;
+    }
+
+    .prossimo-scheda--locandina .prossimo-data {
+        grid-template-columns: 1fr;
+    }
+
+    .prossimo-scheda--locandina .prossimo-testo {
+        grid-column: 1 / -1;
+    }
+
+    .prossimo-locandina {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .prossimo-foglio {
+        padding: var(--spazio-5) var(--spazio-4) var(--spazio-4);
+    }
+
+    .prossimo-foglio .bottone {
+        width: 100%;
+    }
+
+    /* Volantino compatto: la data a sinistra, il resto accanto */
+    .bacheca {
+        gap: var(--spazio-6);
+    }
+
+    .volantino {
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        gap: var(--spazio-2) var(--spazio-4);
+        align-items: start;
+        min-height: 0;
+        padding: var(--spazio-5) var(--spazio-4) var(--spazio-4);
+    }
+
+    .volantino-data {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 4.25rem;
+        gap: var(--spazio-2);
+    }
+
+    .volantino-giorno {
+        font-size: 3.25rem;
+    }
+
+    .volantino-mese {
+        font-size: var(--testo-m);
+        line-height: 1.1;
+    }
+
+    .volantino .categorie-etichette,
+    .volantino-testo {
+        grid-column: 2;
+    }
+
+    .volantino-titolo {
+        font-size: var(--titolo-xs);
+        line-height: 1.1;
+    }
+
+    .volantino--locandina {
+        grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+
+    .volantino--locandina .categorie-etichette,
+    .volantino--locandina .volantino-testo {
+        grid-column: 2;
+    }
+
+    .volantino-locandina,
+    .volantino--passato .volantino-locandina {
+        grid-column: 3;
+        grid-row: 1 / span 2;
+        width: 60px;
+    }
+
+    .calendario-casella {
+        grid-template-columns: 1fr;
+        min-height: 52px;
+        padding: var(--spazio-1);
+    }
+
+    .calendario-numero {
+        font-size: var(--testo-l);
+    }
+
     .calendario-mese {
-        font-size: 0.7rem;
-    }
-
-    .calendario-conteggio {
-        display: grid;
-        width: fit-content;
-        margin-inline: auto;
-        margin-top: var(--spazio-1);
-        font-size: 0.7rem;
-    }
-
-    .calendario-giorno--oggi::after {
-        margin-top: var(--spazio-1);
-        font-size: 0.65rem;
-        text-align: center;
-    }
-
-    .calendario-eventi {
         display: none;
     }
 
-    .calendario-elenco:not(:empty) {
-        display: grid;
-        gap: var(--spazio-4);
-        margin-top: var(--spazio-6);
+    .calendario-nomi span {
+        padding-inline: var(--spazio-1);
     }
 
-    .calendario-elenco-giorno {
-        padding-bottom: var(--spazio-4);
-        border-bottom: var(--tratto-tenue);
+    .agenda-eventi a {
+        grid-template-columns: 3.4rem minmax(0, 1fr) auto;
+        gap: var(--spazio-3);
     }
 
-    .calendario-elenco-giorno h4 {
-        margin-bottom: var(--spazio-2);
-        text-transform: capitalize;
+    .archivio {
+        gap: var(--spazio-7);
     }
 
-    .calendario-elenco-giorno ul {
-        display: grid;
-        gap: var(--spazio-2);
-        padding-left: 1.2em;
-    }
-
-    .timeline-elemento {
-        grid-template-columns: 20px minmax(0, 1fr);
+    .archivio-riga {
+        grid-template-columns: 3.2rem minmax(0, 1fr) auto;
         gap: var(--spazio-2) var(--spazio-4);
-        padding-bottom: var(--spazio-6);
     }
 
-    .timeline-elemento::before {
-        left: 8px;
-    }
-
-    .timeline-elemento::after {
-        left: 2px;
-    }
-
-    .timeline-data {
+    .archivio-riga .categorie-etichette {
         grid-column: 2;
-        display: flex;
-        align-items: baseline;
-        gap: var(--spazio-2);
-        padding-top: 0;
-        text-align: left;
+        grid-row: 2;
+        justify-content: start;
     }
 
-    .timeline-scheda {
-        grid-column: 2;
+    .archivio-riga--locandina {
+        grid-template-columns: 3.2rem 40px minmax(0, 1fr) auto;
     }
 
-    .timeline-giorno {
-        font-size: var(--titolo-s);
+    .archivio-riga--locandina .categorie-etichette {
+        grid-column: 3;
+    }
+
+    .eventi-carica {
+        width: 100%;
+    }
+
+    .evento-locandina {
+        max-width: none;
     }
 }

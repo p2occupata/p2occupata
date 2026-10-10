@@ -24,58 +24,80 @@ permalink: /eventi/
 </header>
 
 <main data-eventi data-eventi-url="{{ '/eventi/archivio.json' | relative_url }}">
-    <section class="sezione eventi-intro" aria-labelledby="prossimo-titolo">
+    <section class="sezione sezione--acqua eventi-prossimo" aria-labelledby="prossimo-titolo">
         <div class="contenitore">
-            <div class="intestazione eventi-intestazione">
-                <h2 id="prossimo-titolo" class="titolo-l">Il prossimo evento</h2>
-            </div>
-            <div class="evento-in-evidenza" data-prossimo-evento aria-live="polite">
+            <h2 id="prossimo-titolo" class="titolo-xs eventi-occhiello" data-prossimo-titolo>Il prossimo evento</h2>
+            <div data-prossimo-evento aria-live="polite">
                 <p>Caricamento del prossimo evento…</p>
+            </div>
+            <div class="prossimo-vuoto" data-prossimo-vuoto hidden>
+                <h3 class="titolo-l">Per ora non c'è niente in programma.</h3>
+                <p class="attacco">Hai un'idea da proporre? Gli eventi dell'aula nascono così: parliamone.</p>
+                <a class="bottone bottone--su-scuro" href="https://t.me/aulap2punto0community" target="_blank" rel="noopener noreferrer">Parliamone su Telegram</a>
             </div>
         </div>
     </section>
 
-    <section class="sezione sezione--foglio eventi-calendario" aria-labelledby="calendario-titolo">
+    <section class="sezione eventi-sezione" aria-labelledby="prossimi-titolo" data-gruppo-futuri{% if eventi_futuri.size == 0 %} hidden{% endif %}>
+        <div class="contenitore">
+            <div class="intestazione intestazione--tenue eventi-intestazione">
+                <h2 id="prossimi-titolo" class="titolo-l">In programma</h2>
+                <p>Le altre date in arrivo, dalla più vicina in poi.</p>
+            </div>
+            <ul class="bacheca" data-eventi-futuri>
+                {% for evento in eventi_futuri %}
+                {% include volantino.html evento=evento %}
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <section class="sezione sezione--foglio eventi-sezione" aria-labelledby="calendario-titolo">
         <div class="contenitore">
             <div class="intestazione eventi-intestazione">
                 <h2 id="calendario-titolo" class="titolo-l">Calendario</h2>
-                <p>Le date attorno a oggi: gli eventi in programma e quelli appena passati.</p>
+                <p>Cinque settimane attorno a oggi. Tocca un giorno colorato per vedere cosa c'è.</p>
             </div>
-            <p class="calendario-intervallo" data-calendario-intervallo></p>
-            <ol class="calendario-griglia" data-calendario aria-label="Calendario di 35 giorni centrato su oggi"></ol>
-            <div class="calendario-elenco" data-calendario-elenco></div>
-        </div>
-    </section>
-
-    <section class="sezione sezione--foglio eventi-sezione" aria-labelledby="prossimi-titolo">
-        <div class="contenitore">
-            <div class="intestazione eventi-intestazione">
-                <h2 id="prossimi-titolo" class="titolo-l">Prossimi eventi</h2>
-                <p>Le date in programma, dalla più vicina in poi.</p>
-            </div>
-            <ol class="timeline" data-eventi-futuri{% if eventi_futuri.size == 0 %} hidden{% endif %}>
-                {% for evento in eventi_futuri %}
-                    {% include timeline-evento.html evento=evento %}
-                {% endfor %}
-            </ol>
-            <div class="bacheca-vuota" data-vuoto-futuri{% if eventi_futuri.size > 0 %} hidden{% endif %}>
-                <p>Non ci sono ancora eventi in programma. Hai un'idea da proporre?</p>
-                <a class="bottone bottone--primario" href="https://t.me/aulap2punto0community" target="_blank" rel="noopener noreferrer">Parliamone su Telegram</a>
+            <div class="calendario">
+                <div class="calendario-foglio">
+                    <p class="calendario-intervallo" data-calendario-intervallo></p>
+                    <div class="calendario-nomi" aria-hidden="true">
+                        <span>lun</span>
+                        <span>mar</span>
+                        <span>mer</span>
+                        <span>gio</span>
+                        <span>ven</span>
+                        <span>sab</span>
+                        <span>dom</span>
+                    </div>
+                    <ol class="calendario-griglia" data-calendario aria-label="Calendario di cinque settimane attorno a oggi"></ol>
+                </div>
+                <div class="agenda" data-calendario-elenco aria-live="polite"></div>
             </div>
         </div>
     </section>
 
-    <section id="passati" class="sezione eventi-sezione eventi-archivio" aria-labelledby="passati-titolo" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
+    <section id="passati" class="sezione eventi-sezione" aria-labelledby="passati-titolo" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
         <div class="contenitore">
-            <div class="intestazione eventi-intestazione">
+            <div class="intestazione intestazione--tenue eventi-intestazione">
                 <h2 id="passati-titolo" class="titolo-l">Eventi passati</h2>
-                <p>Un archivio delle iniziative, dalle più recenti.</p>
+                <p>L'archivio delle iniziative, dalle più recenti.</p>
             </div>
-            <ol class="timeline" data-eventi-passati>
+            <div class="archivio" data-eventi-passati>
+                {% assign anno_aperto = "" %}
                 {% for evento in eventi_passati limit: 8 %}
-                    {% include timeline-evento.html evento=evento %}
+                    {% assign anno = evento.data | date: "%Y" %}
+                    {% if anno != anno_aperto %}
+                        {% unless forloop.first %}</ol></div>{% endunless %}
+                        <div class="archivio-anno" data-anno="{{ anno }}">
+                            <h3 class="archivio-anno-titolo">{{ anno }}</h3>
+                            <ol class="archivio-elenco">
+                        {% assign anno_aperto = anno %}
+                    {% endif %}
+                    {% include archivio-evento.html evento=evento %}
                 {% endfor %}
-            </ol>
+                {% if eventi_passati.size > 0 %}</ol></div>{% endif %}
+            </div>
             <button class="bottone eventi-carica" type="button" data-carica-eventi{% if eventi_passati.size <= 8 %} hidden{% endif %}>Mostra altri eventi</button>
             <p class="nota eventi-stato" data-stato-archivio role="status" hidden></p>
         </div>

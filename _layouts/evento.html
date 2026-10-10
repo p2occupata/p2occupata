@@ -35,15 +35,24 @@ layout: default
     </header>
 
     <div class="sezione">
-        <div class="contenitore evento-corpo">
-            {% if page.descrizione %}
-            <p class="attacco">{{ page.descrizione }}</p>
-            {% endif %}
+        <div class="contenitore evento-pagina{% if page.locandina %} evento-pagina--locandina{% endif %}">
+            <div class="evento-corpo">
+                {% if page.descrizione %}
+                <p class="attacco">{{ page.descrizione }}</p>
+                {% endif %}
 
-            {% if content != "" and content != "\n" %}
-            <div class="evento-testo">
-                {{ content }}
+                {% if content != "" and content != "\n" %}
+                <div class="evento-testo">
+                    {{ content }}
+                </div>
+                {% endif %}
             </div>
+            {% if page.locandina %}
+            <figure class="manifesto evento-locandina">
+                <a href="{{ page.locandina | relative_url }}">
+                    <img src="{{ page.locandina | relative_url }}" alt="Locandina dell'evento: {{ page.titolo | escape }}">
+                </a>
+            </figure>
             {% endif %}
         </div>
     </div>

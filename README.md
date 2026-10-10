@@ -23,6 +23,14 @@ categorie:
 
 Il colore dipende dal nome visibile della categoria: lo stesso nome mantiene lo stesso colore. La scelta avviene tra i cinque colori già usati dal sito; categorie diverse possono condividere un colore. I vecchi campi `categoria` e `categoria_nome` continuano a funzionare per gli eventi esistenti.
 
+## Locandina
+
+`locandina` è facoltativo: è il percorso di un'immagine del sito, di solito in `images/eventi/`. Compare nella pagina dell'evento, nella scheda del prossimo evento, nei volantini e nell'archivio. Gli eventi senza locandina restano come sono.
+
+```yaml
+locandina: /images/eventi/gamenight.png
+```
+
 ## Date definite
 
 `data` è la prima data. Ogni voce in `date_aggiuntive` produce un'altra scheda nella timeline, collegata alla stessa pagina. Le date future compaiono tutte; quelle passate sono accessibili con «Mostra altri eventi».

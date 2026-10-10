@@ -30,6 +30,14 @@ meta_description: "Aula P2.0 Occupata: uno spazio autogestito all'Università de
 </header>
 
 <main>
+    <section class="sezione sezione--inchiostro eventi-prossimo" aria-labelledby="prossimo-titolo" data-eventi data-eventi-url="{{ '/eventi/archivio.json' | relative_url }}" hidden>
+        <div class="contenitore">
+            <h2 id="prossimo-titolo" class="titolo-xs eventi-occhiello" data-prossimo-titolo>Il prossimo evento</h2>
+            <div data-prossimo-evento aria-live="polite"></div>
+            <a class="link prossimo-tutti" href="{{ '/eventi/' | relative_url }}">Vedi tutti gli eventi</a>
+        </div>
+    </section>
+
     <section id="vieni" class="sezione sezione--acqua" aria-labelledby="vieni-titolo">
         <div class="contenitore colonne">
             <div class="intestazione" style="margin-bottom: 0">
@@ -101,7 +109,7 @@ meta_description: "Aula P2.0 Occupata: uno spazio autogestito all'Università de
             <div class="intestazione intestazione--tenue">
                 <h2 id="eventi-titolo" class="titolo-l">Cosa succede in aula</h2>
                 <p>Scopri le iniziative in programma e ripercorri quelle passate.</p>
-                <a class="bottone" href="{{ '/eventi/' | relative_url }}">Vai alla timeline degli eventi</a>
+                <a class="bottone" href="{{ '/eventi/' | relative_url }}">Vai a tutti gli eventi</a>
             </div>
             <ul class="bacheca" data-eventi-futuri{% if eventi_futuri.size == 0 %} hidden{% endif %}>
                 {% for evento in eventi_futuri %}

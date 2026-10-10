@@ -1,0 +1,25 @@
+{% comment %}
+    Riga di un evento nell'archivio.
+    Parametri: evento (documento della collezione eventi).
+{% endcomment %}
+{% assign mesi = "gennaio,febbraio,marzo,aprile,maggio,giugno,luglio,agosto,settembre,ottobre,novembre,dicembre" | split: "," %}
+{% assign indice_mese = include.evento.data | date: "%-m" | minus: 1 %}
+<li data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}" data-fine-evento="{{ include.evento.fine | default: include.evento.data | date: '%Y-%m-%d' }}" data-url-evento="{{ include.evento.url | relative_url }}">
+    <a class="archivio-riga{% if include.evento.locandina %} archivio-riga--locandina{% endif %}" href="{{ include.evento.url | relative_url }}">
+        <time class="archivio-data" datetime="{{ include.evento.data | date: '%Y-%m-%d' }}">
+            <span class="archivio-giorno">{{ include.evento.data | date: "%-d" }}</span>
+            <span class="archivio-mese">{{ mesi[indice_mese] | slice: 0, 3 }}</span>
+        </time>
+        {% if include.evento.locandina %}<img class="locandina archivio-locandina" src="{{ include.evento.locandina | relative_url }}" alt="" loading="lazy">{% endif %}
+        <span class="archivio-testo">
+            <h4 class="archivio-titolo">{{ include.evento.titolo | escape }}</h4>
+            {% if include.evento.ora or include.evento.luogo %}
+            <span class="archivio-dettagli">
+                {% if include.evento.ora %}Ore {{ include.evento.ora | escape }}{% endif %}{% if include.evento.ora and include.evento.luogo %} · {% endif %}{% if include.evento.luogo %}{{ include.evento.luogo | escape }}{% endif %}
+            </span>
+            {% endif %}
+        </span>
+        {% include categorie-evento.html evento=include.evento %}
+        <span class="archivio-freccia" aria-hidden="true">→</span>
+    </a>
+</li>
