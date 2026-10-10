@@ -96,34 +96,30 @@ meta_description: "Aula P2.0 Occupata: uno spazio autogestito all'Università de
     {% assign eventi_futuri = eventi_futuri | sort: "data" %}
     {% assign eventi_passati = eventi_passati | sort: "data" | reverse %}
 
-    <section id="eventi" class="sezione" aria-labelledby="eventi-titolo">
+    <section id="eventi" class="sezione" aria-labelledby="eventi-titolo" data-eventi>
         <div class="contenitore">
             <div class="intestazione intestazione--tenue">
                 <h2 id="eventi-titolo" class="titolo-l">Cosa succede in aula</h2>
-                <p>Per le novità più immediate, seguici sui nostri canali.</p>
+                <p>Scopri le iniziative in programma e ripercorri quelle passate.</p>
+                <a class="bottone" href="{{ '/eventi/' | relative_url }}">Vai alla timeline degli eventi</a>
             </div>
-            {% if eventi_futuri.size > 0 %}
-            <ul class="bacheca">
+            <ul class="bacheca" data-eventi-futuri{% if eventi_futuri.size == 0 %} hidden{% endif %}>
                 {% for evento in eventi_futuri %}
                 {% include volantino.html evento=evento %}
                 {% endfor %}
             </ul>
-            {% else %}
-            <div class="bacheca-vuota">
+            <div class="bacheca-vuota" data-vuoto-futuri{% if eventi_futuri.size > 0 %} hidden{% endif %}>
                 <p>Qui compariranno i prossimi eventi. Nel frattempo, puoi chiedere cosa si sta preparando o proporre un'idea.</p>
                 <a class="bottone bottone--primario" href="https://t.me/aulap2punto0community" target="_blank" rel="noopener noreferrer">Scrivici su Telegram</a>
             </div>
-            {% endif %}
-            {% if eventi_passati.size > 0 %}
-            <details class="cassetto">
+            <details class="cassetto" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
                 <summary>Eventi passati</summary>
-                <ul class="bacheca">
+                <ul class="bacheca" data-eventi-passati>
                     {% for evento in eventi_passati %}
                     {% include volantino.html evento=evento passato=true %}
                     {% endfor %}
                 </ul>
             </details>
-            {% endif %}
         </div>
     </section>
 

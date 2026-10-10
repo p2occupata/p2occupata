@@ -6,6 +6,17 @@
  * specifiche delle pagine; i componenti si modificano nel design system.
  */
 
+[hidden] {
+    display: none !important;
+}
+
+.volantino-etichette {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    gap: var(--spazio-2);
+}
+
 /* ------------------------------------------------------------------ */
 /* Apertura                                                           */
 /* ------------------------------------------------------------------ */
@@ -83,6 +94,143 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* Timeline degli eventi                                              */
+/* ------------------------------------------------------------------ */
+
+.eventi-intro {
+    padding-block: var(--spazio-8);
+}
+
+.eventi-intro .intestazione {
+    margin-bottom: 0;
+}
+
+.eventi-sezione {
+    padding-block: var(--spazio-8) var(--spazio-sezione);
+}
+
+.eventi-intestazione {
+    margin-bottom: var(--spazio-7);
+}
+
+.timeline {
+    display: grid;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline-elemento {
+    --colonna-data: clamp(112px, 17vw, 180px);
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--colonna-data) 20px minmax(0, 1fr);
+    gap: var(--spazio-5);
+    align-items: start;
+    padding-bottom: var(--spazio-7);
+}
+
+.timeline-elemento::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--colonna-data) + var(--spazio-5) + 8px);
+    width: 4px;
+    background: var(--inchiostro);
+}
+
+.timeline-elemento::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: calc(var(--colonna-data) + var(--spazio-5) + 2px);
+    width: 16px;
+    height: 16px;
+    border: 3px solid var(--inchiostro);
+    border-radius: 50%;
+    background: var(--rosso);
+}
+
+.timeline-elemento:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-elemento:last-child::before {
+    bottom: auto;
+    height: 28px;
+}
+
+.timeline-data {
+    display: grid;
+    gap: var(--spazio-1);
+    padding-top: var(--spazio-2);
+    font-family: var(--font-titoli);
+    line-height: 1;
+    text-align: right;
+}
+
+.timeline-giorno {
+    color: var(--rosso-testo);
+    font-size: var(--titolo-m);
+}
+
+.timeline-mese {
+    font-size: var(--testo-l);
+}
+
+.timeline-scheda {
+    display: grid;
+    grid-column: 3;
+    gap: var(--spazio-4);
+    max-width: 760px;
+    padding: clamp(24px, 4vw, 40px);
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+    background: var(--muro);
+    text-decoration: none;
+    transition: border-color var(--durata-breve) var(--curva), transform var(--durata-breve) var(--curva);
+}
+
+.timeline-scheda:hover {
+    border-color: var(--rosso);
+    transform: translateX(4px);
+}
+
+.timeline-scheda p {
+    color: var(--inchiostro-tenue);
+}
+
+.timeline-dettagli {
+    font-weight: 700;
+}
+
+.timeline-link {
+    width: fit-content;
+    font-family: var(--font-titoli);
+    font-size: var(--testo-l);
+    text-decoration: underline;
+    text-decoration-color: var(--rosso);
+    text-underline-offset: 0.25em;
+}
+
+.eventi-archivio .timeline-elemento::before {
+    background: var(--inchiostro-tenue);
+}
+
+.eventi-archivio .timeline-elemento::after {
+    border-color: var(--inchiostro-tenue);
+    background: var(--muro);
+}
+
+.eventi-archivio .timeline-giorno {
+    color: var(--inchiostro-tenue);
+}
+
+.eventi-archivio .timeline-scheda {
+    background: var(--foglio);
+}
+
+/* ------------------------------------------------------------------ */
 /* Pagina di un evento                                                */
 /* ------------------------------------------------------------------ */
 
@@ -148,5 +296,38 @@
 
     .apertura-foto {
         margin-top: var(--spazio-5);
+    }
+}
+
+@media (max-width: 620px) {
+    .timeline-elemento {
+        grid-template-columns: 20px minmax(0, 1fr);
+        gap: var(--spazio-2) var(--spazio-4);
+        padding-bottom: var(--spazio-6);
+    }
+
+    .timeline-elemento::before {
+        left: 8px;
+    }
+
+    .timeline-elemento::after {
+        left: 2px;
+    }
+
+    .timeline-data {
+        grid-column: 2;
+        display: flex;
+        align-items: baseline;
+        gap: var(--spazio-2);
+        padding-top: 0;
+        text-align: left;
+    }
+
+    .timeline-scheda {
+        grid-column: 2;
+    }
+
+    .timeline-giorno {
+        font-size: var(--titolo-s);
     }
 }

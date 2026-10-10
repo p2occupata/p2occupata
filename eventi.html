@@ -1,0 +1,67 @@
+---
+layout: default
+title: "Eventi | Aula P2.0 Occupata"
+meta_description: "La timeline degli eventi dell'Aula P2.0 Occupata: prossime iniziative e archivio degli incontri passati."
+permalink: /eventi/
+---
+
+{% assign oggi = site.time | date: "%Y-%m-%d" %}
+{% assign eventi_futuri = "" | split: "" %}
+{% assign eventi_passati = "" | split: "" %}
+{% for evento in site.eventi %}
+    {% assign evento_data = evento.data | date: "%Y-%m-%d" %}
+    {% if evento_data >= oggi %}
+        {% assign eventi_futuri = eventi_futuri | push: evento %}
+    {% else %}
+        {% assign eventi_passati = eventi_passati | push: evento %}
+    {% endif %}
+{% endfor %}
+{% assign eventi_futuri = eventi_futuri | sort: "data" %}
+{% assign eventi_passati = eventi_passati | sort: "data" | reverse %}
+
+<header class="striscione">
+    <h1 class="striscione-testo">Gli eventi della P2.0</h1>
+</header>
+
+<main data-eventi>
+    <section class="sezione eventi-intro" aria-labelledby="eventi-intro-titolo">
+        <div class="contenitore">
+            <div class="intestazione">
+                <h2 id="eventi-intro-titolo" class="titolo-l">Ci vediamo in aula.</h2>
+                <p>Assemblee, proiezioni, laboratori e incontri: qui trovi le prossime iniziative e le tracce di quelle già vissute.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sezione sezione--foglio eventi-sezione" aria-labelledby="prossimi-titolo">
+        <div class="contenitore">
+            <div class="intestazione eventi-intestazione">
+                <h2 id="prossimi-titolo" class="titolo-l">Prossimi eventi</h2>
+                <p>Le date in programma, dalla più vicina in poi.</p>
+            </div>
+            <ol class="timeline" data-eventi-futuri{% if eventi_futuri.size == 0 %} hidden{% endif %}>
+                {% for evento in eventi_futuri %}
+                    {% include timeline-evento.html evento=evento %}
+                {% endfor %}
+            </ol>
+            <div class="bacheca-vuota" data-vuoto-futuri{% if eventi_futuri.size > 0 %} hidden{% endif %}>
+                <p>Non ci sono ancora eventi in programma. Hai un'idea da proporre?</p>
+                <a class="bottone bottone--primario" href="https://t.me/aulap2punto0community" target="_blank" rel="noopener noreferrer">Parliamone su Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="sezione eventi-sezione eventi-archivio" aria-labelledby="passati-titolo" data-gruppo-passati{% if eventi_passati.size == 0 %} hidden{% endif %}>
+        <div class="contenitore">
+            <div class="intestazione eventi-intestazione">
+                <h2 id="passati-titolo" class="titolo-l">Eventi passati</h2>
+                <p>Un archivio delle iniziative, dalle più recenti.</p>
+            </div>
+            <ol class="timeline" data-eventi-passati>
+                {% for evento in eventi_passati %}
+                    {% include timeline-evento.html evento=evento %}
+                {% endfor %}
+            </ol>
+        </div>
+    </section>
+</main>

@@ -12,16 +12,19 @@
     {% when 'assemblea' %}{% assign nome_categoria = "Assemblea" %}
     {% else %}{% assign nome_categoria = "Evento" %}
 {% endcase %}
-<li>
+<li data-data-evento="{{ include.evento.data | date: '%Y-%m-%d' }}">
     <a class="volantino{% if include.passato %} volantino--passato{% endif %}" href="{{ include.evento.url | relative_url }}">
-        {% unless include.passato %}<span class="etichetta etichetta--{{ include.evento.categoria | default: 'altro' }}">{{ nome_categoria }}</span>{% endunless %}
+        <span class="volantino-etichette">
+            <span class="etichetta etichetta--{{ include.evento.categoria | default: 'altro' }}">{{ nome_categoria }}</span>
+            {% if include.evento.esempio %}<span class="etichetta">Evento di esempio</span>{% endif %}
+        </span>
         <span class="volantino-data">
             <span class="volantino-giorno">{{ include.evento.data | date: "%-d" }}</span>
-            <span class="volantino-mese">{{ mesi[indice_mese] }}{% if include.passato %} {{ include.evento.data | date: "%Y" }}{% endif %}</span>
+            <span class="volantino-mese">{{ mesi[indice_mese] }} {{ include.evento.data | date: "%Y" }}</span>
         </span>
         <span>
             <span class="volantino-titolo">{{ include.evento.titolo }}</span>
-            {% unless include.passato %}{% if include.evento.ora or include.evento.luogo %}<span class="volantino-dove">{% if include.evento.ora %}Ore {{ include.evento.ora }}{% endif %}{% if include.evento.ora and include.evento.luogo %}, {% endif %}{{ include.evento.luogo }}</span>{% endif %}{% endunless %}
+            {% if include.evento.ora or include.evento.luogo %}<span class="volantino-dove">{% if include.evento.ora %}Ore {{ include.evento.ora }}{% endif %}{% if include.evento.ora and include.evento.luogo %}, {% endif %}{{ include.evento.luogo }}</span>{% endif %}
         </span>
     </a>
 </li>

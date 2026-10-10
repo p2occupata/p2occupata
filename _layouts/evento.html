@@ -16,8 +16,9 @@ layout: default
 <article>
     <header class="sezione sezione--acqua">
         <div class="contenitore evento-testata">
-            <a class="link" href="{{ '/' | relative_url }}#eventi">Torna agli eventi</a>
+            <a class="link" href="{{ '/eventi/' | relative_url }}">Torna agli eventi</a>
             <span class="etichetta etichetta--{{ page.categoria | default: 'altro' }}">{{ nome_categoria }}</span>
+            {% if page.esempio %}<span class="etichetta">Evento di esempio · dettagli da confermare</span>{% endif %}
             <h1 class="titolo-xl">{{ page.titolo }}</h1>
             <ul class="dati-evento">
                 <li><span>Quando</span><strong>{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</strong></li>
