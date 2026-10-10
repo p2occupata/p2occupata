@@ -1,19 +1,63 @@
 ---
-titolo: "Serata giochi. Special Edition!"
+titolo: Serata giochi. Special Edition!
 data: '2026-03-19'
-ora: "20:30"
-luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
+ora: '20:30'
+luogo: Aula P2.0 Occupata
 categoria: altro
-categoria_nome: "Giochi"
-descrizione: "Una serata di giochi, pizza e socialità aperta a tutte e tutti."
+categoria_nome: Giochi
+descrizione: La serata più divertente dell'UNICAL
 ---
 
-Una serata di giochi, pizza e socialità in aula P2.0, aperta anche a chi non aveva mai partecipato prima.
+# 🎲 Game Night – Special Edition
+<br>
+Una serata di giochi, pizza e socialità in **Aula P2.0 Occupata**.
 
-## Le attività
+---
 
-- Pizza e qualcosa da bere in compagnia.
-- Giochi da tavolo e giochi di gruppo.
-- Un'occasione per conoscere nuove persone nel campus.
+## 📍 LUOGO
+**Aula P2.0 Occupata**  
+Cubo 40C – Ponte Carrabile  
+Università della Calabria
 
-Tra i giochi annunciati c'erano Cluedo, Bang!, Lupus in tabula, Monopoli, Cattivissimi 7 e Claim. Chi voleva poteva portare un gioco da far provare agli altri.
+## ▶️ START
+**Giovedì 19 Marzo 2026**  
+dalle **20:30**
+
+---
+
+## 🎮 QUEST
+Preparati a una serata all’insegna del divertimento e della socialità.
+
+Durante la **Game Night della P2.0** potrai:
+
+- 🍕 Mangiare pizza e bere qualcosa in compagnia  
+- 🎲 Giocare a tanti **giochi da tavolo**  
+- 👥 Partecipare a **giochi di gruppo**  
+- 🧠 Conoscere nuove persone e condividere una serata diversa nel campus
+
+L'evento è **aperto a tutti**, anche se non hai mai partecipato prima.
+
+---
+
+## 🎲 Giochi disponibili
+
+Durante la serata troverai diversi giochi tra cui:
+
+- Cluedo  
+- Bang!  
+- Lupus in tabula  
+- Monopoli
+- Cattivissimi 7
+- Claim
+
+e tanti altri!!!
+
+💡 **Hai un gioco che vuoi far provare agli altri? Portalo!**
+
+---
+
+## 🎉 Ci vediamo alla Game Night!
+
+Porta amici, porta un gioco, porta la voglia di divertirti.
+
+**Aula P2.0 Occupata – Cubo 40C**

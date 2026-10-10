@@ -1,19 +1,41 @@
 ---
-titolo: "Corso gratuito e tutoraggio sui Fondamenti di Informatica"
+titolo: Corso gratuito e tutoraggio fondamenti di informatica
 data: '2024-11-07'
-ora: "18:30"
-luogo: "Aula P2.0 Occupata"
+ora: '18:30'
+luogo: Aula P2.0 Occupata
 categoria: workshop
-categoria_nome: "Corso"
-descrizione: "Un corso gratuito di informatica costruito sulle esigenze di chi partecipa."
+categoria_nome: Corso
+descrizione: Ogni Giovedì a partire dal 7 novembre ore 18:30. Vi aspettiamo
 ---
 
-Il corso e tutoraggio sui Fondamenti di Informatica era pensato per adattarsi alle esigenze dei partecipanti: preparazione dell'esame o semplice curiosità per la materia.
+Il **Corso gratuito e tutoraggio sui Fondamenti di Informatica** è pensato per adattarsi alle esigenze individuali dei partecipanti. 
+Che tu abbia bisogno di assistenza per prepararti all'esame o semplicemente desideri approfondire la tua curiosità 
+sull'informatica, questo è quello che cerchi.
 
-## Struttura del corso
+L'unico requisito? Venire all'aula P2.0 nei giorni di incontro!
+<br>Il corso continuerà finché ce ne sarà richiesta, 
+senza un programma rigido: **il contenuto e la durata sono definiti in base ai partecipanti**.
 
-Non c'era un programma rigido. Domande, concetti e durata degli incontri dipendevano dalle persone presenti.
+<br>
 
-Gli appuntamenti erano previsti ogni giovedì a partire dal 7 novembre, alle 18:30. Non servivano iscrizione, costi o requisiti specifici: bastava passare in aula.
+## Struttura del Corso
+**Non c’è una struttura predefinita**. Il programma del corso viene creato in base alle esigenze di chi partecipa.
+Saremo lì per rispondere a domande, chiarire concetti e aiutarti nel tuo percorso di apprendimento,
+che sia per motivi accademici o per curiosità personale.
 
-Per informazioni era possibile contattarci su [Instagram](https://www.instagram.com/aulap2.0occupata/).
+<br>
+
+## Data e Orario
+
+🗓 Ogni Giovedì a partire dal 7 novembre ore 18:30
+
+<br>
+
+## Come partecipare?
+Non serve registrarsi! **Basta presentarsi nell'aula P2.0 nel giorno stabilito**, e saremo pronti ad aiutarti.
+Non ci sono costi, limiti di tempo, o requisiti specifici.
+
+<br>
+
+## Domande?
+**Se vuoi informazioni ci trovi in aula tutti i giorni.** Oppure puoi contattarci su **[Instagram](https://www.instagram.com/aulap2.0occupata/)**. 

@@ -1,37 +1,78 @@
 ---
-titolo: "Dall’alto del mio niente"
+titolo: Dall’alto del mio niente
 data: '2026-05-25'
-ora: "18:00"
-luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
+ora: '18:00'
+luogo: Aula P2.0 Occupata
 categoria: altro
-categoria_nome: "Libro"
-descrizione: "Presentazione del libro illustrato, esposizione e incontro con gli artisti."
+categoria_nome: Libro
+descrizione: Presentazione del libro illustrato con esposizione e incontro con gli artisti
 ---
 
-La presentazione del libro illustrato *Dall’alto del mio niente* era accompagnata da un'esposizione delle illustrazioni e da un incontro con gli artisti. Un'occasione per parlare di processi creativi, immaginari e percorsi personali.
+# 📖 Dall’alto del mio niente 🎨
 
-## Il libro
+Un momento di **incontro, racconto e condivisione** all’interno dell’aula P2.0.
 
-Il libro racconta la nascita e l'evoluzione del processo creativo di un aspirante autore. La narrazione richiama il viaggio dell'eroe e attraversa ricordi, relazioni complesse ed esperienze di trasformazione, mescolando introspezione e immaginario visivo.
+La presentazione del libro illustrato *“Dall’alto del mio niente”* sarà accompagnata da un’esposizione delle illustrazioni e da un confronto diretto con gli artisti.
 
-## Gli artisti
+Un’occasione per attraversare insieme **processi creativi, immaginari e percorsi personali**.
 
-### Gabriella Capraro (Gab)
+<br>
 
-Copywriter e ghostwriter. La sua scrittura alterna introspezione e ironia quotidiana. [Instagram](https://instagram.com/ga_o_gab_piuablativo).
+## Il Libro
 
-### Alberto Cianflone (Raudo)
+“Dall’alto del mio niente” è un libro illustrato che racconta la nascita e l’evoluzione del processo creativo di un aspirante autore.
 
-Illustratore e artista visivo, con un percorso nel writing e nei graffiti e riferimenti agli immaginari horror e punk. [Instagram](https://instagram.com/alien_raudo).
+Attraverso una struttura che richiama il **viaggio dell’eroe**, il protagonista si muove tra ricordi, flashback e percorsi interiori, cercando di convincersi che la sua storia merita di essere raccontata.
 
-### Susanna Nicolazzo (Sue)
+La narrazione attraversa temi come:
+- processi interiori  
+- relazioni complesse  
+- esperienze di vita e trasformazione  
 
-Illustratrice e social media manager. Unisce narrazione visiva e illustrazione digitale in atmosfere oniriche e intime. [Instagram](https://instagram.com/illustration__sue).
+Un racconto visivo e narrativo che mescola **introspezione, immaginario e tensione creativa**.
+
+<br>
+
+## Gli Artisti
+
+**✍️ Gabriella Capraro (Gab)**  
+Copywriter e ghostwriter, la sua scrittura si muove tra introspezione e flusso di coscienza, alternando profondità e ironia quotidiana.  
+🔗 Instagram: [@ga_o_gab_piuablativo](https://instagram.com/ga_o_gab_piuablativo)
+
+<br>
+
+**🎨 Alberto Cianflone (Raudo)**  
+Illustratore e artista visivo, con un background nel writing e nei graffiti. La sua estetica si ispira a immaginari horror e punk, con richiami al fumetto argentino e americano.  
+🔗 Instagram: [@alien_raudo](https://instagram.com/alien_raudo)
+
+<br>
+
+**🌙 Susanna Nicolazzo (Sue)**  
+Illustratrice e social media manager, il suo lavoro unisce narrazione visiva e illustrazione digitale, creando atmosfere oniriche, intime e surreali.  
+🔗 Instagram: [@illustration__sue](https://instagram.com/illustration__sue)
+
+<br>
 
 ## Programma
 
-- Presentazione del libro.
-- Esposizione delle illustrazioni.
-- Incontro e dialogo con gli artisti.
+**🗓 Lunedì 25 Maggio 2026**  
+**🕕 Ore 18:00**
 
-Per aggiornamenti, i nostri [canali social](https://linktr.ee/p2_0_occupata).
+- Presentazione del libro  
+- Esposizione delle illustrazioni  
+- Incontro e dialogo con gli artisti  
+
+<br>
+
+## Luogo
+
+**Aula P2.0 Occupata**  
+UNICAL – Cubo 40C, Ponte Carrabile  
+
+<br>
+
+Uno spazio libero, autogestito e aperto, dove la cultura si costruisce insieme.
+
+<br>
+
+**Per aggiornamenti e info seguici sui nostri [SOCIAL](https://linktr.ee/p2_0_occupata)**.

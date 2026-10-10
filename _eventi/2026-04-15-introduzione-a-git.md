@@ -8,38 +8,108 @@ ora: '18:30'
 luogo: Aula P2.0 Occupata
 categoria: workshop
 descrizione: Impara a usare Git per gestire il codice e lavorare in team.
+title: Laboratorio delle Competenze - Introduzione a Git
+description: Impara a usare Git per gestire il codice e lavorare in team.
+location: Aula P2.0 Occupata
 ---
 
-## Introduzione a Git
 
-Git è uno strumento fondamentale per chi lavora con il codice. Permette di tenere traccia delle modifiche, collaborare con altri e gestire progetti in modo professionale.
 
-In questo workshop, Domenico Violi guiderà i partecipanti attraverso le basi di Git, mostrando come utilizzarlo nella pratica quotidiana.
+<div class="event-container">
 
-## Cosa vedremo
+  <div class="event-header">
+    <h1 class="event-title">{{ page.title }}</h1>
+    <p class="event-subtitle">{{ page.description }}</p>
 
-- Cos'è Git e perché usarlo
-- Creare e gestire repository
-- Commit, branch e merge
-- Lavorare in team con Git
-- Buone pratiche e flussi di lavoro
+    <div class="event-meta">
+      <div class="meta-box">
+        <strong>📅 Date</strong><br>
+        15 e 22 aprile 2026, ore 18:30
+      </div>
 
-Un percorso pratico pensato per chi parte da zero o vuole consolidare le basi.
+      <div class="meta-box">
+        <strong>📍 Luogo</strong><br>
+        {{ page.location }}
+      </div>
 
-## Relatore
+      <div class="meta-box">
+        <strong>🎓 Workshop</strong><br>
+        Laboratorio delle Competenze
+      </div>
+    </div>
+  </div>
 
-### Domenico Violi
+  <div class="section">
+    <h2>Introduzione a Git</h2>
 
-Sviluppatore e appassionato di tecnologia. Si occupa di sviluppo software e strumenti per la collaborazione.
+    <p>
+      Git è uno strumento fondamentale per chi lavora con il codice.
+      Permette di tenere traccia delle modifiche, collaborare con altri
+      e gestire progetti in modo professionale.
+    </p>
 
-Condivide conoscenze pratiche per aiutare altri a crescere nel mondo tech.
+    <p>
+      In questo workshop, Domenico Violi guiderà i partecipanti
+      attraverso le basi di Git, mostrando come utilizzarlo
+      nella pratica quotidiana.
+    </p>
+  </div>
 
-## Il Laboratorio delle Competenze
+  <div class="section">
+    <h2>Cosa vedremo</h2>
 
-Questo workshop fa parte del ciclo **Laboratorio delle Competenze**, uno spazio aperto dove chiunque può condividere ciò che sa con gli altri.
+    <ul>
+      <li>Cos'è Git e perché usarlo</li>
+      <li>Creare e gestire repository</li>
+      <li>Commit, branch e merge</li>
+      <li>Lavorare in team con Git</li>
+      <li>Buone pratiche e flussi di lavoro</li>
+    </ul>
 
-Tecnica, esperienze e strumenti pratici: ogni competenza diventa utile quando viene condivisa.
+    <p>
+      Un percorso pratico pensato per chi parte da zero
+      o vuole consolidare le basi.
+    </p>
+  </div>
 
-La conoscenza cresce quando è condivisa.
+  <div class="section">
+    <h2>Relatore</h2>
 
-Workshop gratuito e aperto a tutti.
+    <div class="speaker">
+      <h3>Domenico Violi</h3>
+      <p>
+        Sviluppatore e appassionato di tecnologia.
+        Si occupa di sviluppo software e strumenti per la collaborazione.
+      </p>
+
+      <p>
+        Condivide conoscenze pratiche per aiutare altri a crescere nel mondo tech.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Il Laboratorio delle Competenze</h2>
+
+    <p>
+      Questo workshop fa parte del ciclo <strong>Laboratorio delle Competenze</strong>,
+      uno spazio aperto dove chiunque può condividere ciò che sa con gli altri.
+    </p>
+
+    <p>
+      Tecnica, esperienze e strumenti pratici:
+      ogni competenza diventa utile quando viene condivisa.
+    </p>
+
+    <p>
+      La conoscenza cresce quando è condivisa.
+    </p>
+  </div>
+
+  <div class="cta">
+    <p>
+      Workshop gratuito e aperto a tutti.
+    </p>
+  </div>
+
+</div>

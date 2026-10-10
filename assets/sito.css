@@ -307,6 +307,44 @@
     border-radius: var(--raggio-m);
 }
 
+/* Struttura HTML degli eventi importati dall'archivio */
+.evento-testo .event-container {
+    display: grid;
+    gap: var(--spazio-7);
+}
+
+.evento-testo .event-header,
+.evento-testo .section {
+    display: grid;
+    gap: var(--spazio-4);
+}
+
+.evento-testo .event-title {
+    font-size: var(--titolo-m);
+}
+
+.evento-testo .event-subtitle {
+    font-size: var(--testo-l);
+}
+
+.evento-testo .event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spazio-3);
+}
+
+.evento-testo .meta-box,
+.evento-testo .speaker,
+.evento-testo .cta {
+    padding: var(--spazio-4);
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+}
+
+.evento-testo .cta {
+    text-align: center;
+}
+
 /* ------------------------------------------------------------------ */
 /* Schermi piccoli                                                    */
 /* ------------------------------------------------------------------ */
