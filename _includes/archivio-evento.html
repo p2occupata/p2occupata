@@ -10,7 +10,7 @@
             <span class="archivio-giorno">{{ include.evento.data | date: "%-d" }}</span>
             <span class="archivio-mese">{{ mesi[indice_mese] | slice: 0, 3 }}</span>
         </time>
-        {% if include.evento.locandina %}<img class="locandina archivio-locandina" src="{{ include.evento.locandina | relative_url }}" alt="" loading="lazy">{% endif %}
+        {% if include.evento.locandina %}<img class="locandina archivio-locandina" src="{{ include.evento.locandina_miniatura | default: include.evento.locandina | relative_url }}" alt="" loading="lazy">{% endif %}
         <span class="archivio-testo">
             <h4 class="archivio-titolo">{{ include.evento.titolo | escape }}</h4>
             {% if include.evento.ora or include.evento.luogo %}

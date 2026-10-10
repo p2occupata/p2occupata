@@ -17,6 +17,7 @@ permalink: /eventi/archivio.json
         "ora": {{ evento.ora | default: "" | jsonify }},
         "luogo": {{ evento.luogo | default: "" | jsonify }},
         "locandina": {% if evento.locandina %}{{ evento.locandina | relative_url | jsonify }}{% else %}""{% endif %},
+        "miniatura": {% assign miniatura = evento.locandina_miniatura | default: evento.locandina %}{% if miniatura %}{{ miniatura | relative_url | jsonify }}{% else %}""{% endif %},
         "esempio": {{ evento.esempio | default: false | jsonify }}
     }{% unless forloop.last %},{% endunless %}
 {% endfor %}

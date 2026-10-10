@@ -231,11 +231,13 @@
         if (event.esempio) addElement(group, 'span', 'etichetta', 'Evento di esempio');
     };
 
-    /* La locandina è facoltativa: senza, le schede restano come sono. */
+    /* La locandina è facoltativa: senza, le schede restano come sono.
+       Nelle schede va la miniatura; l'immagine grande sta solo nella pagina dell'evento. */
     const addPoster = (parent, event, className) => {
-        if (!event.locandina) return null;
+        const source = event.miniatura || event.locandina;
+        if (!source) return null;
         const image = addElement(parent, 'img', `locandina ${className}`);
-        image.src = event.locandina;
+        image.src = source;
         image.alt = '';
         image.loading = 'lazy';
         return image;

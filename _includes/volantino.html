@@ -15,6 +15,6 @@
             <span class="volantino-titolo">{{ include.evento.titolo }}</span>
             {% if include.evento.ora or include.evento.luogo %}<span class="volantino-dove">{% if include.evento.ora %}Ore {{ include.evento.ora }}{% endif %}{% if include.evento.ora and include.evento.luogo %}, {% endif %}{{ include.evento.luogo }}</span>{% endif %}
         </span>
-        {% if include.evento.locandina %}<img class="locandina volantino-locandina" src="{{ include.evento.locandina | relative_url }}" alt="" loading="lazy">{% endif %}
+        {% if include.evento.locandina %}<img class="locandina volantino-locandina" src="{{ include.evento.locandina_miniatura | default: include.evento.locandina | relative_url }}" alt="" loading="lazy">{% endif %}
     </a>
 </li>
