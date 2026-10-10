@@ -1,6 +1,9 @@
 ---
 titolo: Corso gratuito e tutoraggio fondamenti di informatica
 data: '2024-11-07'
+ricorrenza:
+  ogni_giorni: 7
+  fino: '2024-12-13'
 ora: '18:30'
 luogo: Aula P2.0 Occupata
 categoria: workshop

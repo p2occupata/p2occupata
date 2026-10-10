@@ -23,7 +23,7 @@ permalink: /eventi/
     <h1 class="striscione-testo">Gli eventi della P2.0</h1>
 </header>
 
-<main data-eventi>
+<main data-eventi data-eventi-url="{{ '/eventi/archivio.json' | relative_url }}">
     <section class="sezione eventi-intro" aria-labelledby="eventi-intro-titolo">
         <div class="contenitore">
             <div class="intestazione">
@@ -62,10 +62,8 @@ permalink: /eventi/
                     {% include timeline-evento.html evento=evento %}
                 {% endfor %}
             </ol>
-            {% if eventi_passati.size > 8 %}
-            <button class="bottone eventi-carica" type="button" data-carica-eventi data-archivio-url="{{ '/eventi/archivio.json' | relative_url }}">Mostra altri eventi</button>
+            <button class="bottone eventi-carica" type="button" data-carica-eventi{% if eventi_passati.size <= 8 %} hidden{% endif %}>Mostra altri eventi</button>
             <p class="nota eventi-stato" data-stato-archivio role="status" hidden></p>
-            {% endif %}
         </div>
     </section>
 </main>

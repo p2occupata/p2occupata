@@ -25,11 +25,16 @@ layout: default
                 <li>
                     <span>{% if page.date_aggiuntive %}Date{% else %}Quando{% endif %}</span>
                     <strong class="date-evento">
-                        <time datetime="{{ page.data | date: '%Y-%m-%d' }}">{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</time>
+                        {% if page.ricorrenza.ogni_giorni %}
+                            <span>{% if page.ricorrenza.ogni_giorni == 1 %}Ogni giorno{% else %}Ogni {{ page.ricorrenza.ogni_giorni }} giorni{% endif %}</span>
+                            <span>Dal <time datetime="{{ page.data | date: '%Y-%m-%d' }}">{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</time>{% if page.ricorrenza.fino %} al <time datetime="{{ page.ricorrenza.fino | date: '%Y-%m-%d' }}">{% assign indice_mese_fine = page.ricorrenza.fino | date: "%-m" | minus: 1 %}{{ page.ricorrenza.fino | date: "%-d" }} {{ mesi[indice_mese_fine] }} {{ page.ricorrenza.fino | date: "%Y" }}</time>{% endif %}</span>
+                        {% else %}
+                            <time datetime="{{ page.data | date: '%Y-%m-%d' }}">{{ page.data | date: "%-d" }} {{ mesi[indice_mese] }} {{ page.data | date: "%Y" }}</time>
                         {% for data_aggiuntiva in page.date_aggiuntive %}
                             {% assign indice_mese_aggiuntivo = data_aggiuntiva | date: "%-m" | minus: 1 %}
                             <time datetime="{{ data_aggiuntiva | date: '%Y-%m-%d' }}">{{ data_aggiuntiva | date: "%-d" }} {{ mesi[indice_mese_aggiuntivo] }} {{ data_aggiuntiva | date: "%Y" }}</time>
                         {% endfor %}
+                        {% endif %}
                     </strong>
                 </li>
                 {% if page.ora %}<li><span>Ora</span><strong>{{ page.ora }}</strong></li>{% endif %}

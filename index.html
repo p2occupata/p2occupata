@@ -96,7 +96,7 @@ meta_description: "Aula P2.0 Occupata: uno spazio autogestito all'Università de
     {% assign eventi_futuri = eventi_futuri | sort: "data" %}
     {% assign eventi_passati = eventi_passati | sort: "data" | reverse %}
 
-    <section id="eventi" class="sezione" aria-labelledby="eventi-titolo" data-eventi>
+    <section id="eventi" class="sezione" aria-labelledby="eventi-titolo" data-eventi data-eventi-url="{{ '/eventi/archivio.json' | relative_url }}">
         <div class="contenitore">
             <div class="intestazione intestazione--tenue">
                 <h2 id="eventi-titolo" class="titolo-l">Cosa succede in aula</h2>
