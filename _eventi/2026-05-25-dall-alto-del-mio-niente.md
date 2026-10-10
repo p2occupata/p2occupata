@@ -1,6 +1,6 @@
 ---
 titolo: "Dall’alto del mio niente"
-data: 2026-05-25
+data: '2026-05-25'
 ora: "18:00"
 luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
 categoria: altro

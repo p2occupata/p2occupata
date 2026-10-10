@@ -1,9 +1,9 @@
 ---
 titolo: "Serata giochi"
-data: 2024-11-07
-fine: 2024-11-22
+data: '2024-11-07'
+fine: '2024-11-22'
 date_aggiuntive:
-  - 2024-11-22
+  - '2024-11-22'
 ora: "20:30"
 luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
 categoria: altro

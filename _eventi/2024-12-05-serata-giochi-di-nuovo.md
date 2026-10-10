@@ -1,6 +1,6 @@
 ---
 titolo: "Serata giochi. Di nuovo!"
-data: 2024-12-05
+data: '2024-12-05'
 ora: "20:30"
 luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
 categoria: altro

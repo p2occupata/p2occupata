@@ -1,6 +1,6 @@
 ---
 titolo: "Giornata dell'Arte"
-data: 2026-04-18
+data: '2026-04-18'
 ora: "11:00"
 luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
 categoria: workshop

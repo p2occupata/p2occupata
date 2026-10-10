@@ -1,6 +1,6 @@
 ---
 titolo: "Serata giochi. Special Edition!"
-data: 2026-03-19
+data: '2026-03-19'
 ora: "20:30"
 luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
 categoria: altro

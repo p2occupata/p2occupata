@@ -1,6 +1,6 @@
 ---
 titolo: "Corso gratuito e tutoraggio sui Fondamenti di Informatica"
-data: 2024-11-07
+data: '2024-11-07'
 ora: "18:30"
 luogo: "Aula P2.0 Occupata"
 categoria: workshop

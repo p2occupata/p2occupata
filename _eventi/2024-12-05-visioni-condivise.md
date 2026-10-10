@@ -1,11 +1,11 @@
 ---
 titolo: "Visioni Condivise"
-data: 2024-12-05
-fine: 2025-01-09
+data: '2024-12-05'
+fine: '2025-01-09'
 date_aggiuntive:
-  - 2024-12-12
-  - 2024-12-19
-  - 2025-01-09
+  - '2024-12-12'
+  - '2024-12-19'
+  - '2025-01-09'
 ora: "20:30"
 luogo: "Aula P2.0 Occupata, Cubo 40C, Ponte Carrabile"
 categoria: proiezione
