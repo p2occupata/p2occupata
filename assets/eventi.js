@@ -366,11 +366,33 @@
 
         /* Più eventi nello stesso giorno: la data una volta sola, un foglio per evento. */
         card.classList.add('prossimo-scheda--piu');
+        const compact = section.hasAttribute('data-prossimo-compatto');
         const sheets = addElement(card, 'ul', 'prossimo-fogli');
         sheets.dataset.eventi = String(featured.length);
         featured.forEach((occurrence) => {
             const { event } = occurrence;
             const sheet = addElement(sheets, 'li', 'prossimo-foglio');
+            if (compact) {
+                /* In home il foglio è una riga sola: orario, titolo, dove. */
+                sheet.classList.add('prossimo-foglio--corto');
+                const row = addElement(sheet, 'a', 'prossimo-riga');
+                row.href = event.url;
+                addElement(row, 'span', `prossimo-ora${event.ora ? '' : ' prossimo-ora--senza'}`,
+                    event.ora || 'In giornata');
+                const text = addElement(row, 'span', 'prossimo-riga-testo');
+                addElement(text, 'h3', 'titolo-xs', event.titolo);
+                const summary = [
+                    event.categories.map(({ name }) => name).join(', '),
+                    occurrenceLabel(occurrence),
+                    event.luogo
+                ].filter(Boolean).join(' · ');
+                if (summary) addElement(text, 'span', 'prossimo-dettagli', summary);
+                if (!addPoster(row, event, 'prossimo-riga-locandina')) {
+                    const arrow = addElement(row, 'span', 'prossimo-freccia', '→');
+                    arrow.setAttribute('aria-hidden', 'true');
+                }
+                return;
+            }
             addElement(sheet, 'span', 'prossimo-ora', event.ora ? `Ore ${event.ora}` : 'In giornata');
             addCategoryChips(sheet, event);
             addElement(sheet, 'h3', 'titolo-s', event.titolo);

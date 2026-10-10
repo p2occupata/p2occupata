@@ -328,6 +328,63 @@
     border: var(--tratto-tenue);
 }
 
+/* Foglio corto, usato in home: una riga con orario, titolo e dove */
+.prossimo-fogli .prossimo-foglio--corto {
+    display: block;
+    padding: 0;
+}
+
+.prossimo-riga {
+    display: grid;
+    grid-template-columns: 4.75rem minmax(0, 1fr) auto;
+    gap: var(--spazio-4);
+    align-items: center;
+    width: 100%;
+    min-height: 88px;
+    height: 100%;
+    padding: var(--spazio-4);
+    text-decoration: none;
+}
+
+.prossimo-riga .prossimo-ora {
+    font-size: var(--titolo-s);
+}
+
+.prossimo-riga .prossimo-ora--senza {
+    font-size: var(--testo-l);
+    line-height: 1.05;
+}
+
+.prossimo-riga-testo {
+    display: grid;
+    gap: var(--spazio-1);
+}
+
+.prossimo-riga-testo .titolo-xs {
+    line-height: 1.1;
+    transition: color var(--durata-breve) var(--curva);
+}
+
+.prossimo-riga-locandina {
+    width: 48px;
+    border: var(--tratto-tenue);
+}
+
+.prossimo-freccia {
+    font-family: var(--font-titoli);
+    font-size: var(--titolo-xs);
+    line-height: 1;
+    transition: transform var(--durata-breve) var(--curva);
+}
+
+.prossimo-riga:hover .titolo-xs {
+    color: var(--rosso-testo);
+}
+
+.prossimo-riga:hover .prossimo-freccia {
+    transform: translateX(4px);
+}
+
 /* In home, sotto la fascia, il rimando alla pagina eventi */
 .prossimo-tutti {
     display: inline-block;
