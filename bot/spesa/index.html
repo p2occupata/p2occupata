@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Spesa</title>
+    <link rel="icon" type="image/png" href="../../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/tokens.css">
+    <link rel="stylesheet" href="../../assets/componenti.css">
+    <link rel="stylesheet" href="spesa.css?v=10">
+    <script src="spesa.js?v=10" defer></script>
+</head>
+<body>
+    <main class="spesa">
+        <h1 class="titolo-s">Spesa</h1>
+        <p class="spesa__stato" data-stato hidden></p>
+
+        <section class="spesa__presentazione" data-presentazione hidden>
+            <p>Questa pagina è il modulo con cui chi fa la spesa per l'aula segna quello che compra: quantità e prezzo di ogni voce della lista.</p>
+            <h2 class="titolo-xs">Come funziona</h2>
+            <ol>
+                <li>Chi sta andando a fare la spesa lo dice in chat al bot dell'aula, che risponde con un link: dentro c'è la lista delle cose da comprare.</li>
+                <li>In negozio si spuntano le voci comprate e si scrivono quantità e prezzo.</li>
+                <li>«Invia» prepara un messaggio per il bot, che aggiorna la lista e il registro degli acquisti.</li>
+            </ol>
+            <p>Aperta senza quel link, la pagina non mostra nessuna lista. Non conserva e non raccoglie dati: quello che si scrive resta sul telefono finché non viene inviato in chat.</p>
+        </section>
+
+        <div data-modulo hidden>
+            <p class="spesa__guida">Spunta quello che compri e scrivi quantità e prezzo. Le voci non spuntate restano in lista.</p>
+            <div data-voci></div>
+            <button type="button" class="spesa__svuota" data-svuota>Svuota il modulo</button>
+        </div>
+    </main>
+
+    <footer class="spesa__barra" data-barra hidden>
+        <p class="spesa__avviso" data-avviso hidden></p>
+        <button type="button" class="spesa__ripiego" data-condividi hidden>Il messaggio non è comparso? Condividilo a mano</button>
+        <p class="spesa__totale">Totale <strong data-totale>0,00 €</strong></p>
+        <div class="spesa__azioni">
+            <button type="button" class="bottone spesa__azione" data-aggiungi>Aggiungi voce</button>
+            <button type="button" class="bottone bottone--primario spesa__azione" data-invia>Invia</button>
+        </div>
+    </footer>
+
+    <dialog class="spesa__conferma" data-conferma>
+        <h2 class="titolo-xs">Voci incomplete</h2>
+        <p class="spesa__conferma-testo" data-conferma-testo></p>
+        <div class="spesa__scelte">
+            <button type="button" class="bottone bottone--primario" data-correggi>Torna a correggere</button>
+            <button type="button" class="bottone" data-invia-comunque>Invia comunque</button>
+        </div>
+    </dialog>
+</body>
+</html>

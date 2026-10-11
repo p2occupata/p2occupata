@@ -1,0 +1,381 @@
+/*
+ * Modulo della spesa. Richiede tokens.css e componenti.css del sito:
+ * da lì arrivano caratteri, colori, bottoni e cassetti.
+ */
+
+[hidden] {
+    display: none !important;
+}
+
+.spesa {
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: var(--spazio-5) var(--spazio-4) 11rem;
+}
+
+.spesa__stato {
+    margin-top: var(--spazio-4);
+    padding: var(--spazio-4);
+    border: var(--tratto-tenue);
+    border-radius: var(--raggio-s);
+    background: var(--foglio);
+}
+
+.spesa__presentazione {
+    margin-top: var(--spazio-4);
+    line-height: 1.5;
+}
+
+.spesa__presentazione h2 {
+    margin-top: var(--spazio-5);
+}
+
+.spesa__presentazione ol {
+    margin-top: var(--spazio-3);
+    padding-left: var(--spazio-5);
+}
+
+.spesa__presentazione li {
+    margin-bottom: var(--spazio-2);
+}
+
+.spesa__presentazione p + p,
+.spesa__presentazione ol + p {
+    margin-top: var(--spazio-4);
+}
+
+.spesa__guida {
+    margin-top: var(--spazio-2);
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+    line-height: 1.4;
+}
+
+/* Categorie: il cassetto del sito, con meno aria attorno */
+
+.spesa__gruppo {
+    margin-top: var(--spazio-5);
+}
+
+.spesa__gruppo > summary {
+    display: flex;
+    min-height: 44px;
+}
+
+.spesa__gruppo > :not(summary) {
+    margin-top: var(--spazio-3);
+}
+
+.spesa__categoria {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.spesa__conta {
+    color: var(--inchiostro-tenue);
+    font-family: var(--font-testo);
+    font-size: var(--testo-s);
+}
+
+/* Voci: una riga con casella e nome; il form si apre sotto */
+
+.spesa__voce {
+    margin-bottom: var(--spazio-2);
+    border: var(--tratto-tenue);
+    border-radius: var(--raggio-foglio);
+    background: var(--foglio);
+}
+
+.spesa__voce--valida {
+    border-color: var(--acqua-scura);
+}
+
+.spesa__voce--avviso {
+    border-color: var(--sedia);
+}
+
+.spesa__testa {
+    display: flex;
+    align-items: stretch;
+}
+
+.spesa__spunta {
+    display: grid;
+    flex: none;
+    width: 52px;
+    min-height: 52px;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.spesa__spunta::before {
+    content: '';
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+    background: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.spesa__voce--valida .spesa__spunta::before {
+    content: '✓';
+    border-color: var(--acqua-scura);
+    background: var(--acqua-scura);
+    color: var(--su-scuro);
+}
+
+.spesa__voce--avviso .spesa__spunta::before {
+    content: '!';
+    background: var(--sedia);
+    color: var(--inchiostro);
+}
+
+.spesa__intesta {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spazio-2) var(--spazio-3) var(--spazio-2) 0;
+    border: 0;
+    background: none;
+    line-height: 1.3;
+    text-align: left;
+    cursor: pointer;
+}
+
+.spesa__nome {
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.spesa__nota {
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+    overflow-wrap: anywhere;
+}
+
+.spesa__riepilogo {
+    color: var(--acqua-scura);
+    font-size: var(--testo-s);
+    overflow-wrap: anywhere;
+}
+
+.spesa__voce--avviso .spesa__riepilogo {
+    color: var(--inchiostro);
+    font-weight: 700;
+}
+
+.spesa__corpo {
+    padding: 0 var(--spazio-3) var(--spazio-2);
+}
+
+.spesa__acquisto {
+    margin-bottom: var(--spazio-2);
+}
+
+.spesa__numeri {
+    display: grid;
+    grid-template-columns: 1fr 1fr 5.25rem;
+    gap: var(--spazio-2);
+}
+
+.spesa__numeri--con-togli {
+    grid-template-columns: 1fr 1fr 5.25rem 44px;
+}
+
+.spesa__campo {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: var(--spazio-2) var(--spazio-3);
+    border: 1px solid var(--inchiostro-tenue);
+    border-radius: var(--raggio-s);
+    background: #ffffff;
+    color: var(--inchiostro);
+    font: inherit;
+    line-height: 1.3;
+}
+
+.spesa__campo:focus-visible {
+    outline: 3px solid var(--acqua);
+    outline-offset: 1px;
+}
+
+.spesa__campo--name {
+    margin-bottom: var(--spazio-2);
+}
+
+.spesa__campo--description {
+    margin-top: var(--spazio-2);
+}
+
+.spesa__modo {
+    min-height: 44px;
+    padding: 0 var(--spazio-2);
+    border: 1px solid var(--inchiostro);
+    border-radius: var(--raggio-s);
+    background: var(--muro);
+    font-size: var(--testo-s);
+    cursor: pointer;
+}
+
+.spesa__togli {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--raggio-s);
+    background: none;
+    color: var(--inchiostro-tenue);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.spesa__extra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spazio-3);
+    font-size: var(--testo-s);
+}
+
+.spesa__altro {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--acqua-scura);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.spesa__altro--tenue {
+    color: var(--inchiostro-tenue);
+    font-weight: 400;
+}
+
+.spesa__ancora {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: var(--spazio-2);
+    cursor: pointer;
+}
+
+.spesa__ancora input {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    accent-color: var(--acqua-scura);
+}
+
+.spesa__svuota {
+    display: block;
+    min-height: 44px;
+    margin: var(--spazio-5) auto 0;
+    padding: var(--spazio-2) var(--spazio-3);
+    border: 0;
+    background: none;
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Barra fissa: i due tasti in primo piano, il totale in piccolo */
+
+.spesa__barra {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: var(--spazio-2) var(--spazio-4) calc(var(--spazio-3) + env(safe-area-inset-bottom));
+    border-top: var(--tratto);
+    background: var(--foglio);
+}
+
+.spesa__avviso {
+    max-width: 32rem;
+    margin: 0 auto var(--spazio-2);
+    color: var(--rosso-testo);
+    font-size: var(--testo-s);
+    line-height: 1.4;
+}
+
+.spesa__ripiego {
+    display: block;
+    min-height: 44px;
+    max-width: 32rem;
+    margin: 0 auto var(--spazio-2);
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--acqua-scura);
+    font-size: var(--testo-s);
+    font-weight: 700;
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.spesa__totale {
+    max-width: 32rem;
+    margin: 0 auto var(--spazio-2);
+    color: var(--inchiostro-tenue);
+    font-size: var(--testo-s);
+    line-height: 1.3;
+    text-align: right;
+}
+
+.spesa__totale strong {
+    color: var(--inchiostro);
+}
+
+.spesa__azioni {
+    display: flex;
+    gap: var(--spazio-3);
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+.spesa__azione {
+    flex: 1;
+    padding-right: var(--spazio-3);
+    padding-left: var(--spazio-3);
+}
+
+/* Conferma prima dell'invio, quando restano voci incomplete */
+
+.spesa__conferma {
+    width: min(26rem, calc(100% - 2 * var(--spazio-4)));
+    padding: var(--spazio-5);
+    border: var(--tratto);
+    border-radius: var(--raggio-s);
+    background: var(--foglio);
+    color: var(--inchiostro);
+}
+
+.spesa__conferma::backdrop {
+    background: rgba(29, 42, 44, 0.6);
+}
+
+.spesa__conferma-testo {
+    margin-top: var(--spazio-3);
+    line-height: 1.4;
+}
+
+.spesa__scelte {
+    display: grid;
+    gap: var(--spazio-3);
+    margin-top: var(--spazio-5);
+}
