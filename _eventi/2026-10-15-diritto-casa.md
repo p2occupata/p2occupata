@@ -3,9 +3,10 @@ titolo: Studentati privati, caro affitti, diritto alla casa
 data: '2026-10-15'
 ora: '18:00'
 luogo: Aula P2.0 Occupata
-categoria: politica
-categoria_nome: Casa e Diritto allo Studio
-descrizione: Un confronto aperto su casa, università e trasformazioni del territorio: la casa è un diritto oppure sta diventando una nuova occasione di profitto?
+categorie:
+- id: casa-e-diritto-allo-studio
+  nome: Casa e Diritto allo Studio
+descrizione: 'Un confronto aperto su casa, università e trasformazioni del territorio: la casa è un diritto oppure sta diventando una nuova occasione di profitto?'
 ---
 
 # 🏠 Studentati privati, caro affitti, diritto alla casa
