@@ -25,13 +25,13 @@ Il colore dipende dal nome visibile della categoria: lo stesso nome mantiene lo 
 
 ## Locandina
 
-`locandina` è facoltativo: è il percorso di un'immagine del sito in `images/eventi/`. Nella pagina dell'evento compare a grandezza piena.
+`locandina` è facoltativo: è il percorso di un'immagine del sito in `assets/img/eventi/`. Nella pagina dell'evento compare a grandezza piena.
 
-`locandina_miniatura` è la versione ridotta, in `images/eventi/miniature/`: è quella usata nella scheda del prossimo evento, nei volantini e nell'archivio, così gli elenchi non caricano l'immagine grande. Se manca, anche lì viene usata `locandina`.
+`locandina_miniatura` è la versione ridotta, in `assets/img/eventi/miniature/`: è quella usata nella scheda del prossimo evento, nei volantini e nell'archivio, così gli elenchi non caricano l'immagine grande. Se manca, anche lì viene usata `locandina`.
 
 ```yaml
-locandina: /images/eventi/2026-11-05-serata-giochi.png
-locandina_miniatura: /images/eventi/miniature/2026-11-05-serata-giochi.jpg
+locandina: /assets/img/eventi/2026-11-05-serata-giochi.png
+locandina_miniatura: /assets/img/eventi/miniature/2026-11-05-serata-giochi.jpg
 ```
 
 Gli eventi senza locandina restano come sono.

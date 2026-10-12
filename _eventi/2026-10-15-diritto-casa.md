@@ -7,6 +7,8 @@ categorie:
 - id: casa-e-diritto-allo-studio
   nome: Casa e Diritto allo Studio
 descrizione: 'Un confronto aperto su casa, università e trasformazioni del territorio: la casa è un diritto oppure sta diventando una nuova occasione di profitto?'
+locandina: /assets/img/eventi/2026-10-15-diritto-casa.jpeg
+locandina_miniatura: /assets/img/eventi/miniature/2026-10-15-diritto-casa.jpg
 ---
 
 # 🏠 Studentati privati, caro affitti, diritto alla casa
