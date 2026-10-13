@@ -655,29 +655,9 @@
         return `${lines.map(foldLine).join('\r\n')}\r\n`;
     };
 
-    /* Google Calendar accetta un solo appuntamento per link: si usa la prossima data. */
-    const reminderGoogleUrl = (event, plan) => {
-        const minutes = eventMinutes(event);
-        const day = plan.days[0];
-        const parameters = new URLSearchParams({
-            action: 'TEMPLATE',
-            text: event.titolo,
-            dates: minutes === null
-                ? `${compactDay(day)}/${compactDay(day + 1)}`
-                : `${compactMoment(day, minutes)}/${compactMoment(day, minutes + reminderHours * 60)}`,
-            ctz: 'Europe/Rome',
-            details: [event.descrizione, event.url].filter(Boolean).join('\n\n')
-        });
-        if (event.luogo) parameters.set('location', event.luogo);
-        if (plan.repeat) parameters.set('recur', `RRULE:${plan.repeat}`);
-        return `https://calendar.google.com/calendar/render?${parameters}`;
-    };
-
     const reminders = [];
     const refreshReminders = () => reminders.forEach(({ box, event }) => {
-        const plan = reminderPlan(event);
-        box.hidden = !plan;
-        if (plan) box.querySelector('[data-promemoria-google]').href = reminderGoogleUrl(event, plan);
+        box.hidden = !reminderPlan(event);
     });
 
     document.querySelectorAll('[data-promemoria]').forEach((box) => {
@@ -691,10 +671,7 @@
         }
         if (!event || !event.titolo) return;
         event.slug = location.pathname.split('/').filter(Boolean).pop() || 'evento';
-        box.querySelector('[data-promemoria-nota]').textContent = eventMinutes(event) === null
-            ? 'Aggiunge l\'evento al tuo calendario, con un avviso due giorni prima e il giorno stesso.'
-            : 'Aggiunge l\'evento al tuo calendario, con un avviso due giorni prima e sei ore prima dell\'inizio.';
-        box.querySelector('[data-promemoria-scarica]').addEventListener('click', () => {
+        box.addEventListener('click', () => {
             const plan = reminderPlan(event);
             if (!plan) return;
             const file = new Blob([reminderFile(event, plan)], { type: 'text/calendar;charset=utf-8' });
