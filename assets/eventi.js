@@ -655,6 +655,24 @@
         return `${lines.map(foldLine).join('\r\n')}\r\n`;
     };
 
+    /* Su Android il tasto apre Google Calendar, che accetta un solo appuntamento per link: la prossima data. */
+    const reminderGoogleUrl = (event, plan) => {
+        const minutes = eventMinutes(event);
+        const day = plan.days[0];
+        const parameters = new URLSearchParams({
+            action: 'TEMPLATE',
+            text: event.titolo,
+            dates: minutes === null
+                ? `${compactDay(day)}/${compactDay(day + 1)}`
+                : `${compactMoment(day, minutes)}/${compactMoment(day, minutes + reminderHours * 60)}`,
+            ctz: 'Europe/Rome',
+            details: [event.descrizione, event.url].filter(Boolean).join('\n\n')
+        });
+        if (event.luogo) parameters.set('location', event.luogo);
+        if (plan.repeat) parameters.set('recur', `RRULE:${plan.repeat}`);
+        return `https://calendar.google.com/calendar/render?${parameters}`;
+    };
+
     const reminders = [];
     const refreshReminders = () => reminders.forEach(({ box, event }) => {
         box.hidden = !reminderPlan(event);
@@ -674,6 +692,13 @@
         box.addEventListener('click', () => {
             const plan = reminderPlan(event);
             if (!plan) return;
+            if (/Android/i.test(navigator.userAgent)) {
+                const url = reminderGoogleUrl(event, plan);
+                const opened = window.open(url, '_blank');
+                if (opened) opened.opener = null;
+                else location.href = url;
+                return;
+            }
             const file = new Blob([reminderFile(event, plan)], { type: 'text/calendar;charset=utf-8' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(file);
