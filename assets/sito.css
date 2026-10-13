@@ -229,6 +229,12 @@
     width: 100%;
 }
 
+/* «Ricordamelo» sta sotto «Scopri l'evento», largo uguale */
+.prossimo-azioni {
+    display: grid;
+    gap: var(--spazio-3);
+}
+
 /* Più eventi nello stesso giorno: la data in testa, un foglio per evento */
 .prossimo-scheda--piu {
     grid-template-columns: 1fr;
@@ -300,7 +306,9 @@
     font-weight: 700;
 }
 
-.prossimo-foglio .bottone {
+.prossimo-foglio-azioni {
+    display: grid;
+    gap: var(--spazio-3);
     align-self: end;
 }
 
@@ -344,6 +352,22 @@
     height: 100%;
     padding: var(--spazio-4);
     text-decoration: none;
+}
+
+/* Riga con il tasto «Ricordamelo»: la riga sopra, il tasto sotto */
+.prossimo-fogli .prossimo-foglio--promemoria {
+    display: flex;
+    flex-direction: column;
+}
+
+.prossimo-foglio--promemoria .prossimo-riga {
+    flex: 1;
+    height: auto;
+}
+
+.prossimo-riga-promemoria {
+    align-self: stretch;
+    margin: 0 var(--spazio-4) var(--spazio-4);
 }
 
 .prossimo-riga .prossimo-ora {
@@ -395,6 +419,30 @@
     display: grid;
     gap: var(--spazio-5);
     justify-items: start;
+}
+
+/* Tasto «Ricordamelo» nel volantino: sta sul fondo del foglio, fuori dal link che apre l'evento */
+.bacheca > li {
+    position: relative;
+}
+
+.volantino--promemoria {
+    padding-bottom: calc(var(--spazio-5) + 42px + var(--spazio-4));
+}
+
+.volantino-promemoria {
+    position: absolute;
+    right: var(--spazio-5);
+    bottom: var(--spazio-5);
+    left: var(--spazio-5);
+    transition:
+        background var(--durata-breve) var(--curva),
+        border-color var(--durata-breve) var(--curva),
+        transform var(--durata-media) var(--curva);
+}
+
+.bacheca > li:has(> a.volantino:hover) > .volantino-promemoria {
+    transform: translate(-3px, -3px);
 }
 
 /* Nei volantini più alti della riga il giorno non deve toccare il mese */
@@ -579,6 +627,20 @@ button.calendario-casella:hover .calendario-segni i,
     padding-block: var(--spazio-3);
     border-bottom: var(--tratto-tenue);
     text-decoration: none;
+}
+
+/* Agenda con il tasto «Ricordamelo»: il tasto sotto la riga, allineato al titolo */
+.agenda-evento--promemoria {
+    padding-bottom: var(--spazio-4);
+    border-bottom: var(--tratto-tenue);
+}
+
+.agenda-eventi .agenda-evento--promemoria a {
+    border-bottom: 0;
+}
+
+.agenda-promemoria {
+    margin-left: calc(4rem + var(--spazio-4));
 }
 
 .agenda-ora {
@@ -939,7 +1001,7 @@ button.calendario-casella:hover .calendario-segni i,
         font-size: var(--testo-m);
     }
 
-    .prossimo-testo .bottone {
+    .prossimo-azioni {
         order: 2;
         width: 100%;
     }
@@ -966,7 +1028,8 @@ button.calendario-casella:hover .calendario-segni i,
         padding: var(--spazio-5) var(--spazio-4) var(--spazio-4);
     }
 
-    .prossimo-foglio .bottone {
+    .prossimo-foglio > .prossimo-foglio-azioni {
+        grid-column: 1 / -1;
         width: 100%;
     }
 
@@ -982,6 +1045,21 @@ button.calendario-casella:hover .calendario-segni i,
         align-items: start;
         min-height: 0;
         padding: var(--spazio-5) var(--spazio-4) var(--spazio-4);
+    }
+
+    .volantino--promemoria {
+        padding-bottom: calc(var(--spazio-4) + 42px + var(--spazio-4));
+    }
+
+    .volantino-promemoria {
+        right: var(--spazio-4);
+        bottom: var(--spazio-4);
+        left: var(--spazio-4);
+    }
+
+    .agenda-promemoria {
+        width: 100%;
+        margin-left: 0;
     }
 
     .volantino-data {

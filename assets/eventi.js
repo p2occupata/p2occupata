@@ -313,6 +313,9 @@
             addElement(text, 'span', 'volantino-dove', [time, event.luogo].filter(Boolean).join(', '));
         }
         if (addPoster(card, event, 'volantino-locandina')) card.classList.add('volantino--locandina');
+        if (!past && addReminderButton(item, event, 'bottone--piccolo volantino-promemoria')) {
+            card.classList.add('volantino--promemoria');
+        }
         return item;
     };
 
@@ -360,8 +363,10 @@
                     addElement(fact, 'strong', '', value);
                 });
             }
-            const link = addElement(text, 'a', 'bottone bottone--su-scuro', "Scopri l'evento");
+            const actions = addElement(text, 'div', 'prossimo-azioni');
+            const link = addElement(actions, 'a', 'bottone bottone--su-scuro', "Scopri l'evento");
             link.href = event.url;
+            addReminderButton(actions, event, 'prossimo-promemoria');
             if (addPoster(card, event, 'prossimo-locandina')) card.classList.add('prossimo-scheda--locandina');
             return;
         }
@@ -393,6 +398,9 @@
                     const arrow = addElement(row, 'span', 'prossimo-freccia', '→');
                     arrow.setAttribute('aria-hidden', 'true');
                 }
+                if (addReminderButton(sheet, event, 'bottone--piccolo prossimo-riga-promemoria')) {
+                    sheet.classList.add('prossimo-foglio--promemoria');
+                }
                 return;
             }
             addElement(sheet, 'span', 'prossimo-ora', event.ora ? `Ore ${event.ora}` : 'In giornata');
@@ -401,8 +409,10 @@
             if (event.descrizione) addElement(sheet, 'p', '', event.descrizione);
             const details = [occurrenceLabel(occurrence), event.luogo].filter(Boolean).join(' · ');
             if (details) addElement(sheet, 'span', 'prossimo-dettagli', details);
-            const link = addElement(sheet, 'a', 'bottone bottone--piccolo', "Scopri l'evento");
+            const actions = addElement(sheet, 'div', 'prossimo-foglio-azioni');
+            const link = addElement(actions, 'a', 'bottone bottone--piccolo', "Scopri l'evento");
             link.href = event.url;
+            addReminderButton(actions, event, 'bottone--piccolo');
             if (addPoster(sheet, event, 'prossimo-foglio-locandina')) sheet.classList.add('prossimo-foglio--locandina');
         });
     };
@@ -478,6 +488,10 @@
                 if (event.luogo) addElement(text, 'span', 'agenda-luogo', event.luogo);
                 const arrow = addElement(link, 'span', 'agenda-freccia', '→');
                 arrow.setAttribute('aria-hidden', 'true');
+                if (day >= todayDay && !hasStarted(event, day)
+                    && addReminderButton(item, event, 'bottone--piccolo agenda-promemoria')) {
+                    item.classList.add('agenda-evento--promemoria');
+                }
             });
         };
 
@@ -625,15 +639,21 @@
         return days.length ? { days, repeat: null } : null;
     };
 
+    /* Nelle schede l'indirizzo dell'evento è relativo: nel calendario serve quello completo. */
+    const reminderAddress = (event) => new URL(event.url, location.href).href;
+    const reminderName = (event) =>
+        new URL(event.url, location.href).pathname.split('/').filter(Boolean).pop() || 'evento';
+
     const reminderFile = (event, plan) => {
         const minutes = eventMinutes(event);
         const stamp = `${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`;
-        const details = [event.descrizione, event.url].filter(Boolean).join('\n\n');
+        const address = reminderAddress(event);
+        const details = [event.descrizione, address].filter(Boolean).join('\n\n');
         const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Aula P2.0 Occupata//Eventi//IT',
             'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', ...(minutes === null ? [] : romeTimezone)];
         plan.days.forEach((day) => {
             lines.push('BEGIN:VEVENT',
-                `UID:${compactDay(day)}-${event.slug}@${location.hostname || 'aulap2.0'}`,
+                `UID:${compactDay(day)}-${reminderName(event)}@${location.hostname || 'aulap2.0'}`,
                 `DTSTAMP:${stamp}`);
             if (minutes === null) {
                 lines.push(`DTSTART;VALUE=DATE:${compactDay(day)}`, `DTEND;VALUE=DATE:${compactDay(day + 1)}`);
@@ -643,7 +663,7 @@
             if (plan.repeat) lines.push(`RRULE:${plan.repeat}`);
             lines.push(`SUMMARY:${calendarText(event.titolo)}`);
             if (event.luogo) lines.push(`LOCATION:${calendarText(event.luogo)}`);
-            lines.push(`DESCRIPTION:${calendarText(details)}`, `URL:${event.url}`);
+            lines.push(`DESCRIPTION:${calendarText(details)}`, `URL:${address}`);
             reminderAlarms(minutes !== null).forEach(([trigger, when]) => {
                 lines.push('BEGIN:VALARM', 'ACTION:DISPLAY',
                     `DESCRIPTION:${calendarText(`${event.titolo}, ${when}`)}`,
@@ -666,11 +686,40 @@
                 ? `${compactDay(day)}/${compactDay(day + 1)}`
                 : `${compactMoment(day, minutes)}/${compactMoment(day, minutes + reminderHours * 60)}`,
             ctz: 'Europe/Rome',
-            details: [event.descrizione, event.url].filter(Boolean).join('\n\n')
+            details: [event.descrizione, reminderAddress(event)].filter(Boolean).join('\n\n')
         });
         if (event.luogo) parameters.set('location', event.luogo);
         if (plan.repeat) parameters.set('recur', `RRULE:${plan.repeat}`);
         return `https://calendar.google.com/calendar/render?${parameters}`;
+    };
+
+    const saveReminder = (event) => {
+        const plan = reminderPlan(event);
+        if (!plan) return;
+        if (/Android/i.test(navigator.userAgent)) {
+            const url = reminderGoogleUrl(event, plan);
+            const opened = window.open(url, '_blank');
+            if (opened) opened.opener = null;
+            else location.href = url;
+            return;
+        }
+        const file = new Blob([reminderFile(event, plan)], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(file);
+        link.download = `${reminderName(event)}.ics`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(link.href), 60000);
+    };
+
+    /* Il tasto nelle schede: solo per gli eventi che hanno ancora una data in programma. */
+    const addReminderButton = (parent, event, className) => {
+        if (!reminderPlan(event)) return null;
+        const button = addElement(parent, 'button', `bottone bottone--primario ${className}`, 'Ricordamelo');
+        button.type = 'button';
+        button.addEventListener('click', () => saveReminder(event));
+        return button;
     };
 
     const reminders = [];
@@ -682,32 +731,12 @@
         let event = null;
         try {
             const raw = JSON.parse(document.querySelector('[data-promemoria-dati]').textContent);
-            const url = location.origin + location.pathname;
-            event = normalizeEvent({ ...raw, url });
+            event = normalizeEvent({ ...raw, url: location.pathname });
         } catch (error) {
             event = null;
         }
         if (!event || !event.titolo) return;
-        event.slug = location.pathname.split('/').filter(Boolean).pop() || 'evento';
-        box.addEventListener('click', () => {
-            const plan = reminderPlan(event);
-            if (!plan) return;
-            if (/Android/i.test(navigator.userAgent)) {
-                const url = reminderGoogleUrl(event, plan);
-                const opened = window.open(url, '_blank');
-                if (opened) opened.opener = null;
-                else location.href = url;
-                return;
-            }
-            const file = new Blob([reminderFile(event, plan)], { type: 'text/calendar;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(file);
-            link.download = `${event.slug}.ics`;
-            document.body.append(link);
-            link.click();
-            link.remove();
-            setTimeout(() => URL.revokeObjectURL(link.href), 60000);
-        });
+        box.addEventListener('click', () => saveReminder(event));
         reminders.push({ box, event });
     });
     refreshReminders();
