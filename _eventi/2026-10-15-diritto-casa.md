@@ -4,8 +4,8 @@ data: '2026-10-15'
 ora: '18:00'
 luogo: Aula P2.0 Occupata
 categorie:
-- id: casa-e-diritto-allo-studio
-  nome: Casa e Diritto allo Studio
+- id: dibattito
+  nome: Dibattito
 descrizione: 'Un confronto aperto su casa, università e trasformazioni del territorio: la casa è un diritto oppure sta diventando una nuova occasione di profitto?'
 locandina: /assets/img/eventi/2026-10-15-diritto-casa.jpeg
 locandina_miniatura: /assets/img/eventi/miniature/2026-10-15-diritto-casa.jpg
