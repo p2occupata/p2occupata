@@ -569,6 +569,147 @@
         chip.classList.add(`categoria-chip--tono-${categoryTone(chip.dataset.categoriaNome || chip.textContent)}`);
     });
 
+    /* Promemoria nella pagina di un evento: un file .ics con gli avvisi, creato nel browser. */
+    const reminderHours = 2;
+    const reminderAlarms = (timed) => timed
+        ? [['-P2D', 'tra due giorni'], ['-PT6H', 'tra sei ore']]
+        : [['-P1DT13H', 'tra due giorni'], ['PT11H', 'oggi']];
+    const romeTimezone = [
+        'BEGIN:VTIMEZONE', 'TZID:Europe/Rome',
+        'BEGIN:DAYLIGHT', 'TZOFFSETFROM:+0100', 'TZOFFSETTO:+0200', 'TZNAME:CEST',
+        'DTSTART:19700329T020000', 'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU', 'END:DAYLIGHT',
+        'BEGIN:STANDARD', 'TZOFFSETFROM:+0200', 'TZOFFSETTO:+0100', 'TZNAME:CET',
+        'DTSTART:19701025T030000', 'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU', 'END:STANDARD',
+        'END:VTIMEZONE'
+    ];
+
+    const twoDigits = (number) => String(number).padStart(2, '0');
+    const compactDay = (day) => formatDay(day).replace(/-/g, '');
+    const compactMoment = (day, minutes) =>
+        `${compactDay(day + Math.floor(minutes / 1440))}T${twoDigits(Math.floor((minutes % 1440) / 60))}${twoDigits(minutes % 60)}00`;
+    const calendarText = (value) => String(value)
+        .replace(/\\/g, '\\\\')
+        .replace(/([;,])/g, '\\$1')
+        .replace(/\r?\n/g, '\\n');
+
+    /* Le righe di un .ics non superano i 75 byte: quelle lunghe continuano a capo dopo uno spazio. */
+    const foldLine = (line) => {
+        const encoder = new TextEncoder();
+        const rows = [];
+        let row = '';
+        let size = 0;
+        for (const character of line) {
+            const width = encoder.encode(character).length;
+            if (size + width > 75) {
+                rows.push(row);
+                row = ' ';
+                size = 1;
+            }
+            row += character;
+            size += width;
+        }
+        rows.push(row);
+        return rows.join('\r\n');
+    };
+
+    /* Date ancora in programma; per una ricorrenza, il prossimo incontro e quanti ne restano. */
+    const reminderPlan = (event) => {
+        if (event.interval) {
+            const next = nextFeaturedOccurrence(event);
+            if (!next) return null;
+            const count = event.until === null
+                ? null : Math.floor((event.until - next.day) / event.interval) + 1;
+            return { days: [next.day], repeat: `FREQ=DAILY;INTERVAL=${event.interval}${count ? `;COUNT=${count}` : ''}` };
+        }
+        const days = event.dates.filter((day) => day >= todayDay && !hasStarted(event, day));
+        return days.length ? { days, repeat: null } : null;
+    };
+
+    const reminderFile = (event, plan) => {
+        const minutes = eventMinutes(event);
+        const stamp = `${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`;
+        const details = [event.descrizione, event.url].filter(Boolean).join('\n\n');
+        const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Aula P2.0 Occupata//Eventi//IT',
+            'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', ...(minutes === null ? [] : romeTimezone)];
+        plan.days.forEach((day) => {
+            lines.push('BEGIN:VEVENT',
+                `UID:${compactDay(day)}-${event.slug}@${location.hostname || 'aulap2.0'}`,
+                `DTSTAMP:${stamp}`);
+            if (minutes === null) {
+                lines.push(`DTSTART;VALUE=DATE:${compactDay(day)}`, `DTEND;VALUE=DATE:${compactDay(day + 1)}`);
+            } else {
+                lines.push(`DTSTART;TZID=Europe/Rome:${compactMoment(day, minutes)}`, `DURATION:PT${reminderHours}H`);
+            }
+            if (plan.repeat) lines.push(`RRULE:${plan.repeat}`);
+            lines.push(`SUMMARY:${calendarText(event.titolo)}`);
+            if (event.luogo) lines.push(`LOCATION:${calendarText(event.luogo)}`);
+            lines.push(`DESCRIPTION:${calendarText(details)}`, `URL:${event.url}`);
+            reminderAlarms(minutes !== null).forEach(([trigger, when]) => {
+                lines.push('BEGIN:VALARM', 'ACTION:DISPLAY',
+                    `DESCRIPTION:${calendarText(`${event.titolo}, ${when}`)}`,
+                    `TRIGGER:${trigger}`, 'END:VALARM');
+            });
+            lines.push('END:VEVENT');
+        });
+        lines.push('END:VCALENDAR');
+        return `${lines.map(foldLine).join('\r\n')}\r\n`;
+    };
+
+    /* Google Calendar accetta un solo appuntamento per link: si usa la prossima data. */
+    const reminderGoogleUrl = (event, plan) => {
+        const minutes = eventMinutes(event);
+        const day = plan.days[0];
+        const parameters = new URLSearchParams({
+            action: 'TEMPLATE',
+            text: event.titolo,
+            dates: minutes === null
+                ? `${compactDay(day)}/${compactDay(day + 1)}`
+                : `${compactMoment(day, minutes)}/${compactMoment(day, minutes + reminderHours * 60)}`,
+            ctz: 'Europe/Rome',
+            details: [event.descrizione, event.url].filter(Boolean).join('\n\n')
+        });
+        if (event.luogo) parameters.set('location', event.luogo);
+        if (plan.repeat) parameters.set('recur', `RRULE:${plan.repeat}`);
+        return `https://calendar.google.com/calendar/render?${parameters}`;
+    };
+
+    const reminders = [];
+    const refreshReminders = () => reminders.forEach(({ box, event }) => {
+        const plan = reminderPlan(event);
+        box.hidden = !plan;
+        if (plan) box.querySelector('[data-promemoria-google]').href = reminderGoogleUrl(event, plan);
+    });
+
+    document.querySelectorAll('[data-promemoria]').forEach((box) => {
+        let event = null;
+        try {
+            const raw = JSON.parse(document.querySelector('[data-promemoria-dati]').textContent);
+            const url = location.origin + location.pathname;
+            event = normalizeEvent({ ...raw, url });
+        } catch (error) {
+            event = null;
+        }
+        if (!event || !event.titolo) return;
+        event.slug = location.pathname.split('/').filter(Boolean).pop() || 'evento';
+        box.querySelector('[data-promemoria-nota]').textContent = eventMinutes(event) === null
+            ? 'Aggiunge l\'evento al tuo calendario, con un avviso due giorni prima e il giorno stesso.'
+            : 'Aggiunge l\'evento al tuo calendario, con un avviso due giorni prima e sei ore prima dell\'inizio.';
+        box.querySelector('[data-promemoria-scarica]').addEventListener('click', () => {
+            const plan = reminderPlan(event);
+            if (!plan) return;
+            const file = new Blob([reminderFile(event, plan)], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(file);
+            link.download = `${event.slug}.ics`;
+            document.body.append(link);
+            link.click();
+            link.remove();
+            setTimeout(() => URL.revokeObjectURL(link.href), 60000);
+        });
+        reminders.push({ box, event });
+    });
+    refreshReminders();
+
     /* Tre tipi di sezione: la pagina eventi, la fascia del prossimo evento in home, la bacheca in home. */
     const sectionKind = (section) => {
         if (section.querySelector('[data-calendario]')) return 'eventi';
@@ -616,11 +757,13 @@
         setTimeout(() => {
             todayDay = localDay(new Date());
             loadedSections.forEach(({ section, events }) => renderers[sectionKind(section)](section, events));
+            refreshReminders();
             refreshAtMidnight();
         }, nextMidnight.getTime() - Date.now());
     };
     refreshAtMidnight();
     setInterval(() => {
         loadedSections.forEach(({ section, events }) => refreshers[sectionKind(section)](section, events));
+        refreshReminders();
     }, 60000);
 })();

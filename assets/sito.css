@@ -740,6 +740,25 @@ button.calendario-casella:hover .calendario-segni i,
     justify-items: start;
 }
 
+/* Tasto «Ricordamelo»: compare solo se l'evento ha ancora una data in programma */
+.evento-promemoria {
+    display: grid;
+    gap: var(--spazio-3);
+}
+
+.evento-promemoria-azioni {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spazio-4) var(--spazio-6);
+}
+
+.evento-promemoria-nota {
+    max-width: 46ch;
+    color: var(--su-scuro-tenue);
+    font-size: var(--testo-s);
+}
+
 .evento-corpo {
     display: grid;
     gap: var(--spazio-6);

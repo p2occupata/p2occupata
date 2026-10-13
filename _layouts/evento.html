@@ -31,6 +31,15 @@ layout: default
                 {% if page.ora %}<li><span>Ora</span><strong>{{ page.ora }}</strong></li>{% endif %}
                 {% if page.luogo %}<li><span>Dove</span><strong>{{ page.luogo }}</strong></li>{% endif %}
             </ul>
+            <div class="evento-promemoria" data-promemoria hidden>
+                <div class="evento-promemoria-azioni">
+                    <button class="bottone bottone--primario" type="button" data-promemoria-scarica>Ricordamelo</button>
+                    <a class="link link--esterno" href="#" target="_blank" rel="noopener noreferrer" data-promemoria-google>Apri in Google Calendar</a>
+                </div>
+                <p class="evento-promemoria-nota" data-promemoria-nota></p>
+            </div>
+            {% capture promemoria %}{"titolo": {{ page.titolo | jsonify }}, "data": {{ page.data | jsonify }}, "ora": {{ page.ora | jsonify }}, "luogo": {{ page.luogo | jsonify }}, "descrizione": {{ page.descrizione | jsonify }}, "date_aggiuntive": {{ page.date_aggiuntive | jsonify }}, "ricorrenza": {{ page.ricorrenza | jsonify }}}{% endcapture %}
+            <script type="application/json" data-promemoria-dati>{{ promemoria | replace: '</', '<\/' }}</script>
         </div>
     </header>
 
