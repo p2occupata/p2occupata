@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ page.meta_description | default: page.descrizione | default: site.description | escape }}">
     <title>{% if page.titolo %}{{ page.titolo | escape }} | {{ site.title | escape }}{% else %}{{ page.title | default: site.title | escape }}{% endif %}</title>
-    <link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/img/favicon-48.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/img/favicon-96.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/img/favicon-192.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..800;1,400..800&family=Anton&display=swap" rel="stylesheet">
