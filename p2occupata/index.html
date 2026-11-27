@@ -2,11 +2,66 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aula P2.0 Occupata | Università della Calabria</title>
   <link rel="canonical" href="https://p2occupata.github.io/">
   <meta http-equiv="refresh" content="0; url=https://p2occupata.github.io/">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 5px solid #e2e8f0;
+      border-top-color: #b71c1c; /* Rosso istituzionale Unical; puoi cambiarlo in #2563eb per un blu moderno */
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .fallback {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #64748b;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in forwards;
+      animation-delay: 2s; /* Appare solo se il redirect impiega più di 2 secondi */
+    }
+
+    .fallback a {
+      color: #b71c1c;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+  <script>
+    // Redirect JS aggiuntivo più rapido e fluido rispetto al solo meta-refresh
+    window.location.replace("https://p2occupata.github.io/");
+  </script>
 </head>
 <body>
-  <a href="https://p2occupata.github.io/">Vai al sito di Aula P2.0 Occupata</a>
+  <div class="spinner" aria-label="Caricamento in corso"></div>
+  <div class="fallback">
+    Reindirizzamento non riuscito? <a href="https://p2occupata.github.io/">Clicca qui</a>
+  </div>
 </body>
 </html>
