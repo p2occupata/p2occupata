@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagina non trovata</title>
+  <script>
+    var p = location.pathname;
+    if (p.indexOf('/p2occupata/') === 0) {
+      location.replace(p.replace('/p2occupata', '') + location.search + location.hash);
+    }
+  </script>
+</head>
+<body>
+  <p>Pagina non trovata. <a href="/">Torna alla home</a></p>
+</body>
+</html>
